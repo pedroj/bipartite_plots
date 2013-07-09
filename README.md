@@ -9,7 +9,7 @@ To plot, we start with an adjacency or incidence matrix. I'm using matrices that
 
 From any adjacency matrix we can get a `network` object or an `igraph` object for plotting and analysis. 
 
-A detailed descripton of the code is in my [git pages](http://pedroj.github.iobipartite_plots/).
+A detailed descripton of the code is in my [git pages](http://pedroj.github.io/bipartite_plots/).
 
 
 
