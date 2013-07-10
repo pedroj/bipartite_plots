@@ -92,8 +92,6 @@ source("./functions/bip_binplot.R")
 source("./functions/bip_gplot.R")
 source("./functions/bip_qtplot.R")
 source("./functions/vectorize.R")
-nch.net <- bip_init_network(nch) 
-hr.net <- bip_init_network(hr)
 ```
 
 ----------------------------------------------------------------------------
