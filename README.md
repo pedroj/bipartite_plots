@@ -11,7 +11,6 @@ To plot, we start with an adjacency or incidence matrix. I'm using matrices that
 
 From any adjacency matrix we can get a `network` object or an `igraph` object for plotting and analysis. 
 
-
-
+(http://pedroj.github.io/bipartite_plots/images/ggplot_prototype1.png)
 
 
