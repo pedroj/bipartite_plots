@@ -10,7 +10,7 @@
 body, td {
    font-family: sans-serif;
    background-color: white;
-   font-size: 14px;
+   font-size: 12px;
    margin: 8px;
 }
 
@@ -89,7 +89,7 @@ hr {
    }
 
    body { 
-      font-size:14pt; 
+      font-size:12pt; 
       max-width:100%; 
    }
        
@@ -172,22 +172,10 @@ var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/<
 hljs.initHighlightingOnLoad();
 </script>
 
+
+
+
 </head>
-<!-- HEADER -->
-<div id="header_wrap" class="outer">
-    <header class="inner">
-      <a id="forkme_banner" href="https://github.com/pedroj/bipartite_plots">View on GitHub</a>
-
-      <h1 id="project_title">Bipartite plots</h1>
-      <h2 id="project_tagline">R code for plotting bipartite networks. </h2>
-
-        <section id="downloads">
-          <a class="zip_download_link" href="https://github.com/pedroj/bipartite_plots/zipball/master">Download this project as a .zip file</a>
-          <a class="tar_download_link" href="https://github.com/pedroj/bipartite_plots/tarball/master">Download this project as a tar.gz file</a>
-        </section>
-    </header>
-</div>
-
 
 <body>
 <h1>Plotting bipartite networks</h1>
@@ -216,11 +204,13 @@ require(ergm)
 
 <h3>Initializing bipartite webs for library network</h3>
 
-<pre><code class="r"># Read data matrices.
+<pre><code class="r">#-------------------------------------------------------------------------
+# Read data matrices.
 # Read a network
-# Creating the objects. Example. 
+# Creating the objects. Example input from the clipboard. 
 mymat &lt;- read.delim(&quot;data.txt&quot;, row.names=1)
-# Where data.txt has weighted adjacency matrix,e.g.,:
+#
+# Where data.txt has a weighted adjacency matrix, e.g.,:
     Aa  Ab  Ac  Ba  Bb  Bc  Bd  Ca  Cb  Cc  Da
 P1  139 112  9  73  4   14  20  14  5   2   1
 P2  184 26  6   19  31  21  17  11  7   5   0
@@ -238,9 +228,11 @@ P11 130 8   0   5   0   0   0   0   0   0   0
 mymat &lt;- read.table(pipe(&quot;pbpaste&quot;), header=T, sep= &quot;\t&quot;,row.names=1)
 </code></pre>
 
-<p>The adjacency matrix is read as tab-separated file with header names, and the first column is taken as the row names. These are two of my datasets of well-sampled plant-frugivore interaction networks.</p>
+<p>The adjacency matrix is read as tab-separated file with header names, and the first column is taken as the row names. These are two of my datasets of well-sampled plant-frugivore interaction networks from S Spain, read in the usual way.</p>
 
-<pre><code class="r"># The Nava de las Correhuelas dataset.
+<pre><code class="r">#
+# -------------------------------------------------------------------------
+# The Nava de las Correhuelas dataset.
 nch &lt;- read.table(&quot;./data/NCH_quant_bmatrix.txt&quot;, header = T, sep = &quot;\t&quot;, row.names = 1, 
     dec = &quot;,&quot;, na.strings = &quot;NA&quot;)
 # The Hato Raton dataset.
@@ -285,8 +277,6 @@ source(&quot;./functions/bip_binplot.R&quot;)
 source(&quot;./functions/bip_gplot.R&quot;)
 source(&quot;./functions/bip_qtplot.R&quot;)
 source(&quot;./functions/vectorize.R&quot;)
-nch.net &lt;- bip_init_network(nch)
-hr.net &lt;- bip_init_network(hr)
 </code></pre>
 
 <hr/>
@@ -296,23 +286,29 @@ hr.net &lt;- bip_init_network(hr)
 <h4>Draft code for plotting a bipartite network in ggplot2</h4>
 
 <p>The code for <code>ggplot2</code> is in the file <code>bip_ggplot2.R</code>. It is not a function
-yet. But we just source it after assigning the input adjacency matrix and
+yet. I&#39;m using the <code>gplot.layout.fruchtermanreingold</code> layout, but just tweak the code to get a Kamada-Kawai, for example. We just source this file after assigning the input adjacency matrix and
 the input graph:</p>
 
-<pre><code class="r">require(network)
+<pre><code class="r">#
+# -------------------------------------------------------------------------
+require(network)
 require(ggplot2)
 require(sna)
 require(ergm)
+#
+# -------------------------------------------------------------------------
 # Assign the matrix and the network objects here.  mymat is a matrix with
 # column names and row names.  net is a network object.  This is for the
 # Nava de las Correhuelas network.
+# -------------------------------------------------------------------------
 mymat &lt;- nch
 net &lt;- nch.net
 # Now we source the bip_ggplot2.R file
 source(&quot;bip_ggplot2.R&quot;)
 </code></pre>
 
-<p><img src="images/ggplot_prototype1.png" alt="plot of chunk ggplot_prototype" /></p>
+<p>
+	<p><img src="images/ggplot_prototype1.png" alt="plot of chunk ggplot_prototype" /></p>
 
 <pre><code class="r"># We repeat for the Hato Raton network.
 mymat &lt;- hr
@@ -322,26 +318,43 @@ source(&quot;bip_ggplot2.R&quot;)
 
 <p><img src="images/ggplot_prototype2.png" alt="plot of chunk ggplot_prototype" /></p>
 
-<hr/>
+<h3>Using François Briatte&#39;s <code>ggnet</code> function</h3>
 
-<h2>Suggested references:</h2>
+<pre><code class="r">#
+# -------------------------------------------------------------------------
+# Plotting bipartite networks from adjacency matrix of two-mode network.
+# Using ggplot2. Code from Francois Briatte, using his fucntion ggnet.
+# DATE: 15Jul2013.
+require(downloader)
+</code></pre>
 
-<ul>
-<li>Jordano, P. (2010). Coevolution in multispecific interactions among free-living species. Evo Edu Outreach, 3: 40–46.</li>
-<li>Gomez, J.M., Jordano, P. and Perfectti, F. (2011). The functional consequences of mutualistic network architecture. PLoS ONE, 6, e16143.</li>
-<li>Dormann, C.F., Frund, J., Bluthgen, N. & Gruber, B. (2009). Indices, graphs and null models: Analyzing bipartite ecological networks. Open Ecology Journal, 2, 7–24.</li>
-<li>Bascompte, J. and Jordano, P. (2007). Plant-animal mutualistic networks: The architecture of biodiversity. Annu Rev Ecol Evol Syst, 38: 567–593.</li>
-</ul>
-      </section>
-    </div>
+<pre><code>## Loading required package: downloader
+</code></pre>
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Plotting bipartite networks maintained by <a href="https://github.com/pedroj">pedroj</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
+<pre><code class="r"># PJ example. Based on a gist by F Briatte to just feed the network data
+# from its adjacency matrix to ggnet
+# -------------------------------------------------------------------------
+link = &quot;https://raw.github.com/pedroj/bipartite_plots/master/data/NCH_quant_bmatrix.txt&quot;
+file = &quot;data/NCH_quant_bmatrix.txt&quot;
+if (!file.exists(file)) download(link, file, mode = &quot;wb&quot;)
+M &lt;- read.table(file, sep = &quot;\t&quot;, dec = &quot;,&quot;, header = TRUE, row.names = 1)
+# ...  Bipartite network initialization, starting from an adjacency
+# matrix.  ...
+source(&quot;functions/bip_briatte.R&quot;)
+source_url(&quot;https://raw.github.com/briatte/ggnet/master/ggnet.R&quot;, prompt = FALSE)
+# ...  Pass the network, edge weights and mode to ggnet.  ...
+net = bipartite.network(M, modes = c(&quot;Animals&quot;, &quot;Plants&quot;))
+ggnet(net, segment.size = edge.weights(M, 15), segment.alpha = 0.35, label = TRUE, 
+    color = &quot;black&quot;, node.group = get.vertex.attribute(net, &quot;mode&quot;))
+</code></pre>
+
+<pre><code>## Loading required package: grid
+</code></pre>
+
+<pre><code>## Loading required package: RColorBrewer
+</code></pre>
+
+<p><img src="images/Rplot3.png" alt="plot of chunk ggplot_prototype" /></p>
 
 </body>
 
