@@ -28,11 +28,13 @@ Here I plot bipartite networks from their adjacency matrices, i.e., the two-mode
 
 
 ```r
+#-------------------------------------------------------------------------
 # Read data matrices.
 # Read a network
-# Creating the objects. Example. 
+# Creating the objects. Example input from the clipboard. 
 mymat <- read.delim("data.txt", row.names=1)
-# Where data.txt has weighted adjacency matrix,e.g.,:
+#
+# Where data.txt has a weighted adjacency matrix, e.g.,:
     Aa	Ab	Ac	Ba	Bb	Bc	Bd	Ca	Cb	Cc	Da
 P1	139	112	 9	73	4	14	20	14	5	2	1
 P2	184	26	6	19	31	21	17	11	7	5	0
@@ -51,10 +53,12 @@ mymat <- read.table(pipe("pbpaste"), header=T, sep= "\t",row.names=1)
 ```
 
 
-The adjacency matrix is read as tab-separated file with header names, and the first column is taken as the row names. These are two of my datasets of well-sampled plant-frugivore interaction networks.
+The adjacency matrix is read as tab-separated file with header names, and the first column is taken as the row names. These are two of my datasets of well-sampled plant-frugivore interaction networks from S Spain, read in the usual way.
 
 
 ```r
+#
+# -------------------------------------------------------------------------
 # The Nava de las Correhuelas dataset.
 nch <- read.table("./data/NCH_quant_bmatrix.txt", header = T, sep = "\t", row.names = 1, 
     dec = ",", na.strings = "NA")
@@ -99,8 +103,6 @@ source("./functions/bip_binplot.R")
 source("./functions/bip_gplot.R")
 source("./functions/bip_qtplot.R")
 source("./functions/vectorize.R")
-nch.net <- bip_init_network(nch)
-hr.net <- bip_init_network(hr)
 ```
 
 
@@ -109,18 +111,23 @@ hr.net <- bip_init_network(hr)
 #### Draft code for plotting a bipartite network in ggplot2
 
 The code for `ggplot2` is in the file `bip_ggplot2.R`. It is not a function
-yet. But we just source it after assigning the input adjacency matrix and
+yet. I'm using the `gplot.layout.fruchtermanreingold` layout, but just tweak the code to get a Kamada-Kawai, for example. We just source this file after assigning the input adjacency matrix and
 the input graph:
 
 
 ```r
+#
+# -------------------------------------------------------------------------
 require(network)
 require(ggplot2)
 require(sna)
 require(ergm)
+#
+# -------------------------------------------------------------------------
 # Assign the matrix and the network objects here.  mymat is a matrix with
 # column names and row names.  net is a network object.  This is for the
 # Nava de las Correhuelas network.
+# -------------------------------------------------------------------------
 mymat <- nch
 net <- nch.net
 # Now we source the bip_ggplot2.R file
@@ -139,5 +146,49 @@ source("bip_ggplot2.R")
 ![plot of chunk ggplot_prototype](figure/ggplot_prototype2.png) 
 
 
-----------------------------------------------------------------------------
+### Using François Briatte's `ggnet` function
+
+
+```r
+#
+# -------------------------------------------------------------------------
+# Plotting bipartite networks from adjacency matrix of two-mode network.
+# Using ggplot2. Code from Francois Briatte, using his fucntion ggnet.
+# DATE: 15Jul2013.
+require(downloader)
+```
+
+```
+## Loading required package: downloader
+```
+
+```r
+# PJ example. Based on a gist by F Briatte to just feed the network data
+# from its adjacency matrix to ggnet
+# -------------------------------------------------------------------------
+link = "https://raw.github.com/pedroj/bipartite_plots/master/data/NCH_quant_bmatrix.txt"
+file = "data/NCH_quant_bmatrix.txt"
+if (!file.exists(file)) download(link, file, mode = "wb")
+M <- read.table(file, sep = "\t", dec = ",", header = TRUE, row.names = 1)
+# ...  Bipartite network initialization, starting from an adjacency
+# matrix.  ...
+source("functions/bip_briatte.R")
+source_url("https://raw.github.com/briatte/ggnet/master/ggnet.R", prompt = FALSE)
+# ...  Pass the network, edge weights and mode to ggnet.  ...
+net = bipartite.network(M, modes = c("Animals", "Plants"))
+ggnet(net, segment.size = edge.weights(M, 15), segment.alpha = 0.35, label = TRUE, 
+    color = "black", node.group = get.vertex.attribute(net, "mode"))
+```
+
+```
+## Loading required package: grid
+```
+
+```
+## Loading required package: RColorBrewer
+```
+
+![plot of chunk ggnet_plot](figure/ggnet_plot.png) 
+
+
 

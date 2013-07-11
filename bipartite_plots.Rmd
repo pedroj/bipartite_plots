@@ -25,6 +25,7 @@ Here I plot bipartite networks from their adjacency matrices, i.e., the two-mode
 ### Initializing bipartite webs for library network
 
 ```{r input_data, eval=FALSE, echo=TRUE}
+#-------------------------------------------------------------------------
 # Read data matrices.
 # Read a network
 # Creating the objects. Example input from the clipboard. 
@@ -51,6 +52,7 @@ mymat <- read.table(pipe("pbpaste"), header=T, sep= "\t",row.names=1)
 The adjacency matrix is read as tab-separated file with header names, and the first column is taken as the row names. These are two of my datasets of well-sampled plant-frugivore interaction networks from S Spain, read in the usual way.
 
 ```{r read_data, eval=TRUE, echo=TRUE}
+#-------------------------------------------------------------------------
 # The Nava de las Correhuelas dataset.
 nch <- read.table("./data/NCH_quant_bmatrix.txt", 
                   header=T, sep="\t", row.names=1,
@@ -104,15 +106,17 @@ yet. I'm using the `gplot.layout.fruchtermanreingold` layout, but just tweak the
 the input graph:
 
 ```{r ggplot_prototype, eval=TRUE, echo=TRUE, fig.width= 8, fig.height=6}
+#-------------------------------------------------------------------------
 require(network)
 require(ggplot2)
 require(sna)
 require(ergm)
-# 
+#-------------------------------------------------------------------------
 # Assign the matrix and the network objects here.
 # mymat is a matrix with column names and row names.
 # net is a network object.
 # This is for the Nava de las Correhuelas network.
+#-------------------------------------------------------------------------
 mymat <- nch
 net <- nch.net
 # 
@@ -127,28 +131,34 @@ source("bip_ggplot2.R")
 
 ### Using François Briatte's `ggnet` function
 
-```{r ggnet_plot, eval=TRUE, echo=TRUE, fig.width= 8, fig.height=6}
+```{r ggnet_plot, eval=TRUE, echo=TRUE, fig.width= 10, fig.height=8, warning=FALSE}
+#-------------------------------------------------------------------------
 # Plotting bipartite networks from adjacency matrix of two-mode network.
 # Using ggplot2. Code from Francois Briatte, using his fucntion ggnet.
 # DATE: 15Jul2013.
-#-------------------------------------------------------------------------
+#
 require(downloader)
-
+#
 # PJ example. Based on a gist by F Briatte to just feed the network data 
 # from its adjacency matrix to ggnet
+#-------------------------------------------------------------------------
 link = "https://raw.github.com/pedroj/bipartite_plots/master/data/NCH_quant_bmatrix.txt"
 file = "data/NCH_quant_bmatrix.txt"
 if(!file.exists(file)) download(link, file, mode = "wb")
 M <- read.table(file, sep = "\t", dec = ",", header = TRUE, row.names = 1)
- 
-#
+# ...
 # Bipartite network initialization, starting from an adjacency matrix.
-#
+# ...
 source("functions/bip_briatte.R")
-net = bipartite.network(M, modes = c("one", "two"))
+source_url("https://raw.github.com/briatte/ggnet/master/ggnet.R", prompt = FALSE)
+# ...
+# Pass the network, edge weights and mode to ggnet.
+# ...
+net = bipartite.network(M, modes = c("Animals", "Plants"))
 ggnet(net,
-      segment.size = edge.weights(M, 15), segment.alpha = .25,
+      segment.size = edge.weights(M, 15), segment.alpha = .35,
       label = TRUE, color = "black",
       node.group = get.vertex.attribute(net, "mode"))
-#.........................................................................
+```
+
 
