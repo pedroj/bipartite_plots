@@ -47,9 +47,10 @@ hr.net <- bip_netinit(hr)
 # bip_ggplot
 #
 
-# Using ggplot2 -------------------------------------------------------------
+# Using ggplot2  ---------------------------------------------------------
 #-------------------------------------------------------------------------
 # Draft code for plotting a bipartite network in ggplot2
+# See bip_pj.R for a function calling directly ggnet.
 #.........................................................................
 require(network)
 require(ggplot2)
