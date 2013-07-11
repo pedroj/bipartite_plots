@@ -9,3 +9,4 @@ bip_init_network <- function (mymat) {
                       c(rep("A",dim(mymat)[1]),
                       rep("P",dim(mymat)[2])))))
 }
+
