@@ -175,13 +175,6 @@ M <- read.table(file, sep = "\t", dec = ",", header = TRUE, row.names = 1)
 # adjacency matrix.  ...
 source("functions/bip_briatte.R")
 source_url("https://raw.github.com/briatte/ggnet/master/ggnet.R", prompt = FALSE)
-```
-
-```
-## Error: no se puede abrir la conexión
-```
-
-```r
 # ...  Pass the network, edge weights and mode to ggnet.  ...
 net = bipartite.network(M, modes = c("Animals", "Plants"))
 ggnet(net, segment.size = edge.weights(M, 15), segment.alpha = 0.35, label = TRUE, 
@@ -189,8 +182,14 @@ ggnet(net, segment.size = edge.weights(M, 15), segment.alpha = 0.35, label = TRU
 ```
 
 ```
-## Error: no se pudo encontrar la función "ggnet"
+## Loading required package: grid
 ```
+
+```
+## Loading required package: RColorBrewer
+```
+
+![plot of chunk ggnet_plot](figure/ggnet_plot.png) 
 
 
 
