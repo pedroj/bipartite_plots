@@ -1,12 +1,14 @@
 # Function to initialize a bipartite web for library network (type network),
 # starting from an adjacency matrix.
-bip_init_network <- function (mymat) {
-    mat2 <- network.initialize(dim(mymat)[1]+dim(mymat)[2],
-                               bipartite=c(dim(mymat)[1]), directed=F)
-    network.bipartite(as.matrix(mymat),mat2, 
-                      names.eval=list(row.names(mymat), colnames(mymat),
-                      set.vertex.attribute(mat2,"mode",
-                      c(rep("A",dim(mymat)[1]),
-                      rep("P",dim(mymat)[2])))))
+bip_init_network <- function (mymat, modes = c("A", "P")) {
+    require(network)
+    if(!is.matrix(mymat)) mymat <- as.matrix(mymat)
+    a = dim(mymat)[1]
+    p = dim(mymat)[2]
+    net <- network.initialize(a + p,
+                               bipartite = a, directed=FALSE)
+    network.bipartite(mymat, net, 
+                      names.eval=list(row.names(mymat), colnames(mymat)))
+    set.vertex.attribute(net,"mode",
+                         c(rep(modes[1], a), rep(modes[2], p)))
 }
-

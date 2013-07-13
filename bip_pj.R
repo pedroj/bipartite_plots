@@ -2,16 +2,15 @@
 # Using ggplot2. Code from Francois Briatte, using his fucntion ggnet.
 # DATE: 15Jul2013.
 #-------------------------------------------------------------------------
-#.........................................................................
 require(downloader)
- 
+#
 # PJ example. Based on a gist by F Briatte to just feed the network data 
 # from its adjacency matrix to ggnet
 link = "https://raw.github.com/pedroj/bipartite_plots/master/data/NCH_quant_bmatrix.txt"
 file = "data/NCH_quant_bmatrix.txt"
 if(!file.exists(file)) download(link, file, mode = "wb")
-M <- read.table(file, sep = "\t", dec = ",", header = TRUE, row.names = 1)
- 
+M <- read.table(file, sep = "\t", dec = ",", 
+                header = TRUE, row.names = 1)
 #
 # Bipartite network initialization, starting from an adjacency matrix.
 #
@@ -29,7 +28,6 @@ bipartite.network <- function(M, modes = c("A", "P")) {
     set.vertex.attribute(net, "mode", c(x, y))
     return(net)
 }
- 
 #
 # Compte edge weights
 #
@@ -45,7 +43,6 @@ edge.weights <- function(M, x = 30) {
     # Vector of edge weights.
     return(M.scaled)
 }
- 
 #
 # Pass the network, edge weights and mode to ggnet.
 #
@@ -55,3 +52,4 @@ ggnet(net,
       segment.size = edge.weights(M, 15), segment.alpha = .25,
       label = TRUE, color = "black",
       node.group = get.vertex.attribute(net, "mode"))
+

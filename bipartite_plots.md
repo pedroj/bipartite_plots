@@ -83,18 +83,19 @@ hr.net <- bip_init_network(hr)
 ### Functions to plot network graphs
 
 #### bip_binplot
-Simple function to plot a binary bipartite network in `network`.
+Simple function to plot a binary bipartite network in `network`. Its inputs are the adjacency matrix, to get the dimensions from, and the network object corresponding to the matrix. The object net can be initialized with function `bip_init_network.R`.
 
 #### bip_qtplot
-Function to plot a weighted bipartite network in `network` object.
+Function to plot a weighted bipartite network in `network` object. The input is just the weighted (quantitative) adjacency matrix of a two-mode network. Uses objects of type network.
 
 #### bip_gplot
-Function to plot a weighted bipartite network in `igraph`.
+Function to plot a weighted bipartite network in `igraph`. Its inputs are the adjacency matrix, to get the dimensions from, and the igraph object corresponding to the matrix.
 
 #### bip_ggplot
-This is just a prototype of function. I'm using it as raw code for now. You assign the matrix and network object at the start (see below).
+This is just a prototype of function. I'm using it as raw code for now. You assign the matrix and network object at the start (see below). 
+In addition, my function `vectorize` is needed in the section using `ggplot2`. I'm including it herewith just for illustration.
 
-In addition, my function `vectorize` is needed in the section using `ggplot2`.
+A better implementation is to use F. Briatte's `ggnet` function (see example below), which uses my initialization codes and the modifications to get the bipartite networks in `ggplot2`.
 
 
 ```r
@@ -111,7 +112,7 @@ source("./functions/vectorize.R")
 #### Draft code for plotting a bipartite network in ggplot2
 
 The code for `ggplot2` is in the file `bip_ggplot2.R`. It is not a function
-yet. I'm using the `gplot.layout.fruchtermanreingold` layout, but just tweak the code to get a Kamada-Kawai, for example. We just source this file after assigning the input adjacency matrix and
+yet. I'm using the `gplot.layout.fruchtermanreingold` layout, but just tweak the code to get a Kamada-Kawai ordination, for example. We just source this file after assigning the input adjacency matrix and
 the input graph:
 
 
@@ -170,10 +171,17 @@ link = "https://raw.github.com/pedroj/bipartite_plots/master/data/NCH_quant_bmat
 file = "data/NCH_quant_bmatrix.txt"
 if (!file.exists(file)) download(link, file, mode = "wb")
 M <- read.table(file, sep = "\t", dec = ",", header = TRUE, row.names = 1)
-# ...  Bipartite network initialization, starting from an adjacency
-# matrix.  ...
+# ...  Bipartite network initialization, starting from a weighted
+# adjacency matrix.  ...
 source("functions/bip_briatte.R")
 source_url("https://raw.github.com/briatte/ggnet/master/ggnet.R", prompt = FALSE)
+```
+
+```
+## Error: no se puede abrir la conexión
+```
+
+```r
 # ...  Pass the network, edge weights and mode to ggnet.  ...
 net = bipartite.network(M, modes = c("Animals", "Plants"))
 ggnet(net, segment.size = edge.weights(M, 15), segment.alpha = 0.35, label = TRUE, 
@@ -181,14 +189,8 @@ ggnet(net, segment.size = edge.weights(M, 15), segment.alpha = 0.35, label = TRU
 ```
 
 ```
-## Loading required package: grid
+## Error: no se pudo encontrar la función "ggnet"
 ```
-
-```
-## Loading required package: RColorBrewer
-```
-
-![plot of chunk ggnet_plot](figure/ggnet_plot.png) 
 
 
 

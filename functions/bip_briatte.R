@@ -16,7 +16,6 @@ bipartite.network <- function(M, modes = c("A", "P")) {
     set.vertex.attribute(net, "mode", c(x, y))
     return(net)
 }
- 
 #
 # Compte edge weights
 # x is a constant helping to scale the edge thickness in the plots;
