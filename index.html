@@ -108,21 +108,23 @@ hr.net <span style="">&lt;-</span> bip_init_network<span style="color: #009900;"
 
 <h4>bip_binplot</h4>
 
-<p>Simple function to plot a binary bipartite network in <code>network</code>.</p>
+<p>Simple function to plot a binary bipartite network in <code>network</code>. Its inputs are the adjacency matrix, to get the dimensions from, and the network object corresponding to the matrix. The object net can be initialized with function <code>bip_init_network.R</code>.</p>
 
 <h4>bip_qtplot</h4>
 
-<p>Function to plot a weighted bipartite network in <code>network</code> object.</p>
+<p>Function to plot a weighted bipartite network in <code>network</code> object. The input is just the weighted (quantitative) adjacency matrix of a two-mode network. Uses objects of type network.</p>
 
 <h4>bip_gplot</h4>
 
-<p>Function to plot a weighted bipartite network in <code>igraph</code>.</p>
+<p>Function to plot a weighted bipartite network in <code>igraph</code>. Its inputs are the adjacency matrix, to get the dimensions from, and the igraph object corresponding to the matrix.</p>
 
 <h4>bip_ggplot</h4>
 
-<p>This is just a prototype of function. I&#39;m using it as raw code for now. You assign the matrix and network object at the start (see below).</p>
+<p>This is just a prototype of function. I&#39;m using it as raw code for now. You assign the matrix and network object at the start (see below). 
+In addition, my function <code>vectorize</code> is needed in the section using <code>ggplot2</code>. I&#39;m including it herewith just for illustration.</p>
 
-<p>In addition, my function <code>vectorize</code> is needed in the section using <code>ggplot2</code>.</p>
+<p>A better implementation is to use F. Briatte&#39;s <code>ggnet</code> function (see example below), which uses my initialization codes and the modifications to get the bipartite networks in <code>ggplot2</code>.</p>
+
 
 <div style="overflow:auto;"><div class="geshifilter"><pre class="r geshifilter-R" style="font-family:monospace;"><span style="color: #666666; font-style: italic;">#</span>
 <span style="color: #666666; font-style: italic;"># Sourcing required functions and initializing the net objects.</span>
