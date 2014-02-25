@@ -20,10 +20,10 @@ if(!require(sna)) stop("must first install 'reshape2' package.")
 if(!require(ergm)) stop("must first install 'reshape2' package.")
 #
 # Compute scaled weights, to use later with graphing links.
-source("./functions/vectorize.R") # Uses my function vectorize
+source("~/Dropbox/Working/~RCode/MyRCode/networks/bipartite_plots/functions/vectorize.R") # Uses my function vectorize
 ewt <- vectorize(mymat)
 ewt <- subset(ewt,ewt[,3]!=0)
-ewt.scaled <- 30*log(ewt[,3]+1.0) / max(log(ewt[,3]+1.0))
+ewt.scaled <- 30*log(ewt[,3]+1.5) / max(log(ewt[,3]+1.5))
 #
 # Input the adjacency matrix (mymat) and the network object (net)
 m <- as.matrix.network.adjacency(net) # get sociomatrix
@@ -35,6 +35,7 @@ plotcord <- data.frame(gplot.layout.fruchtermanreingold(m,
 # plotcord <- data.frame(gplot.layout.kamadakawai(m, NULL)) 
 colnames(plotcord) = c("X1","X2")
 edglist <- as.matrix.network.edgelist(net)
+
 edges <- data.frame(plotcord[edglist[,1],], plotcord[edglist[,2],])
 colnames(edges) <-  c("X1","Y1","X2","Y2")
 edges$midX  <- (edges$X1 + edges$X2) / 2
@@ -43,10 +44,10 @@ plotcord$vnames <- as.factor(network.vertex.names(net))
 pnet <- ggplot()  + 
     geom_segment(aes(x=X1, y=Y1, xend = X2, yend = Y2,
                      size = ewt.scaled), 
-                 data=edges, colour="grey", alpha=0.4) +
+                 data=edges, colour="grey", alpha=0.5) +
     geom_point(aes(plotcord$X1, plotcord$X2, 
-                   color=c(rep("grey90",dim(m)[1]),
-                           rep("grey60",dim(m)[2]))), 
+                   color=c(rep("grey90",dim(m)[2]),
+                           rep("grey60",dim(m)[1]))), 
                size=10, alpha=0.8) +
     geom_text(aes(plotcord$X1, plotcord$X2), 
               size = 4, #hjust = 0, #vjust=0.5, 
