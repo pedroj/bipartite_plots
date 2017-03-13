@@ -60,9 +60,9 @@ This next example (from F. Briatte code) initializes a dataframe:
 ```{r input_data2, eval=FALSE, echo=TRUE}
 # A weighted adjacency matrix. Rows are animal species; columns are plant 
 # species.
-bip= data.frame(P1= c(1, 2, 1, 0),
-                P2= c(0, 0, 3, 0),
-                P3= c(1, 1, 0, 4),
+bip= data.frame(P1= c(1, 12, 6, 0),
+                P2= c(1, 0, 4, 0),
+                P3= c(1, 7, 3, 12),
      row.names= letters[1:4])
 
 ```
@@ -126,10 +126,10 @@ networks in `ggplot2`.
 
 ```{r source_functions, eval=TRUE, echo=TRUE}
 # Sourcing required functions and initializing the net objects.
-source("./functions/bip_binplot.R")
-source("./functions/bip_gplot.R")
-source("./functions/bip_qtplot.R")
-source("./functions/vectorize.R")
+source("./R/bip_binplot.R")
+source("./R/bip_gplot.R")
+source("./R/bip_qtplot.R")
+source("./R/vectorize.R")
 ```
 
 ----------------------------------------------------------------------------
