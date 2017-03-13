@@ -1,7 +1,9 @@
-Plotting bipartite networks
+`ggbipart`, an `R` package for plotting bipartite networks
 ========================================================
 
-This is a series of `R` script files aimed to plot bipartite networks. Bipartite networks are a special type of network where nodes are of two distinct types or sets, so that connections (links) only exist among nodes of the different sets.
+This is a series of `R` functions aimed to plot bipartite networks within the `ggplot2` environment. The library relies heavily on code developed by Francois Briatte for the `ggnet` library.    
+
+Bipartite networks are a special type of network where nodes are of two distinct types or sets, so that connections (links) only exist among nodes of the different sets.
 
 As in other types of network, bipartite strucures can be binary (only the presence/absence of the links is mapped) or quantitative (weighted), where the links can have variable importance or weight.
 
@@ -16,20 +18,21 @@ require(network)
 require(igraph)
 require(sna)
 require(ggplot2)
+require(ggnet)
 require(sna)
 require(ergm)
 ```
 
 Here I plot bipartite networks from their adjacency matrices, i.e., the two-mode networks.
 
-### Initializing bipartite webs for library network
+### Initializing bipartite webs as `network` objects
 
-```{r input_data, eval=FALSE, echo=TRUE}
+```{r input_data1, eval=FALSE, echo=TRUE}
 #-------------------------------------------------------------------------
 # Read data matrices.
 # Read a network
 # Creating the objects. Example input from the clipboard. 
-mymat <- read.delim("data.txt", row.names=1)
+mymat <- read.delim("data.txt", row.names=1)   # Not run.
 #
 # Where data.txt has a weighted adjacency matrix, e.g.,:
     Aa	Ab	Ac	Ba	Bb	Bc	Bd	Ca	Cb	Cc	Da
@@ -46,19 +49,35 @@ P10	136	0	0	12	0	2	2	0	0	0	0
 P11	130	8	0	5	0	0	0	0	0	0	0
 
 # Use this to copy from the clipboard, after select/copy the above block.
-mymat <- read.table(pipe("pbpaste"), header=T, sep= "\t",row.names=1)
+mymat <- read.table(pipe("pbpaste"), header=T, sep= "\t", row.names=1)
+
 ```
 
-The adjacency matrix is read as tab-separated file with header names, and the first column is taken as the row names. These are two of my datasets of well-sampled plant-frugivore interaction networks from S Spain, read in the usual way.
+The adjacency matrix is just read from the clipboard as a tab-separated file with header names, and the first column is taken as the row names. 
+
+This next example (from F. Briatte code) initializes a dataframe:
+
+```{r input_data2, eval=FALSE, echo=TRUE}
+# A weighted adjacency matrix. Rows are animal species; columns are plant 
+# species.
+bip= data.frame(P1= c(1, 2, 1, 0),
+                P2= c(0, 0, 3, 0),
+                P3= c(1, 1, 0, 4),
+     row.names= letters[1:4])
+
+```
+
+
+These are two of my datasets of well-sampled plant-frugivore interaction networks from S Spain, read in the usual way.
 
 ```{r read_data, eval=TRUE, echo=TRUE}
 #-------------------------------------------------------------------------
 # The Nava de las Correhuelas dataset.
-nch <- read.table("./data/NCH_quant_bmatrix.txt", 
+nch <- read.table("./data-raw/NCH_quant_bmatrix.txt", 
                   header=T, sep="\t", row.names=1,
                   dec=",", na.strings="NA")
 # The Hato Raton dataset.
-hr <- read.table("./data/HR_quant_bmatrix.txt", 
+hr <- read.table("./data-raw/HR_quant_bmatrix.txt", 
                   header=T, sep="\t", row.names=1,
                   dec=".", na.strings="NA")
 ```
@@ -67,8 +86,9 @@ hr <- read.table("./data/HR_quant_bmatrix.txt",
 Here I use my function `bip_init` to initialize the bipartite networks.
 
 ```{r init_graphs, eval=TRUE, echo=TRUE}
-source("./functions/bip_init_network.R")
-source("./functions/bip_init_igraph.R")
+source("./R/bip_init_network.R")
+source("./R/bip_init_igraph.R")
+test.net<- bip_init_network(mymat)
 nch.net <- bip_init_network(nch) 
 hr.net <- bip_init_network(hr)
 ```
