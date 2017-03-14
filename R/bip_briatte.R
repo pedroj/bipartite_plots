@@ -17,7 +17,7 @@ bipartite.network <- function(M, modes = c("A", "P")) {
     return(net)
 }
 #
-# Compte edge weights
+# Compute edge weights
 # x is a constant helping to scale the edge thickness in the plots;
 # just tune it to adequate values for the specific dataset.
 #
