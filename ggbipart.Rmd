@@ -86,7 +86,7 @@ hr <- read.table("./data-raw/HR_quant_bmatrix.txt",
 ```
 
 ----------------------------------------------------------------------------
-Here I use my function `bip_init_network` to initialize the bipartite networks.
+Here I use the function `bip_init_network` to initialize a few examples of  bipartite networks. The function returns a `network` object. The equivelent fucntion `bip_init_igraph` returns an `igraph` (graph) object.
 
 ```{r init_graphs, eval=TRUE, echo=TRUE}
 source("./R/bip_init_network.R")
