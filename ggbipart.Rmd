@@ -171,7 +171,7 @@ source("bip_ggplot2.R")
 ```{r ggnet_plot, eval=TRUE, echo=TRUE, fig.width= 10, fig.height=8, warning=FALSE}
 #-------------------------------------------------------------------------
 # Plotting bipartite networks from adjacency matrix of two-mode network.
-# Using ggplot2. Code from Francois Briatte, using his fucntion ggnet.
+# Using ggplot2. Code from Francois Briatte, using his function ggnet.
 # DATE: 15Jul2013.
 #
 require(downloader)
