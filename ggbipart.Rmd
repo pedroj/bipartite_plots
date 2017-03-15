@@ -109,12 +109,6 @@ Simple function to plot a bipartite network with the classic layout of two paral
 #### bip_ggnet
 Plotting bipartite networks from adjacency matrix of two-mode network. 
 
-#### bip_binplot
-Simple function to plot a binary bipartite network in `network`. Its inputs 
-are the adjacency matrix, to get the dimensions from, and the network object 
-corresponding to the matrix. The object net can be initialized with function 
-`bip_init_network.R`.
-
 #### bip_gplot
 Function to plot a weighted bipartite network in `igraph`. Its inputs are the 
 adjacency matrix, to get the dimensions from, and the igraph object 
