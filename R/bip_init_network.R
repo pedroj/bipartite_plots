@@ -1,5 +1,8 @@
+#---------------------------------------------------------------------------
 # Function to initialize a bipartite web for library network (type network),
 # starting from an adjacency matrix.
+# Usually we assume animal species are rows, plant species are columns.
+#---------------------------------------------------------------------------
 bip_init_network <- function (mymat, modes= c("A", "P")) {
     require(network)
     require(ggnet)
@@ -12,3 +15,4 @@ bip_init_network <- function (mymat, modes= c("A", "P")) {
     #             names.eval = "weights")
                   names.eval=list(row.names(mymat), colnames(mymat)))
 }
+#---------------------------------------------------------------------------

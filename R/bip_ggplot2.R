@@ -20,7 +20,7 @@ if(!require(sna)) stop("must first install 'reshape2' package.")
 if(!require(ergm)) stop("must first install 'reshape2' package.")
 #
 # Compute scaled weights, to use later with graphing links.
-source("~/Dropbox/Working/~RCode/MyRCode/networks/bipartite_plots/functions/vectorize.R") # Uses my function vectorize
+source("./R/vectorize.R") # Uses my function vectorize
 ewt <- vectorize(mymat)
 ewt <- subset(ewt,ewt[,3]!=0)
 ewt.scaled <- 30*log(ewt[,3]+1.5) / max(log(ewt[,3]+1.5))
@@ -42,7 +42,7 @@ edges$midX  <- (edges$X1 + edges$X2) / 2
 edges$midY  <- (edges$Y1 + edges$Y2) / 2
 plotcord$vnames <- as.factor(network.vertex.names(net))
 pnet <- ggplot()  + 
-    geom_segment(aes(x=X1, y=Y1, xend = X2, yend = Y2,
+ geom_segment(aes(x=X1, y=Y1, xend = X2, yend = Y2,
                      size = ewt.scaled), 
                  data=edges, colour="grey", alpha=0.5) +
     geom_point(aes(plotcord$X1, plotcord$X2, 
