@@ -21,9 +21,12 @@ require(ggplot2)
 require(ggnet)
 require(sna)
 require(ergm)
-```
 
-Here I plot bipartite networks from their adjacency matrices, i.e., the two-mode networks.
+```
+-----------------------------------------------------------------------------
+
+Here I plot bipartite networks from their adjacency matrices, i.e., the two-mode networks. The standard way to input an adjacency matrix is from a `.txt or a `.csv` file.
+
 
 ### Initializing bipartite webs as `network` objects
 
@@ -32,6 +35,7 @@ Here I plot bipartite networks from their adjacency matrices, i.e., the two-mode
 # Read data matrices.
 # Read a network
 # Creating the objects. Example input from the clipboard. 
+# 
 mymat <- read.delim("data.txt", row.names=1)   # Not run.
 #
 # Where data.txt has a weighted adjacency matrix, e.g.,:
@@ -46,15 +50,16 @@ P7	42	16	3	0	2	0	0	0	0	0	0
 P8	31	8	4	5	1	0	0	1	0	0	0
 P9	46	8	2	0	3	0	0	0	0	0	0
 P10	86	0	0	12	0	2	2	0	0	0	0
-P11	50	8	1	5	0	0	0	0	0	0	0
-P12	3	6	1	1	0	1	0	0	0	0	0
+P11	23	8	1	5	0	0	0	0	0	0	0
+P12	13	6	1	1	0	1	0	0	0	0	0
 P13	5	0	1	0	0	0	0	0	0	0	0
 P14	9	1	0	0	0	0	0	0	0	0	0
 
 # Use this to copy from the clipboard, after select/copy the above block.
-mymat <- read.table(pipe("pbpaste"), header=T, sep= "\t", row.names=1)
+mymat <- read.table(pipe("pbpaste"), header= T, sep= "\t", row.names= 1)
 
 ```
+
 
 The adjacency matrix is just read from the clipboard as a tab-separated file with header names, and the first column is taken as the row names. 
 
@@ -86,15 +91,17 @@ hr <- read.table("./data-raw/HR_quant_bmatrix.txt",
 
 ```
 
-----------------------------------------------------------------------------
+
 Here I use the function `bip_init_network` to initialize a few examples of  bipartite networks. The function returns a `network` object. The equivelent fucntion `bip_init_igraph` returns an `igraph` (graph) object.
 
 ```{r init_graphs, eval=TRUE, echo=TRUE}
 source("./R/bip_init_network.R")
 source("./R/bip_init_igraph.R")
+
 test.net<- bip_init_network(mymat)
 test.ig<- bip_init_igraph(mymat)
 nch.net <- bip_init_network(nch) 
+nch.ig<- bip_init_igraph(nch)
 hr.net <- bip_init_network(hr)
 
 ```
@@ -110,46 +117,33 @@ Simple function to plot a bipartite network with the classic layout of two paral
 #### bip_ggnet
 Plotting bipartite networks from adjacency matrix of two-mode network. 
 
-#### bip_gplot
+#### bip_igplot
 Function to plot a weighted bipartite network in `igraph`. Its inputs are the 
 adjacency matrix, to get the dimensions from, and the igraph object 
 corresponding to the matrix.
 
-#### bip_ggplot
-This is just a prototype of function. I'm using it as raw code for now. You 
-assign the matrix and network object at the start (see below). 
-In addition, my function `vectorize` is needed in the section using `ggplot2`. 
-I'm including it herewith just for illustration.
-
-----------------------------------------------------------------------------
-A better implementation is to use `ggnet` function (see example below), which 
-uses my initialization codes and the modifications to get the bipartite 
-networks in `ggplot2`.
+A better implementation is to use `bip_ggnet` function (see example below), which uses my initialization codes and the modifications to get the bipartite 
+networks in `ggplot2`, using the [package `ggnet`](https://briatte.github.io/ggnet/) usage.
 
 ```{r source_functions, eval=TRUE, echo=TRUE}
 # Sourcing required functions and initializing the net objects.
 source("./R/bip_binplot.R")
-source("./R/bip_gplot.R")
+source("./R/bip_igplot.R")
 source("./R/bip_qtplot.R")
 source("./R/vectorize.R")
 
 ```
 
-----------------------------------------------------------------------------
-### Using ggplot2
-#### Draft code for plotting a bipartite network in ggplot2
 
-The code for `ggplot2` is in the file `bip_ggplot2.R`. It is not a function
-yet. I'm using the `gplot.layout.fruchtermanreingold` layout, but just tweak 
+----------------------------------------------------------------------------
+### Using `ggnet` for bipartite graphs
+#### Bipartite networks with `ggnet` using the `ggplot2` framework
+
+I'm using the `gplot.layout.fruchtermanreingold` layout, but just tweak 
 the code to get a Kamada-Kawai ordination, for example. We just source this 
 file after assigning the input adjacency matrix and the input graph:
 
 ```{r ggplot_prototype, eval=TRUE, echo=TRUE, fig.width= 8, fig.height=6}
-#-------------------------------------------------------------------------
-require(network)
-require(ggplot2)
-require(sna)
-require(ergm)
 #-------------------------------------------------------------------------
 # Assign the matrix and the network objects here.
 # mymat is a matrix with column names and row names.
