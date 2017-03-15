@@ -1,8 +1,9 @@
+#---------------------------------------------------------------------------
 # Plotting bipartite networks from adjacency weighted matrix 
 # of two-mode network.
 # A modified version of the plotting, with package igraph.
 # Requires input of the weighted "mymmat" matrix and its graph object, "g".
-#
+#---------------------------------------------------------------------------
 bip_gplot <- function (mymat, g) {
     ewt <- vectorize(mymat)  
     ewt.scaled <- log(ewt[,3] + 1.0) / max(log(ewt[,3] + 1.0))
@@ -29,3 +30,4 @@ bip_gplot <- function (mymat, g) {
                                      # better line widths
                                      # edge.width=E(g)$weight/20)
 }
+#---------------------------------------------------------------------------

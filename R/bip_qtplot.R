@@ -2,7 +2,7 @@
 # Plotting a bipartite network from the weighted (quantitative) adjacency
 # matrix of a two-mode network. Uses objects of type network and a 
 # traditional plot.
-#
+#---------------------------------------------------------------------------
 bip_qtplot <- function (mat) {
     # Energy, weighted graphs
     ewt <- vectorize(mat)  
@@ -36,4 +36,4 @@ bip_qtplot <- function (mat) {
                  edge.col = "#D9D9D9", edge.curve = 0.025, 
                  label.lty = NULL, usecurve = T)
 }
-
+#---------------------------------------------------------------------------

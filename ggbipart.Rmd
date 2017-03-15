@@ -103,6 +103,12 @@ hr.net <- bip_init_network(hr)
 #### bip_qtplot
 Simple function to plot a weighted bipartite network in `network` object. The input is just the weighted (quantitative) adjacency matrix of a two-mode network. Uses objects of type `network`.
 
+#### bip_railway
+Simple function to plot a bipartite network with the classic layout of two parallel sets of nodes.
+
+#### bip_ggnet
+Plotting bipartite networks from adjacency matrix of two-mode network. 
+
 #### bip_binplot
 Simple function to plot a binary bipartite network in `network`. Its inputs 
 are the adjacency matrix, to get the dimensions from, and the network object 
