@@ -139,28 +139,58 @@ source("./R/vectorize.R")
 ### Using `ggnet` for bipartite graphs
 #### Bipartite networks with `ggnet` using the `ggplot2` framework
 
-I'm using the `gplot.layout.fruchtermanreingold` layout, but just tweak 
-the code to get a Kamada-Kawai ordination, for example. We just source this 
-file after assigning the input adjacency matrix and the input graph:
+We first initialize the bipartite network; then uses the adjacency matrix to compute scaled weighted edges with function edgewt. This is based in code from Francois Briatte, using package `ggnet`.
 
-```{r ggplot_prototype, eval=TRUE, echo=TRUE, fig.width= 8, fig.height=6}
-#-------------------------------------------------------------------------
-# Assign the matrix and the network objects here.
-# mymat is a matrix with column names and row names.
-# net is a network object.
-# This is for the Nava de las Correhuelas network.
-#-------------------------------------------------------------------------
-mymat <- nch
-net <- nch.net
+`ggnet2` automatically detects two-mode graphs from their bipartite network attribute. To simplify the plotting of each mode, it understands arguments of the form [alpha, color, shape, size] = "mode", which will mark the primary mode as `"actor"` and the secondary mode as `"event"`.
+
+```{r bip_ggnet_prototype, eval=TRUE, echo=TRUE, fig.width= 8, fig.height=6}
+#----------------------------------------------------------------------------
+# Plotting bipartite networks from adjacency matrix of two-mode network.
+# Using ggnet. 
+# DATE: 15Jul2013. Updated to ggnet 11/11/2016.
 # 
-# Now we source the bip_ggplot2.R file
-source("bip_ggplot2.R")
+#----------------------------------------------------------------------------
+#
+require(ggnet)
+source("./R/bip_edgewt.R")
+if(!is.network(M)) stop("Must first initialize the network; use 'bip_init_network.R'.")
+#
+test.net<- bip_init_network(mymat)
+mynet<-nch.net
+#
+# To use the mode of the nodes as the basis for their colors, all the user 
+# has to do is to pass the color= "mode" argument, and then to style the 
+# "actor" and "event" values:
 # 
-# We repeat for the Hato Raton network.
-mymat <- hr
-net <- hr.net
-source("bip_ggplot2.R")
+# Set colors for each mode
+col = c("actor"= "#FC9272", "event"= "#9ECAE1")
+
+p<- ggnet2(nch.net,
+          shape= "mode", label= T,
+          color= "mode", palette= col, 
+          edge.size= bip_edgewt(nch, 5), 
+          edge.alpha= 0.25,
+          layout.exp = 0.25)
+
+# Detect and color the mode
+ggnet2(mynet, color= "mode", palette= col, label = TRUE)
+
+# Label weights directly into edges
+ggnet2(bip, color = "mode", palette = col, label = TRUE, edge.label = "weights")
+
+#----------------------------------------------------------------------------
+
 ```
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------------
+## Old code
 
 ### Using François Briatte's `ggnet` function
 
