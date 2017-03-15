@@ -11,7 +11,7 @@ require(ggnet)
 source("./R/bip_edgewt.R")
 if(!is.network(M)) stop("Must first initialize the network; use 'bip_init_network.R'.")
 #
-p<- ggnet(M,
-          segment.size = bip_edgewt(M1, 15), segment.alpha = .25,
+p<- ggnet(mynet,
+          segment.size = bip_edgewt(mymat, 15), segment.alpha = .25,
           label= T, color = "black")
 #----------------------------------------------------------------------------
