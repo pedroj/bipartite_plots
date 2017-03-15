@@ -165,12 +165,29 @@ mynet<-nch.net
 # Set colors for each mode
 col = c("actor"= "#FC9272", "event"= "#9ECAE1")
 
-p<- ggnet2(nch.net,
-          shape= "mode", label= T,
+p<- ggnet2(nch.net, 
+          shape= "mode", #label= T,
           color= "mode", palette= col, 
           edge.size= bip_edgewt(nch, 5), 
           edge.alpha= 0.25,
-          layout.exp = 0.25)
+          layout.exp = 0.25) + 
+          geom_text(aes(label= network.vertex.names(nch.net)),
+                        color= "black", size= 3)
+
+p<- ggnet2(nch.net, size= 0,
+          shape= "mode", 
+          palette= "Set1",
+          color= "mode",
+          edge.size= bip_edgewt(nch, 7.5), 
+          edge.alpha= 0.25,
+          layout.exp = 0.25) +
+          geom_point(aes(color= color), size= 12, color= "white") +
+          geom_point(aes(color= color), size= 12, alpha= 0.5) +
+          geom_point(aes(color= color), size= 9) +
+          geom_text(aes(label= network.vertex.names(nch.net)), 
+                    color= "black", size= 4, check_overlap= TRUE) +
+          guides(color= FALSE)
+
 
 # Detect and color the mode
 ggnet2(mynet, color= "mode", palette= col, label = TRUE)
@@ -182,14 +199,6 @@ ggnet2(bip, color = "mode", palette = col, label = TRUE, edge.label = "weights")
 
 ```
 
-
-
-
-
-
-
-
-----------------------------------------------------------------------------
 ## Old code
 
 ### Using François Briatte's `ggnet` function
@@ -223,5 +232,8 @@ ggnet(net,
       label = TRUE, color = "black",
       node.group = get.vertex.attribute(net, "mode"))
 ```
+
+
+
 
 
