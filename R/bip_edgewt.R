@@ -3,7 +3,6 @@
 # x is a constant helping to scale the edge thickness in the plots;
 # just tune it (x parameter) to adequate values for the specific dataset.
 #----------------------------------------------------------------------------
-
 edgewt<- function(M, x = 30) {
     # Transpose.
     M <- t(M)
