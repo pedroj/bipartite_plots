@@ -22,7 +22,7 @@ bip_qtplot <- function (mat) {
                  boxed.labels = F,
                  label.pad =0,
                  label.pos = 5,
-                 label.cex = 0.7,
+                 label.cex = 1,
                  vertex.col = c(rep("#FC9272",dim(mat)[1]),
                               rep("#9ECAE1",dim(mat)[2])), 
                  vertex.cex = 3,
@@ -33,7 +33,7 @@ bip_qtplot <- function (mat) {
                  # edge.lwd=(ewt[,3])/6,
                  edge.lwd = 25 * (ewt.scaled), # Adjust constant for 
                                                # better line widths
-                 edge.col = "#D9D9D9", edge.curve = 0.025, 
+                 edge.col = "#D9D9D9", edge.curve = 0.01, 
                  label.lty = NULL, usecurve = T)
 }
 #---------------------------------------------------------------------------
