@@ -165,7 +165,7 @@ mynet<-nch.net
 # Set colors for each mode
 col = c("actor"= "#FC9272", "event"= "#9ECAE1")
 
-p<- ggnet2(nch.net, 
+pp<- ggnet2(nch.net, size=7,
           shape= "mode", #label= T,
           color= "mode", palette= col, 
           edge.size= bip_edgewt(nch, 5), 
@@ -174,7 +174,7 @@ p<- ggnet2(nch.net,
           geom_text(aes(label= network.vertex.names(nch.net)),
                         color= "black", size= 3)
 
-p<- ggnet2(nch.net, size= 0,
+pp<- ggnet2(nch.net, size= 0,
           shape= "mode", 
           palette= "Set1",
           color= "mode",
