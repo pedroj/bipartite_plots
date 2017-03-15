@@ -5,6 +5,11 @@
 # to compute scaled weighted edges with function edgewt.
 # Code from Francois Briatte, using package ggnet.
 # DATE: 15Jul2013. Updated to ggnet 11/11/2016.
+# ggnet2 automatically detects two-mode graphs from their bipartite network
+# attribute. To simplify the plotting of each mode, it understands 
+# arguments of the form [alpha, color, shape, size] = "mode", which will 
+# mark the primary mode as "actor" and the secondary mode as "event".
+# 
 #----------------------------------------------------------------------------
 #
 require(ggnet)
