@@ -15,8 +15,32 @@
 require(ggnet)
 source("./R/bip_edgewt.R")
 if(!is.network(M)) stop("Must first initialize the network; use 'bip_init_network.R'.")
+test.net<- bip_init_network(mymat)
+mynet<-nch.net
 #
-p<- ggnet(mynet,
-          segment.size = bip_edgewt(mymat, 15), segment.alpha = .25,
+p<- ggnet2(nch.net,
+          segment.size = bip_edgewt(nch, 15), segment.alpha = .25,
           label= T, color = "black")
+
+To use the mode of the nodes as the basis for their colors, all the user has to do is to pass the color= "mode" argument, and then to style the "actor" and "event" values:
+    
+# Set colors for each mode
+    col = c("actor" = "grey", "event" = "gold")
+
+# Detect and color the mode
+# ggnet2(To use the mode of the nodes as the basis for their colors, all 
+# the user has to do is to pass the color = "mode" argument, and then to 
+# style the  "actor" and "event" values.
+# 
+# Set colors for each mode
+col= c("actor"= "grey", "event"= "gold")
+    
+# Detect and color the mode
+ggnet2(mynet, color= "mode", palette= col, label = TRUE)
+
+# Label weights directly into edges
+ggnet2(bip, color = "mode", palette = col, label = TRUE, edge.label = "weights")
+
 #----------------------------------------------------------------------------
+
+
