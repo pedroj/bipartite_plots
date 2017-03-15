@@ -134,8 +134,8 @@ source("./R/vectorize.R")
 
 ```
 
-
 ----------------------------------------------------------------------------
+
 ### Using `ggnet` for bipartite graphs
 #### Bipartite networks with `ggnet` using the `ggplot2` framework
 
