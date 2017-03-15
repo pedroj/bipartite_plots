@@ -181,11 +181,11 @@ p<- ggnet2(nch.net, size= 0,
           edge.size= bip_edgewt(nch, 7.5), 
           edge.alpha= 0.25,
           layout.exp = 0.25) +
-          geom_point(aes(color= color), size= 12, color= "white") +
-          geom_point(aes(color= color), size= 12, alpha= 0.5) +
-          geom_point(aes(color= color), size= 9) +
+          geom_point(aes(color= color), size= 10, color= "white") +
+          geom_point(aes(color= color), size= 10, alpha= 0.5) +
+          geom_point(aes(color= color), size= 8) +
           geom_text(aes(label= network.vertex.names(nch.net)), 
-                    color= "black", size= 4, check_overlap= TRUE) +
+                    color= "black", size= 3.5) + # check_overlap= TRUE
           guides(color= FALSE)
 
 
