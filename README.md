@@ -1,7 +1,7 @@
 An `R` package for plotting bipartite networks
 ========================================================
 
-A series of `R` functions aimed to plot bipartite networks. The functions extensively rely on the `ggnet2` and `ggplot2` packages. 
+A series of `R` functions aimed to plot bipartite networks. The functions extensively rely on the [`ggnet`](https://briatte.github.io/ggnet/) and [`ggplot2`](http://ggplot2.org/) packages. 
 
 Bipartite networks are a special type of network where nodes are of two distinct types or sets, so that connections (links) only exist among nodes of the different sets.
 
