@@ -19,6 +19,7 @@ require(igraph)
 require(sna)
 require(ggplot2)
 require(ggnet)
+require(ggrepel)
 require(sna)
 require(ergm)
 
@@ -188,6 +189,37 @@ pp<- ggnet2(nch.net, size= 0,
                     color= "black", size= 3.5) + # check_overlap= TRUE
           guides(color= FALSE)
 
+nums<- as.vector(c(1:sum(dim(nch))))
+pp<- ggnet2(nch.net, size= 0,
+          shape= "mode", 
+          palette= "Set1",
+          color= "mode",
+          edge.size= bip_edgewt(nch, 7.5), 
+          edge.alpha= 0.5,
+          layout.exp = 0.25) +
+          geom_point(aes(color= color), size= 10, color= "white") +
+          geom_point(aes(color= color), size= 10, alpha= 0.5) +
+          geom_point(aes(color= color), size= 8) +
+          geom_text(aes(label= nums), 
+                    color= "white", size= 3.5, fontface="bold") + 
+          guides(color= FALSE)
+
+
+pp<- ggnet2(nch.net, size= 0,
+          shape= "mode", 
+          palette= "Set1",
+          color= "mode",
+          edge.size= bip_edgewt(nch, 7.5), 
+          edge.alpha= 0.25,
+          layout.exp = 0.25) +
+          geom_point(aes(color= color), size= 10, color= "white") +
+          geom_point(aes(color= color), size= 10, alpha= 0.5) +
+          geom_point(aes(color= color), size= 8) +
+       #   geom_text(aes(label= network.vertex.names(nch.net)), 
+       #             color= "black", size= 3.5) + # check_overlap= TRUE
+          guides(color= FALSE) +
+          geom_text_repel(aes(label= network.vertex.names(nch.net)))
+
 
 # Detect and color the mode
 ggnet2(mynet, color= "mode", palette= col, label = TRUE)
@@ -198,42 +230,6 @@ ggnet2(bip, color = "mode", palette = col, label = TRUE, edge.label = "weights")
 #----------------------------------------------------------------------------
 
 ```
-
-## Old code
-
-### Using François Briatte's `ggnet` function
-
-```{r ggnet_plot, eval=TRUE, echo=TRUE, fig.width= 10, fig.height=8, warning=FALSE}
-#-------------------------------------------------------------------------
-# Plotting bipartite networks from adjacency matrix of two-mode network.
-# Using ggplot2. Code from Francois Briatte, using his function ggnet.
-# DATE: 15Jul2013.
-#
-require(downloader)
-#
-# PJ example. Based on a gist by F Briatte to just feed the network data 
-# from its adjacency matrix to ggnet
-#-------------------------------------------------------------------------
-link = "https://raw.github.com/pedroj/bipartite_plots/master/data/NCH_quant_bmatrix.txt"
-file = "data/NCH_quant_bmatrix.txt"
-if(!file.exists(file)) download(link, file, mode = "wb")
-M <- read.table(file, sep = "\t", dec = ",", header = TRUE, row.names = 1)
-# ...
-# Bipartite network initialization, starting from a weighted adjacency matrix.
-# ...
-source("functions/bip_briatte.R")
-source_url("https://raw.github.com/briatte/ggnet/master/ggnet.R", prompt = FALSE)
-# ...
-# Pass the network, edge weights and mode to ggnet.
-# ...
-net = bipartite.network(M, modes = c("Animals", "Plants"))
-ggnet(net,
-      segment.size = edge.weights(M, 15), segment.alpha = .35,
-      label = TRUE, color = "black",
-      node.group = get.vertex.attribute(net, "mode"))
-```
-
-
 
 
 
