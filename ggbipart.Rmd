@@ -170,8 +170,11 @@ To use the mode of the nodes as the basis for their colors, all the user has to 
 
 ```{r simple_graph_prototype_unwt, eval=TRUE, echo=TRUE, fig.width= 8, fig.height=6}
 # Detect and color the mode
-col= c("actor"= "grey40", "event"= "gold3")
-ggnet2(mynet, color= "mode", palette= col, label = TRUE, label.size=3)
+col= c("actor"= "grey80", "event"= "gold2")
+ggnet2(mynet, 
+       color= "mode", palette= col, 
+       label = TRUE, label.size=3,
+       layout.exp = 0.25)        # Using layout.exp because of long labels
 
 ```
 
