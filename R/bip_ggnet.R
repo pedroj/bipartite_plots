@@ -20,12 +20,9 @@ mynet<-nch.net
 #
 
 # Detect and color the mode
-# ggnet2(To use the mode of the nodes as the basis for their colors, all 
+# To use the mode of the nodes as the basis for their colors, all 
 # the user has to do is to pass the color = "mode" argument, and then to 
 # style the  "actor" and "event" values.
-# To use the mode of the nodes as the basis for their colors, all the user 
-# has to do is to pass the color= "mode" argument, and then to style the 
-# "actor" and "event" values.
 #
 # Set colors for each mode to setup a palette.
 col= c("actor"= "grey", "event"= "gold")
@@ -34,12 +31,6 @@ p<- ggnet2(nch.net,
     shape= "mode", label= T,
     color= "mode", palette= col, 
     edge.size= bip_edgewt(nch, 5), edge.alpha= 0.25)
-
-# Label weights directly into edges
-ggnet2(bip, 
-       color= "mode", palette = col, 
-       label = TRUE, shape= "mode",
-       edge.label = "weights")
 
 #----------------------------------------------------------------------------
 

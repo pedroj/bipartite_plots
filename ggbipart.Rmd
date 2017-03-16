@@ -1,7 +1,7 @@
 `ggbipart`, an `R` package for plotting bipartite networks
 ========================================================
 
-This is a series of `R` functions aimed to plot bipartite networks within the `ggplot2` environment. The library relies heavily on code developed by Francois Briatte for the `ggnet` library.    
+This is a series of `R` functions aimed to plot bipartite networks within the `ggplot2` environment. The library relies heavily on code developed by Francois Briatte for [the `ggnet` library](https://briatte.github.io/ggnet/).    
 
 Bipartite networks are a special type of network where nodes are of two distinct types or sets, so that connections (links) only exist among nodes of the different sets.
 
@@ -14,14 +14,15 @@ From any adjacency matrix we can get a `network` object or an `igraph` object fo
 -----------------------------------------------------------------------------
 ### Required packages
 ```{r packages, echo=T, eval=TRUE, message=FALSE, warning=FALSE}
+require(ggplot2)
 require(network)
 require(igraph)
 require(sna)
-require(ggplot2)
 require(ggnet)
 require(ggrepel)
-require(sna)
 require(ergm)
+require(intergraph)
+require(RColorBrewer)
 
 ```
 -----------------------------------------------------------------------------
@@ -154,17 +155,40 @@ We first initialize the bipartite network; then uses the adjacency matrix to com
 #
 require(ggnet)
 source("./R/bip_edgewt.R")
-if(!is.network(M)) stop("Must first initialize the network; use 'bip_init_network.R'.")
 #
 test.net<- bip_init_network(mymat)
 mynet<-nch.net
+if(!is.network(nch.net)) stop("Must first initialize the network; use 'bip_init_network.R'.")
+
+```
+
+##### A simple graph
+
+To use the mode of the nodes as the basis for their colors, all the user has to do is to pass the color= "mode" argument, and then to style the "actor" and "event" values:
+
+###### Unweighted
+
+```{r simple_graph_prototype_unwt, eval=TRUE, echo=TRUE, fig.width= 8, fig.height=6}
+# Detect and color the mode
+col= c("actor"= "grey40", "event"= "gold3")
+ggnet2(mynet, color= "mode", palette= col, label = TRUE, label.size=3)
+
+```
+
+###### Weighted
+
+```{r simple_graph_prototype_wt1, eval=TRUE, echo=TRUE, fig.width= 8, fig.height=6}
+# Label weights directly into edges
+ggnet2(bip, 
+       color= "mode", palette = col, 
+       label = TRUE, shape= "mode",
+       edge.label = "weights")
+```
+
+```{r simple_graph_prototype_wt2, eval=TRUE, echo=TRUE, fig.width= 8, fig.height=6}
 #
-# To use the mode of the nodes as the basis for their colors, all the user 
-# has to do is to pass the color= "mode" argument, and then to style the 
-# "actor" and "event" values:
-# 
 # Set colors for each mode
-col = c("actor"= "#FC9272", "event"= "#9ECAE1")
+col= c("actor"= "#FC9272", "event"= "#9ECAE1")
 
 pp<- ggnet2(nch.net, size=7,
           shape= "mode", #label= T,
@@ -175,7 +199,22 @@ pp<- ggnet2(nch.net, size=7,
           geom_text(aes(label= network.vertex.names(nch.net)),
                         color= "black", size= 3)
 
-pp<- ggnet2(nch.net, size= 0,
+```
+
+
+Antother alternative is to pass the node colors directly, with a vector  of node colors that has exactly the same length as the number of nodes in the network:  
+
+```{r simple_graph_prototype, eval=TRUE, echo=TRUE, fig.width= 8, fig.height=6}
+#
+pp1<- ggnet2(nch.net, size = 6, color= "mode", label= T,
+       palette= c("actor"= "indianred3", "event"= "steelblue4"))
+
+```
+
+
+```{r simple_graph_prototype, eval=TRUE, echo=TRUE, fig.width= 8, fig.height=6}
+#
+pp2<- ggnet2(nch.net, size= 0,
           shape= "mode", 
           palette= "Set1",
           color= "mode",
@@ -190,7 +229,7 @@ pp<- ggnet2(nch.net, size= 0,
           guides(color= FALSE)
 
 nums<- as.vector(c(1:sum(dim(nch))))
-pp<- ggnet2(nch.net, size= 0,
+pp3<- ggnet2(nch.net, size= 0,
           shape= "mode", 
           palette= "Set1",
           color= "mode",
@@ -205,7 +244,7 @@ pp<- ggnet2(nch.net, size= 0,
           guides(color= FALSE)
 
 
-pp<- ggnet2(nch.net, size= 0,
+pp4<- ggnet2(nch.net, size= 0,
           shape= "mode", 
           palette= "Set1",
           color= "mode",
@@ -220,16 +259,18 @@ pp<- ggnet2(nch.net, size= 0,
           guides(color= FALSE) +
           geom_text_repel(aes(label= network.vertex.names(nch.net)))
 
+```
 
-# Detect and color the mode
-ggnet2(mynet, color= "mode", palette= col, label = TRUE)
 
-# Label weights directly into edges
-ggnet2(bip, color = "mode", palette = col, label = TRUE, edge.label = "weights")
 
-#----------------------------------------------------------------------------
+
+----------------------------------------------------------------------------
+```{r session_info, eval=TRUE, echo=TRUE}
+sessionInfo()
 
 ```
+
+
 
 
 
