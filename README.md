@@ -1,4 +1,4 @@
-An `R` package for plotting bipartite networks
+`ggbipart`: An `R` package for plotting bipartite networks
 ========================================================
 
 A series of `R` functions aimed to plot bipartite networks. The functions extensively rely on the [`ggnet`](https://briatte.github.io/ggnet/) and [`ggplot2`](http://ggplot2.org/) packages. 
