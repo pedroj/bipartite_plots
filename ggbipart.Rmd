@@ -127,6 +127,7 @@ corresponding to the matrix.
 # Sourcing required functions and initializing the net objects.
 source("./R/bip_igplot.R")
 source("./R/bip_qtplot.R")
+source("./R/bip_railway.R")
 source("./R/vectorize.R")
 
 ```
@@ -165,22 +166,7 @@ To use the mode of the nodes as the basis for their colors, all the user has to 
 # Plot layout coordinates for railway networkplot
 # 
 mymat <- read.delim("./data-raw/data.txt", row.names=1)   # Not run.
-
-# A matrix whose rows contain the x,y coordinates of the vertices of d.
-#
-        # Coords for mode "A"
-        coordA<- cbind(rep(2,dim(mymat)[1]), seq(1, dim(mymat)[1])+2)
-        # Coords for mode "P"
-        coordP<- cbind(rep(4,dim(mymat)[2]), seq(1, dim(mymat)[2])+2)
-        mylayout<- as.matrix(rbind(coordA, coordP))
-        nodesize=9; label=T;
-#
-# Initialize and plot the network with a railway layout.
-        test.net<- bip_init_network(mymat)
-        p<- ggnet2(test.net, mode=mylayout, label=label,
-                   size= nodesize, label.size=nodesize/3,
-                   layout.exp= 1.5) + coord_flip()
-        p
+bip_railway(mymat, label=T)
 
 ```
 
