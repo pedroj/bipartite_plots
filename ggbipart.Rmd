@@ -79,16 +79,42 @@ These are two example datasets of well-sampled plant-frugivore interaction netwo
 
 ```{r read_data, eval=TRUE, echo=TRUE}
 # The Nava de las Correhuelas dataset.
-nch <- read.table("./data-raw/NCH_quant_bmatrix.txt", 
-                  header=T, sep="\t", row.names=1,
-                  dec=",", na.strings="NA")
+nch<- read.table("./data-raw/w96.csv", 
+                  header=T, sep=",", row.names=1,
+                  dec=".", na.strings="NA")
+## Node attributes, animals
+nch_A<- read.table("./data-raw/w96_animal.csv", 
+                  header=T, sep=",", 
+                  dec=".", na.strings="NA")
+## Node attributes, plants
+nch_P<- read.table("./data-raw/w96_plant.csv", 
+                  header=T, sep=",", 
+                  dec=".", na.strings="NA")
+
 # The Hato Raton dataset.
-hr <- read.table("./data-raw/HR_quant_bmatrix.txt", 
-                  header=T, sep="\t", row.names=1,
+hr<- read.table("./data-raw/w97.csv", 
+                  header=T, sep=",", row.names=1,
+                  dec=".", na.strings="NA")
+## Node attributes, animals
+hr_A<- read.table("./data-raw/w97_animal.csv", 
+                  header=T, sep=",", 
+                  dec=".", na.strings="NA")
+## Node attributes, plants
+hr_P<- read.table("./data-raw/w97_plant.csv", 
+                  header=T, sep=",", 
                   dec=".", na.strings="NA")
 
 ```
 
+Node attributes include different variables characterizing each individual node. These values can later be passed to the `bip_ggnet` funtions to modify graph properties of nodes.
+
+```{r node_attributes, eval=TRUE, echo=TRUE}
+glimpse(nch_A)
+glimpse(nch_P)
+glimpse(hr_A)
+glimpse(hr_P)
+
+```
 
 Here I use the function `bip_init_network` to initialize a few examples of  bipartite networks. The function returns a `network` object. The equivelent fucntion `bip_init_igraph` returns an `igraph` (graph) object.
 
@@ -98,9 +124,10 @@ source("./R/bip_init_igraph.R")
 
 # test.net<- bip_init_network(mymat)
 # test.ig<- bip_init_igraph(mymat)
-nch.net <- bip_init_network(nch) 
+nch.net<- bip_init_network(nch) 
 nch.ig<- bip_init_igraph(nch)
-hr.net <- bip_init_network(hr)
+hr.net<- bip_init_network(hr)
+hr.ig<- bip_init_igraph(hr)
 
 ```
 
@@ -129,6 +156,7 @@ source("./R/bip_igplot.R")
 source("./R/bip_qtplot.R")
 source("./R/bip_railway.R")
 source("./R/vectorize.R")
+source("./R/bip_edgewt.R")
 
 ```
 
@@ -148,10 +176,9 @@ We first initialize the bipartite network; then uses the adjacency matrix to com
 #
 require(ggnet)
 require(ggrepel)
-source("./R/bip_edgewt.R")
 #
 # test.net<- bip_init_network(mymat)
-mynet<-nch.net
+mynet<- nch.net
 if(!is.network(nch.net)) stop("Must first initialize the network; use 'bip_init_network.R'.")
 
 ```
@@ -162,14 +189,17 @@ Let’s now assign a vertex attribute called phono, which indicates whether the 
 This attribute can be passed to ggnet2 to indicate that the nodes belong to a group. All the user has to do is to pass the name of the vertex attribute to the color argument, which will find it in the list of vertex attributes and use it to map the colors of the nodes:
 
 
+```{r vertex_attr, eval=FALSE, echo=TRUE}
+# First, join the attributes for animals and plants.
+require(dplyr)
+nch_att<- full_join(nch_A,nch_P)
+names(nch_att)
 
-```{r vertex_attr, eval=TRUE, echo=TRUE}
-# mymat <- read.delim("./data-raw/data.txt", row.names=1)   # Not run.
-# mynet<- bip_init_network(mymat)
-# mynet %v% "fam" = ifelse(network.vertex.names %in% c(1,2,3,5,7,8,9,10,12,
-#                         13,21,22,26,27,30,31)
-#    ), "Muscicapidae", "Paridae")
-# ggnet2(mynet, color = "fam")
+# Load in the preferred attributes 
+nch.net %v% "Fam"= nch_att$Family    
+nch.net %v% "Gen"= nch_att$Genus    
+nch.net %v% "BM"= nch_att$Body_mass    
+nch.net %v% "FrLen"= nch_att$Fruit_length
 
 ```
 
@@ -225,13 +255,13 @@ ggnet2(bip.net,
 # Set colors for each mode
 col= c("actor"= "#FC9272", "event"= "#9ECAE1")
 
-pp<- ggnet2(nch.net, size=7,
+pp<- ggnet2(hr.net, size=7,
           shape= "mode", #label= T,
           color= "mode", palette= col, 
-          edge.size= bip_edgewt(nch, 5), 
+          edge.size= bip_edgewt(hr, 5), 
           edge.alpha= 0.25,
           layout.exp= 0.25) + 
-          geom_text(aes(label= network.vertex.names(nch.net)),
+          geom_text(aes(label= network.vertex.names(hr.net)),
                         color= "black", size= 3)
 pp
 
