@@ -156,6 +156,24 @@ if(!is.network(nch.net)) stop("Must first initialize the network; use 'bip_init_
 
 ```
 
+##### Node colors
+Let’s now assign a vertex attribute called phono, which indicates whether the name of the vertex is a vowel or a consonant:
+
+This attribute can be passed to ggnet2 to indicate that the nodes belong to a group. All the user has to do is to pass the name of the vertex attribute to the color argument, which will find it in the list of vertex attributes and use it to map the colors of the nodes:
+
+
+
+```{r vertex_attr, eval=TRUE, echo=TRUE}
+# mymat <- read.delim("./data-raw/data.txt", row.names=1)   # Not run.
+# mynet<- bip_init_network(mymat)
+# mynet %v% "fam" = ifelse(network.vertex.names %in% c(1,2,3,5,7,8,9,10,12,
+#                         13,21,22,26,27,30,31)
+#    ), "Muscicapidae", "Paridae")
+# ggnet2(mynet, color = "fam")
+
+```
+
+
 ##### A simple graph
 
 To use the mode of the nodes as the basis for their colors, all the user has to do is to pass the color= "mode" argument, and then to style the "actor" and "event" values:
@@ -163,7 +181,8 @@ To use the mode of the nodes as the basis for their colors, all the user has to 
 ###### Unweighted
 
 ```{r railway, eval=TRUE, echo=TRUE, fig.width= 8, fig.height=6}
-# Plot layout coordinates for railway networkplot
+# Plot layout coordinates for railway networkplot. Input is the 
+# adjacency matrix.
 # 
 mymat <- read.delim("./data-raw/data.txt", row.names=1)   # Not run.
 bip_railway(mymat, label=T)
