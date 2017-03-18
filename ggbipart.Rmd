@@ -213,8 +213,8 @@ bip_railway(mymat, label=T)
 
 ```{r simple_graph_prototype_unwt, eval=TRUE, echo=TRUE, fig.width= 8, fig.height=6}
 # Detect and color the mode
-col= c("actor"= "grey80", "event"= "gold2")
-ggnet2(mynet, 
+col= c("P"= "grey80", "A"= "gold2")
+ggnet2(nch.net, 
        color= "mode", palette= col, shape= "mode",
        label= TRUE, label.size=3,
        layout.exp= 0.25)        # Using layout.exp because of long labels
@@ -229,7 +229,7 @@ bip= data.frame(P1= c(1, 12, 6, 0),
                 P2= c(1, 0, 4, 0),
                 P3= c(1, 7, 3, 12),
      row.names= letters[1:4])
-
+col= c("actor"= "grey80", "event"= "gold2")
 bip.net<- network(bip,
               matrix.type = "bipartite",
               ignore.eval = FALSE,
@@ -244,7 +244,7 @@ ggnet2(bip.net,
 
 ```{r simple_graph_prototype_wt2, eval=TRUE, echo=TRUE, fig.width= 8, fig.height=6}
 # Set colors for each mode
-col= c("actor"= "#FC9272", "event"= "#9ECAE1")
+col= c("P"= "#FC9272", "A"= "#9ECAE1")
 
 pp<- ggnet2(hr.net, size=7,
           shape= "mode", #label= T,
@@ -263,7 +263,7 @@ Antother alternative is to pass the node colors directly, with a vector  of node
 
 ```{r direct_colors, eval=TRUE, echo=TRUE, fig.width= 8, fig.height=6}
 pp1<- ggnet2(nch.net, size= 6, color= "mode", label= T, label.size=3,
-       palette= c("actor"= "indianred3", "event"= "steelblue4"))
+       palette= c("P"= "indianred3", "A"= "steelblue4"))
 pp1
 
 

@@ -16,21 +16,21 @@ require(ggnet)
 source("./R/bip_edgewt.R")
 if(!is.network(M)) stop("Must first initialize the network; use 'bip_init_network.R'.")
 test.net<- bip_init_network(mymat)
-mynet<-nch.net
 #
-
 # Detect and color the mode
 # To use the mode of the nodes as the basis for their colors, all 
 # the user has to do is to pass the color = "mode" argument, and then to 
 # style the  "actor" and "event" values.
 #
 # Set colors for each mode to setup a palette.
-col= c("actor"= "grey", "event"= "gold")
+col= c("Animals"= "grey", "Plants"= "gold")
 
-p<- ggnet2(nch.net,
-    shape= "mode", label= T,
-    color= "mode", palette= col, 
-    edge.size= bip_edgewt(nch, 5), edge.alpha= 0.25)
+p<- ggnet2(pp,
+  # shape= "mode", 
+    label= T,
+    color= "mode", 
+    palette= col, 
+    edge.size= bip_edgewt(mymat, 5), edge.alpha= 0.25)
 
 #----------------------------------------------------------------------------
 
