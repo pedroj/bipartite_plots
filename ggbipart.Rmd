@@ -82,21 +82,17 @@ These are two example datasets of well-sampled plant-frugivore interaction netwo
 nch<- read.table("./data-raw/w96_adj_fru.csv", 
                   header=T, sep=",", row.names=1,
                   dec=".", na.strings="NA")
-## Node attributes, animals
+## Node attributes
 nch_attr<- read.table("./data-raw/w96_node_attributes.csv", 
                   header=T, sep=",", 
                   dec=".", na.strings="NA")
 
 # The Hato Raton dataset.
-hr<- read.table("./data-raw/w97.csv", 
+hr<- read.table("./data-raw/w97_adj_fru.csv", 
                   header=T, sep=",", row.names=1,
                   dec=".", na.strings="NA")
-## Node attributes, animals
-hr_A<- read.table("./data-raw/w97_animal.csv", 
-                  header=T, sep=",", 
-                  dec=".", na.strings="NA")
-## Node attributes, plants
-hr_P<- read.table("./data-raw/w97_plant.csv", 
+## Node attributes
+hr_attr<- read.table("./data-raw/w97_node_attributes.csv", 
                   header=T, sep=",", 
                   dec=".", na.strings="NA")
 
