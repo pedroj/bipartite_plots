@@ -1,0 +1,24 @@
+# Hato Raton. Weighted adjacency matrix, with elements corresponding to the 
+# frequency of appearance of fruit species in feces. Figures are the number of 
+# appearances of each fruit species in samples from a given frugivore species.
+# 
+# Cumulative dataset of fecal sample analysis for furgivorous birds.
+# Each record is a presence of a fruit species in a sample.
+#
+,Sylvia.atricapilla,Sylvia.borin,Erithacus.rubecula,Sylvia.melanocephala,Turdus.merula,Turdus.philomelos,Sylvia.communis,Sylvia.hortensis,Sylvia.cantillans,Ficedula.hypoleuca,Phoenicurus.phoenicurus,Sylvia.undata,Saxicola.torquata,Cyanopica.cyanus,Luscinia.megarhynchos,Muscicapa.striata,Sturnus.unicolor
+Pistacia.lentiscus,452,146,191,33,92,7,12,6,14,36,6,12,4,6,4,10,22
+Olea.europaea,76,1,28,2,18,12,0,0,0,0,0,0,1,1,0,0,10
+Phillyrea.angustifolia,67,8,1,12,29,1,4,2,3,6,0,0,0,1,0,0,0
+Rhamnus.lycioides,12,59,3,41,5,0,3,0,2,2,1,0,0,1,1,1,0
+Smilax.aspera,7,6,1,2,1,0,0,1,0,1,0,0,0,0,0,0,0
+Rubus.ulmifolius,4,12,1,6,8,0,1,1,1,1,1,0,0,1,1,1,0
+Myrtus.communis,18,0,21,2,3,2,0,0,1,0,0,1,1,1,0,0,2
+Daphne.gnidium,30,21,1,12,0,0,2,0,3,0,1,0,0,0,0,0,0
+Rubia.pregrina,12,19,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+Osyris.alba,1,1,0,1,1,2,0,0,0,0,0,0,0,0,0,0,0
+Crataegus.monogyna,1,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1
+Lonicera.periclymenum,1,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0
+Asparagus.acutifolius,7,2,1,2,1,0,0,0,0,0,0,0,0,0,0,0,0
+Tamus.communis,0,1,0,1,3,0,0,0,0,0,0,0,0,2,0,0,0
+Pyrus.bourgaeana,1,0,0,0,1,0,0,0,0,0,0,0,0,5,0,0,0
+Asparagus.aphyllus,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0
