@@ -29,7 +29,7 @@ bipartite.network <- function(M, modes = c("A", "P")) {
     return(net)
 }
 #
-# Compte edge weights
+# Compute edge weights
 #
 edge.weights <- function(M, x = 30) {
     # Transpose.
