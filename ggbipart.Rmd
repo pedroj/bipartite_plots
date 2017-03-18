@@ -79,15 +79,11 @@ These are two example datasets of well-sampled plant-frugivore interaction netwo
 
 ```{r read_data, eval=TRUE, echo=TRUE}
 # The Nava de las Correhuelas dataset.
-nch<- read.table("./data-raw/w96.csv", 
+nch<- read.table("./data-raw/w96_adj_fru.csv", 
                   header=T, sep=",", row.names=1,
                   dec=".", na.strings="NA")
 ## Node attributes, animals
-nch_A<- read.table("./data-raw/w96_animal.csv", 
-                  header=T, sep=",", 
-                  dec=".", na.strings="NA")
-## Node attributes, plants
-nch_P<- read.table("./data-raw/w96_plant.csv", 
+nch_attr<- read.table("./data-raw/w96_node_attributes.csv", 
                   header=T, sep=",", 
                   dec=".", na.strings="NA")
 
@@ -109,10 +105,8 @@ hr_P<- read.table("./data-raw/w97_plant.csv",
 Node attributes include different variables characterizing each individual node. These values can later be passed to the `bip_ggnet` funtions to modify graph properties of nodes.
 
 ```{r node_attributes, eval=TRUE, echo=TRUE}
-glimpse(nch_A)
-glimpse(nch_P)
-glimpse(hr_A)
-glimpse(hr_P)
+glimpse(nch_attr)
+glimpse(hr_attr)
 
 ```
 
@@ -190,16 +184,17 @@ This attribute can be passed to ggnet2 to indicate that the nodes belong to a gr
 
 
 ```{r vertex_attr, eval=FALSE, echo=TRUE}
-# First, join the attributes for animals and plants.
-require(dplyr)
-nch_att<- full_join(nch_A,nch_P)
-names(nch_att)
+# Attributes for animals and plants.
+names(nch_attr)
 
-# Load in the preferred attributes 
-nch.net %v% "Fam"= nch_att$Family    
-nch.net %v% "Gen"= nch_att$Genus    
-nch.net %v% "BM"= nch_att$Body_mass    
-nch.net %v% "FrLen"= nch_att$Fruit_length
+# Load in the preferred attributes
+# We need to convert factors to chars in order to assign the attributes.
+Fam<-  as.character(nch_attr$family)
+nch.net %v% "Fam"= Fam    
+Gen<- as.character(nch_attr$genus)
+nch.net %v% "Gen"= Gen    
+nch.net %v% "BM"= nch_attr$w    
+nch.net %v% "FrDiam"= nch_attr$g
 
 ```
 
@@ -224,7 +219,7 @@ bip_railway(mymat, label=T)
 # Detect and color the mode
 col= c("actor"= "grey80", "event"= "gold2")
 ggnet2(mynet, 
-       color= "mode", palette= col, 
+       color= "mode", palette= col, shape= "mode",
        label= TRUE, label.size=3,
        layout.exp= 0.25)        # Using layout.exp because of long labels
 
