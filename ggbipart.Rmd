@@ -112,7 +112,7 @@ Here I use the function `bip_init_network` to initialize a few examples of  bipa
 source("./R/bip_init_network.R")
 source("./R/bip_init_igraph.R")
 
-# test.net<- bip_init_network(mymat)
+test.net<- bip_init_network(mymat)
 # test.ig<- bip_init_igraph(mymat)
 nch.net<- bip_init_network(nch) 
 nch.ig<- bip_init_igraph(nch)
@@ -206,19 +206,20 @@ To use the mode of the nodes as the basis for their colors, all the user has to 
 # adjacency matrix.
 # 
 mymat <- read.delim("./data-raw/data.txt", row.names=1)   # Not run.
-bip_railway(mymat, label=T)
+g<- bip_railway(mymat, label=T)
+g+ coord_flip()
 
 ```
 
 
-```{r simple_graph_prototype_unwt, eval=TRUE, echo=TRUE, fig.width= 8, fig.height=6}
+```{r simple_graph_prototype_unwt, eval=TRUE, echo=TRUE, message=FALSE, fig.width= 8, fig.height=6}
 # Detect and color the mode
 col= c("P"= "grey80", "A"= "gold2")
 ggnet2(nch.net, 
        color= "mode", palette= col, shape= "mode",
        label= TRUE, label.size=3,
-       layout.exp= 0.25)        # Using layout.exp because of long labels
-
+       layout.exp= 0.5) +       # Using layout.exp because of long labels
+       theme(legend.position="none")
 ```
 
 ###### Weighted
