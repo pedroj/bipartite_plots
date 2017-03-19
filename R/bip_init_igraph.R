@@ -2,6 +2,8 @@
 # igraph (type igraph), starting from a weighted adjacency matrix.
 # Create the graph object (a bipartite, weighted graph) for igraph.
 bip_init_igraph <- function (mymat) {
-            require(igraph)
-            graph.incidence(mymat, weighted = T)
+                require(igraph)
+                graph_from_incidence_matrix(mymat, 
+                        weighted= T, add.names= NULL)
 }
+ 
