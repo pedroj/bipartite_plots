@@ -4,6 +4,6 @@
 bip_init_igraph <- function (mymat) {
                 require(igraph)
                 graph_from_incidence_matrix(mymat, 
-                        weighted= T, add.names= NULL)
+                        weighted= T, add.names= NULL, bipartite=dim(mymat)[1])
 }
  
