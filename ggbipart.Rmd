@@ -27,7 +27,7 @@ require(RColorBrewer)
 
 ```
 
-Here I plot bipartite networks from their adjacency matrices, i.e., the two-mode networks. The standard way to input an adjacency matrix is from a `.txt or a `.csv` file.
+Here I plot bipartite networks from their adjacency matrices, i.e., the two-mode networks. The standard way to input an adjacency matrix is from a `.txt` or a `.csv` file.
 
 
 ### Initializing bipartite webs as `network` objects
@@ -185,7 +185,7 @@ names(nch_attr)
 
 # Load in the preferred attributes
 # We need to convert factors to chars in order to assign the attributes.
-Fam<-  as.character(nch_attr$family)
+Fam<- as.character(nch_attr$family)
 nch.net %v% "Fam"= Fam    
 Gen<- as.character(nch_attr$genus)
 nch.net %v% "Gen"= Gen    
