@@ -23,15 +23,16 @@ test.net<- bip_init_network(mymat)
 # style the  "actor" and "event" values.
 #
 # Set colors for each mode to setup a palette.
-col= c("Animals"= "grey", "Plants"= "gold")
+col= c("A"= "grey", "P"= "gold")
 
-p<- ggnet2(pp,
-  # shape= "mode", 
-    label= T,
-    color= "mode", 
-    palette= col, 
-    edge.size= bip_edgewt(mymat, 5), edge.alpha= 0.25)
+p<- ggnet2(test.net,
+    shape= "mode",                       label= T,
+    color= "mode",                       palette= col, 
+    size = 9,                            legend.size = 9,
+    mode = "fruchtermanreingold", 
+    layout.par = NULL,                   layout.exp = 0,
+    size.legend = NA,                    label.trim = FALSE, 
+    edge.lty = "solid",                  edge.label = NULL,
+    edge.size= bip_edgewt(mymat, 5),     edge.alpha= 0.25)
 
 #----------------------------------------------------------------------------
-
-
