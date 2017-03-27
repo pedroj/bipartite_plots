@@ -15,9 +15,18 @@
 # To use the mode of the nodes as the basis for their colors, all 
 # the user has to do is to pass the color = "mode" argument, and then to 
 # style the  "actor" and "event" values.
-#
-bip_ggnet<- function(net, mat, mymode= "fruchtermanreingold", 
-                     expansion= 0)
+#---------------------------------------------------------------------------
+# Example:      ## NOT RUN
+# pp +
+#     geom_point(aes(color = color), size = 12, color = "white") +
+#     geom_point(aes(color = color), size = 12, alpha = 0.5) +
+#     geom_point(aes(color = color), size = 9) +
+#     geom_text(aes(label= network.vertex.names(net)), color = "black") +
+#     guides(color = FALSE)
+## NOT RUN
+#----------------------------------------------------------------------------
+bip_ggnet<- function(net, mat, mode= "fruchtermanreingold", size= 9,
+                     palette= col, color= "mode", label= F, expansion= 0)
 {
     source("./R/bip_edgewt.R")
     if(!is.network(M)) stop("Must first initialize the network; use 'bip_init_network.R'.")
@@ -26,14 +35,14 @@ bip_ggnet<- function(net, mat, mymode= "fruchtermanreingold",
     col= c("A"= "grey", "P"= "gold")
 
     pp<- ggnet2(net,
-        shape= "mode",                       label= T,
-        color= "mode",                       palette= col, 
-        size = 9,                            legend.size = 9,
-        mode = mymode,                       label.size= 4,
+        shape= "mode",                       label= label,
+        color= color,                        palette= palette, 
+        size = size,                         legend.size = 9,
+        mode = mode,                         label.size= 4,
         layout.par = NULL,                   layout.exp = expansion,
         size.legend = NA,                    label.trim = FALSE, 
         edge.lty = "solid",                  edge.label = NULL,
         edge.size= bip_edgewt(mat, 5),       edge.alpha= 0.25)
     return(pp)
 }
-#----------------------------------------------------------------------------
+#---------------------------------------------------------------------------
