@@ -152,7 +152,7 @@ source("./R/bip_edgewt.R")
 ```
 
 
-### Using `ggnet` for bipartite graphs
+### Using `bip_ggnet` for bipartite graphs
 #### Bipartite networks with `ggnet2` using the `ggplot2` framework
 
 We first initialize the bipartite network; then uses the adjacency matrix to compute scaled weighted edges with function edgewt. This is based in code from Francois Briatte, using package `ggnet`, function `ggnet2`.
@@ -215,10 +215,10 @@ g+ coord_flip()
 ```{r simple_graph_prototype_unwt, eval=TRUE, echo=TRUE, message=FALSE, fig.width= 8, fig.height=6}
 # Detect and color the mode
 col= c("P"= "grey80", "A"= "gold2")
-ggnet2(nch.net, 
-       color= "mode", palette= col, shape= "mode",
+bip_ggnet(nch.net, as.matrix(nch),
+       color= "mode", palette= col, 
        label= TRUE, label.size=3,
-       layout.exp= 0.5) +       # Using layout.exp because of long labels
+       layout.exp= 0.2) +       # Using layout.exp because of long labels
        theme(legend.position="none")
 ```
 
@@ -237,9 +237,10 @@ bip.net<- network(bip,
               ignore.eval = FALSE,
               names.eval = "weights") 
 
-bip_ggnet(bip.net, bipmat,
-       color= "mode", palette = col, 
-       label= TRUE)
+bip_ggnet(bip.net, as.matrix(bip), 
+          color= "mode", palette = col, 
+          edge.label = "weights",
+          label= TRUE)
 
 ```
 

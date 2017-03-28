@@ -26,7 +26,10 @@
 ## NOT RUN
 #----------------------------------------------------------------------------
 bip_ggnet<- function(net, mat, mode= "fruchtermanreingold", size= 9,
-                     palette= col, color= "mode", label= F, expansion= 0)
+                     palette= col, color= "mode", 
+                     label.size=3, label= F, shape= "mode",
+                     edge.label = NULL,
+                     layout.exp= 0)
 {
     source("./R/bip_edgewt.R")
     if(!is.network(M)) stop("Must first initialize the network; use 'bip_init_network.R'.")
@@ -35,13 +38,13 @@ bip_ggnet<- function(net, mat, mode= "fruchtermanreingold", size= 9,
     col= c("A"= "grey", "P"= "gold")
 
     pp<- ggnet2(net,
-        shape= "mode",                       label= label,
+        shape= shape,                       label= label,
         color= color,                        palette= palette, 
         size = size,                         legend.size = 9,
         mode = mode,                         label.size= 4,
-        layout.par = NULL,                   layout.exp = expansion,
+        layout.par = NULL,                   layout.exp = layout.exp,
         size.legend = NA,                    label.trim = FALSE, 
-        edge.lty = "solid",                  edge.label = NULL,
+        edge.lty = "solid",                  edge.label = edge.label,
         edge.size= bip_edgewt(mat, 5),       edge.alpha= 0.25)
     return(pp)
 }
