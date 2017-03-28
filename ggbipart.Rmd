@@ -27,8 +27,7 @@ require(RColorBrewer)
 
 ```
 
-Here I plot bipartite networks from their adjacency matrices, i.e., the two-mode networks. The standard way to input an adjacency matrix is from a `.txt` or a `.csv` file.
-
+Here I plot bipartite networks from their adjacency matrices, i.e., the two-mode networks. The standard way to input an adjacency matrix is from a `.txt` or a `.csv` file. Most packages like `network`, `igraph` or `statnet` also accept edge-list archives. These have the form of a three-column array with `node1 node2 i` or `node1 node2 w`, where `node1` and `node2` are two nodes that interact, and `i`or `w` are the presence/abscence of interaction (`i= 0 o r i= 1`) or the edge weight (`w`) in the case of weighted networks.
 
 ### Initializing bipartite webs as `network` objects
 
