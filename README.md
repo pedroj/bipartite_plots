@@ -13,7 +13,7 @@ From any adjacency matrix we can get a `network` object or an `igraph` object fo
 
 This graph uses function `bip_railway`.
 
-```{r railway, eval=TRUE, echo=TRUE, fig.width= 8, fig.height=6}
+```r
 # Plot layout coordinates for railway networkplot. Input is the 
 # adjacency matrix.
 # 
@@ -28,7 +28,7 @@ g+ coord_flip()
 
 This graph uses function `bip_ggnet`, with labelled edges.
 
-```{r simple_graph_prototype_wt1, eval=TRUE, echo=TRUE, fig.width= 8, fig.height=6}
+```r
 #-----------------------------------------------------------
 # Simple graph prototype for a weighted network.
 
@@ -52,7 +52,7 @@ bip_ggnet(bip.net, as.matrix(bip),
 
 This graph uses function `bip_ggnet`, with labelling nodes modified with additional `geoms`.
 
-```{r numbered_nodes, eval=TRUE, echo=TRUE, fig.width= 8, fig.height=6}
+```r
 #-----------------------------------------------------------
 # Numbered nodes
 nums<- as.vector(c(1:sum(dim(nch))))
