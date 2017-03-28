@@ -11,6 +11,6 @@ To plot, we start with an adjacency or incidence matrix. I'm using matrices that
 
 From any adjacency matrix we can get a `network` object or an `igraph` object for plotting and analysis. 
 
-Code in the file `bip_ggnet.R` calls the functions which initialize a weighted bipartite network from its adjacency matrix and scale the edge weights. Then plots the network using function `ggnet2.R`. 
+Code in the file `bip_ggnet.R` calls the functions which initialize a weighted bipartite network from its adjacency matrix and scales the edge weights. Then plots the network using function `ggnet2.R`. 
 
 A detailed descripton of the code is in my [git pages](http://pedroj.github.io/bipartite_plots/).
