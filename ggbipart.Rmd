@@ -74,7 +74,9 @@ bip= data.frame(P1= c(1, 12, 6, 0),
 ```
 
 
-These are two example datasets of well-sampled plant-frugivore interaction networks from S Spain, read in the usual way.
+These are two example datasets of well-sampled plant-frugivore interaction networks from S Spain, read in the usual way. I also read the attributes files, i.e., data.frames with node characteristics that can be used later to label the nodes.
+
+Note that the matrices are read as data.frames. This is useful for later analysis. Yet it is very handy to have also these adjacency matrices in matrix form.
 
 ```{r read_data, eval=TRUE, echo=TRUE}
 # The Nava de las Correhuelas dataset.
@@ -112,7 +114,7 @@ source("./R/bip_init_network.R")
 source("./R/bip_init_igraph.R")
 
 test.net<- bip_init_network(mymat)
-# test.ig<- bip_init_igraph(mymat)
+test.ig<- bip_init_igraph(mymat)
 nch.net<- bip_init_network(nch) 
 nch.ig<- bip_init_igraph(nch)
 hr.net<- bip_init_network(hr)
@@ -133,7 +135,6 @@ Simple function to plot a bipartite network with the classic layout of two paral
 
 #### bip_ggnet
 Plotting bipartite networks from the adjacency matrix of a two-mode network. It uses the [`ggnet` package](https://briatte.github.io/ggnet/) extensively. 
-
 #### bip_igplot
 Function to plot a weighted bipartite network in `igraph`. Its inputs are the adjacency matrix, to get the dimensions from, and the igraph object 
 corresponding to the matrix.
@@ -141,6 +142,7 @@ corresponding to the matrix.
 
 ```{r source_functions, eval=TRUE, echo=TRUE}
 # Sourcing required functions and initializing the net objects.
+source("./R/bip_ggnet.R")
 source("./R/bip_igplot.R")
 source("./R/bip_qtplot.R")
 source("./R/bip_railway.R")
@@ -148,7 +150,6 @@ source("./R/vectorize.R")
 source("./R/bip_edgewt.R")
 
 ```
-
 
 
 ### Using `ggnet` for bipartite graphs
@@ -229,16 +230,16 @@ bip= data.frame(P1= c(1, 12, 6, 0),
                 P2= c(1, 0, 4, 0),
                 P3= c(1, 7, 3, 12),
      row.names= letters[1:4])
+bipmat<- as.matrix(bip)
 col= c("actor"= "grey80", "event"= "gold2")
 bip.net<- network(bip,
               matrix.type = "bipartite",
               ignore.eval = FALSE,
               names.eval = "weights") 
 
-ggnet2(bip.net, 
+bip_ggnet(bip.net, bipmat,
        color= "mode", palette = col, 
-       label= TRUE, shape= "mode",
-       edge.label= "weights")
+       label= TRUE)
 
 ```
 
