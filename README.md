@@ -1,7 +1,7 @@
-`ggbipart`: An `R` package for plotting bipartite networks
+Plotting bipartite networks
 ========================================================
 
-A series of `R` script files aimed to plot bipartite networks. Bipartite networks are a special type of network where nodes are of two distinct types or sets, so that connections (links) only exist among nodes of the different sets.
+This is a series of `R` script files aimed to plot bipartite networks. Bipartite networks are a special type of network where nodes are of two distinct types or sets, so that connections (links) only exist among nodes of the different sets.
 
 As in other types of network, bipartite structures can be binary (only the presence/absence of the links is mapped) or quantitative (weighted), where the links can have variable importance or weight.
 
@@ -78,7 +78,7 @@ pp3
 ![bip_ggnet1](http://pedroj.github.io/bipartite_plots/images/Rplot2.png)
 
 
-A detailed description of the code is in my [git pages](http://pedroj.github.io/bipartite_plots/).
+A detailed descripton of the code is in my [git pages](http://pedroj.github.io/bipartite_plots/).
 
 
 
