@@ -256,15 +256,15 @@ document.getElementById('foundation-loader').appendChild(loader_inner);}
       <section id="main_content" class="inner">
 <h2>ggbipart</h2>
 
-<p>This is a series of R functions aimed to plot bipartite networks within the <code>ggplot2</code> environment. The library relies heavily on code developed by Francois Briatte for the ggnet library.
+          <p>This is a series of R functions aimed to plot bipartite networks within the <code>ggplot2</code> environment. The library relies heavily on code developed by Francois Briatte for the <code>ggnet</code>code> library.
 
 Bipartite networks are a special type of network where nodes are of two distinct types or sets, so that connections (links) only exist among nodes of the different sets.
 
-As in other types of network, bipartite strucures can be binary (only the presence/absence of the links is mapped) or quantitative (weighted), where the links can have variable importance or weight.
+As in other types of network, bipartite structures can be binary (only the presence/absence of the links is mapped) or quantitative (weighted), where the links can have variable importance or weight.
 
-To plot, we start with an adjacency or incidence matrix. I’m using matrices that illustrate ecological interactions among species, such as the mutualisttic interactions of animal pollinators and plant flowers. The two sets (modes) of these bipartite networks are animals (pollinators) and plants species.
+To plot, we start with an adjacency or incidence matrix. I’m using matrices that illustrate ecological interactions among species, such as the mutualisttic interactions of animal pollinators and plant flowers. The two sets (modes) of these bipartite networks are animals (e.g., pollinators) and plants species.
 
-From any adjacency matrix we can get a network object or an igraph object for plotting and analysis.
+              From any adjacency matrix we can get a network object or an <code>igraph</code>code> object for plotting and analysis.
 </p>
 
 <h2> Required packages</h2>
@@ -331,8 +331,8 @@ This next example (from F. Briatte code) initializes a dataframe:
 
 <pre><code class="r">
 #————————————————————————————————————————————————————————————————
-# A weighted adjacency matrix. Rows are animal species; columns are plant 
-# species.
+# A weighted adjacency matrix. Rows are animal species; columns  
+# are plant species.
 bip= data.frame(P1= c(1, 12, 6, 0),
                 P2= c(1, 0, 4, 0),
                 P3= c(1, 7, 3, 12),
@@ -344,7 +344,7 @@ bip= data.frame(P1= c(1, 12, 6, 0),
 These are two example datasets of well-sampled plant-frugivore interaction networks from S Spain, read in the usual way. I also read the attributes files, i.e., data.frames with node characteristics that can be used later to label the nodes.
 <br>
 
-Note that the matrices are read as data.frames. This is useful for later analysis. Yet it is very handy to have also these adjacency matrices in matrix form.
+Note that the adjacency matrices are read as data.frames. This is useful for later analysis. Yet it is very handy to have also these adjacency matrices in matrix form.
 <br>
 
 <br>
@@ -370,7 +370,7 @@ hr_attr<- read.table("./data-raw/w97_node_attributes.csv",
 </code></pre>
 <br>
 
-Node attributes include different variables characterizing each individual node. These values can later be passed to the <code>bip_ggnet</code> funtions to modify graph properties of nodes.
+Node attributes include different variables characterizing each individual node. These values can later be passed to the <code>bip_ggnet</code> funtion to modify graph properties of nodes.
 <br>
 
 <br>
@@ -447,7 +447,7 @@ glimpse(hr_attr)
 </code></pre>
 <br>
 
-Here I use the function <code>bip_init_network</code> to initialize a few examples of bipartite networks. The function returns a network object. The equivelent function <code>bip_init_igraph</code> returns an igraph (graph) object.
+Here I use the function <code>bip_init_network</code> to initialize a few examples of bipartite networks. The function returns a network object. The equivalent function <code>bip_init_igraph</code> returns an igraph (graph) object.
 <br>
 
 <br>
@@ -475,7 +475,7 @@ The <code>ggbipart</code> package includes the following functions:
 
 <h4> bip_qtplot</h4> 
 
-Simple function to plot a weighted bipartite network in network object. The input is just the weighted (quantitative) adjacency matrix of a two-mode network. Uses objects of type <code>network</code>.
+Simple function to plot a weighted bipartite network in a network object. The input is just the weighted (quantitative) adjacency matrix of a two-mode network. Uses objects of type <code>network</code>.
 
 <h4>bip_railway</h4>
 
@@ -499,11 +499,13 @@ source("./R/bip_qtplot.R")
 source("./R/bip_railway.R")
 source("./R/vectorize.R")
 source("./R/bip_edgewt.R")
-Using bip_ggnet for bipartite graphs
-Bipartite networks with ggnet2 using the ggplot2 framework
 #————————————————————————————————————————————————————————————————
 </code></pre>
-<br>
+<br><br>
+
+<h2>Using bip_ggnet for bipartite graphs</h2>
+
+<h3>Bipartite networks with ggnet2 using the ggplot2 framework</h3>
 
 
 We first initialize the bipartite network; then use the adjacency matrix to compute scaled weighted edges with function <code>edgewt</code>. This is based in code from Francois Briatte, using package <code>ggnet</code>, function <code>ggnet2</code>.
@@ -514,7 +516,7 @@ We first initialize the bipartite network; then use the adjacency matrix to comp
 
 Let’s now assign vertex attributes obtained from the attributes file.
 
-The attributes can be passed to <code>ggnet2</code> to indicate that the nodes belong to a group. or have a given qualitative or quantitative attribute All the user has to do is to pass the name of the vertex attribute to the color argument, which will find it in the list of vertex attributes and use it to map the colors of the nodes:
+The attributes can be passed to <code>ggnet2</code> to indicate that the nodes belong to a group, or have a given qualitative or quantitative attribute. All the user has to do is to pass the name of the vertex attribute to the color argument, which will find it in the list of vertex attributes and use it to map the colors of the nodes:
 <br><br>
 
 <pre><code class="r">
@@ -544,7 +546,7 @@ This graph uses function <code>bip_railway</code>:
 <br>
 <pre><code class="r">
 #————————————————————————————————————————————————————————————————
-# Plot layout coordinates for railway networkplot. Input is the 
+# Plot layout coordinates for railway network plot. Input is the 
 # adjacency matrix.
 # 
 mymat <- read.delim("./data-raw/data.txt", row.names=1)   # Not run.
@@ -566,7 +568,7 @@ Label the edge weights directly into the edges of the graph; uses the <code>bip_
 
 <pre><code class="r">
 #————————————————————————————————————————————————————————————————
-# Labelled edges with edge weight.
+# Labelled edges with edge weights.
 
 bip= data.frame(P1= c(1, 12, 6, 0),
                 P2= c(1, 0, 4, 0),
@@ -725,7 +727,7 @@ sessionInfo()
 
 <h2>Acknowledgements</h2>
 
-This code benifits from comments and <code>R</code> code sharing by François Briatte and Scott Chamberlain.<br>
+This code benefits from comments and <code>R</code> code sharing by François Briatte and Scott Chamberlain.<br>
 
 Best wishes, and happy computing! -- Pedro<br><br>
 
