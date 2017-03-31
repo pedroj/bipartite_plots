@@ -29,21 +29,23 @@ data1<- melt(metam) ## transform to edgelist
 data<- subset(data1, value==1) ## select only interactions = 1
 head(data)
 dim(data)
-g3= graph.data.frame(data, directed=FALSE) # sets the graph framework
-V(g3)$mode <- c(rep("Plant",26),rep("Animal",36))
+vnames<- data.frame(species=append(row.names(metam),colnames(metam)),mode= c(rep("Plant",26),rep("Animal",36)))
+
+g3<- graph_from_data_frame(data1, directed=FALSE) # sets the graph framework
 
 # Convert igraph to list for networkD3
 sj_list3 <- igraph_to_networkD3(g3)
+sj_list3 <- c(sj_list3, data.frame(mode=c(rep("Plant",26),rep("Animal",36))))
 # Error: group must have the same number of rows as the number of nodes in g.
 # Need to convert the strating adjacency matrix to a square matrix using the 
 # canonical form.
 head(sj_list3)
 
 # Plot as a forceDirected Network
-a<-forceNetwork(Links= sj_list3$links, Nodes = sj_list3$nodes, 
-                 Source= 'source',
-                 Target= 'target', NodeID= 'name', 
-                 Group= 'group',
+# 
+a<-forceNetwork(Links= sj_list3$links, 
+                 Nodes= sj_list3$nodes,
+                 Group= sj_list3$mode,
                  zoom= TRUE, linkDistance= 200, opacity= 1.6) 
                  #colourScale = "d3.scale.category20f()")
  
