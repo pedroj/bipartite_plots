@@ -35,7 +35,7 @@ g3<- graph_from_data_frame(data1, directed=FALSE) # sets the graph framework
 
 # Convert igraph to list for networkD3
 sj_list3 <- igraph_to_networkD3(g3)
-sj_list3 <- c(sj_list3, data.frame(mode=c(rep("Plant",26),rep("Animal",36))))
+sj_list3$nodes <- data.frame(sj_list3$nodes, data.frame(group=c(rep("Plant",26),rep("Animal",36))))
 # Error: group must have the same number of rows as the number of nodes in g.
 # Need to convert the strating adjacency matrix to a square matrix using the 
 # canonical form.
@@ -44,10 +44,14 @@ head(sj_list3)
 # Plot as a forceDirected Network
 # 
 a<-forceNetwork(Links= sj_list3$links, 
-                 Nodes= sj_list3$nodes,
-                 Group= sj_list3$mode,
-                 zoom= TRUE, linkDistance= 200, opacity= 1.6) 
-                 #colourScale = "d3.scale.category20f()")
+                Source = 'source',
+                Target = 'target', 
+                Nodes = sj_list3$nodes,
+                NodeID = 'name',
+                # Nodes= sj_list3$nodes,
+                Group= 'group',
+                zoom= TRUE, linkDistance= 200, opacity= 1.6) 
+                #colourScale = "d3.scale.category20f()")
  
 a
 
