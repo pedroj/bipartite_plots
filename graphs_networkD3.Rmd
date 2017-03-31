@@ -1,0 +1,53 @@
+---
+title: "Bipartite graphs with networkD3"
+output: html_document
+---
+```{r input data}
+
+meta<- read.table("./data-raw/w96_adj_fru.csv", 
+                  header=T, sep=",", row.names=1,
+                  dec=".", na.strings="NA")
+metam<-as.matrix(meta)
+
+# Getting a square matrix by transforming to canonical form.
+dim(metam)
+dim(metam)[1]+dim(metam)[2]
+
+# ml<- list(metam,t(metam))
+# mm<- bdiag(ml)
+# row.names(mm)<- append(row.names(meta),colnames(meta))
+# colnames(mm)<- append(row.names(meta),colnames(meta))
+
+```
+
+```{r}
+# Load package
+library(networkD3); library(igraph); library(reshape2)
+
+data1<- melt(metam) ## transform to edgelist
+# head(data1)
+data<- subset(data1, value==1) ## select only interactions = 1
+head(data)
+dim(data)
+g3= graph.data.frame(data, directed=FALSE) # sets the graph framework
+V(g3)$mode <- c(rep("Plant",26),rep("Animal",36))
+
+# Convert igraph to list for networkD3
+sj_list3 <- igraph_to_networkD3(g3)
+# Error: group must have the same number of rows as the number of nodes in g.
+# Need to convert the strating adjacency matrix to a square matrix using the 
+# canonical form.
+head(sj_list3)
+
+# Plot as a forceDirected Network
+a<-forceNetwork(Links= sj_list3$links, Nodes = sj_list3$nodes, 
+                 Source= 'source',
+                 Target= 'target', NodeID= 'name', 
+                 Group= 'group',
+                 zoom= TRUE, linkDistance= 200, opacity= 1.6) 
+                 #colourScale = "d3.scale.category20f()")
+ 
+a
+
+```
+
