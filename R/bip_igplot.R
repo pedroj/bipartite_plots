@@ -1,9 +1,8 @@
 #' Plotting bipartite networks from adjacency matrix of a two-mode network.
 #'
-#' @import ggplot2
 #' @import igraph
-#' @param g the graph object
 #' @param mymat the adjacency matrix. Input can be a data.frame or a matrix, representing the adjacency matrix.
+#' @param g the graph object
 #'
 #' @details Plotting bipartite networks from adjacency weighted matrix of two-mode network. A modified version of the plotting, with package igraph.
 #' Requires input of the weighted "mymmat" matrix and its graph object, "g".

@@ -2,8 +2,7 @@
 #'
 #' @import network
 #' @param mat the adjacency matrix. Input can be a data.frame or a matrix, representing the adjacency matrix.
-#' @details Plotting a bipartite network from the weighted (quantitative) adjacency
-# matrix of a two-mode network. Uses objects of type network and a traditional plot.
+#' @details Plotting a bipartite network from the weighted (quantitative) adjacency matrix of a two-mode network. Uses objects of type network and a traditional plot.
 #'
 #' @return A plot object.
 #'
