@@ -17,7 +17,7 @@ This graph uses function `bip_railway`.
 # Plot layout coordinates for railway networkplot. Input is the
 # adjacency matrix.
 #
-mymat <- read.delim("./data-raw/data.txt", row.names=1)   # Not run.
+mymat <- read.delim("./data/data.txt", row.names=1)   # Not run.
 g<- bip_railway(mymat, label=T)
 g+ coord_flip()
 
