@@ -1,0 +1,57 @@
+# Hato Raton. Node attributes for the animal and plant modes.
+# Variables:
+# class, order, family, genus, species: higher taxonomic level and species
+# spcode, code for species name
+# w, body mass (g)
+# g, gape width for animals; fruit diameter for plants, mm
+# f, proportion of fruits in diet
+# a, local abundance (no. birds/ha)
+# geog, geographic area (no. localities with presence in 19 sites in S Spain)
+# ph, phenology; no. months present in the area or with ripe fruits available
+# pp, ps, pa, pu, proportions of forbidden interactions due to plehnological
+#       mismatch, size mismatch, accesibility constraints, and unknown causes
+# hab, main habitat type
+# diet, diet category
+# forag, foraging mode
+# noct, is nocturnal?
+# nativ, is native? (0 codes non native species)
+# frlen, fruit length, mm
+# fleshy, is the fruit fleshy?
+# seedm, seed dry mass (mg)
+# height, plant height (m)
+# grwform, growth form
+#
+class,order,family,genus,species,spcode,w,g,f,a,geog,ph,pp,ps,pa,pu,hab,diet,forag,noct,nativ,frlen,fleshy,seedm,height,grwform
+Aves,Passeriformes,Muscicapidae,Sylvia,Sylvia.atricapilla,Syatr,17.500,8.000,0.861,4.692,14.000,7.000,0.063,0.000,0.000,0.000,forest,fruit,solitary,0,1,NA,NA,NA,NA,NA
+Aves,Passeriformes,Muscicapidae,Sylvia,Sylvia.borin,Sybor,18.700,8.000,0.924,2.058,6.000,1.000,0.250,0.000,0.000,0.000,forest,fruit,solitary,0,1,NA,NA,NA,NA,NA
+Aves,Passeriformes,Muscicapidae,Erithacus,Erithacus.rubecula,Errub,15.800,8.500,0.659,16.150,13.000,7.000,0.125,0.188,0.000,0.000,forest,fruit,solitary,0,1,NA,NA,NA,NA,NA
+Aves,Passeriformes,Muscicapidae,Sylvia,Sylvia.melanocephala,Symel,11.500,6.600,0.739,15.908,10.000,12.000,0.000,0.125,0.000,0.000,other,fruit,solitary,0,1,NA,NA,NA,NA,NA
+Aves,Passeriformes,Muscicapidae,Turdus,Turdus.merula,Tumer,84.000,13.700,0.889,11.842,14.000,12.000,0.000,0.000,0.125,0.000,forest,fruit,solitary,0,1,NA,NA,NA,NA,NA
+Aves,Passeriformes,Muscicapidae,Turdus,Turdus.philomelos,Tuphi,65.800,12.200,0.989,1.325,14.000,3.000,0.438,0.063,0.063,0.125,forest,fruit,social,0,1,NA,NA,NA,NA,NA
+Aves,Passeriformes,Muscicapidae,Sylvia,Sylvia.communis,Sycom,16.900,7.300,0.962,0.650,12.000,1.000,0.375,0.063,0.000,0.000,forest,fruit,solitary,0,1,NA,NA,NA,NA,NA
+Aves,Passeriformes,Muscicapidae,Sylvia,Sylvia.hortensis,Syhor,25.000,8.300,0.660,0.008,2.000,2.000,0.375,0.000,0.000,0.000,forest,fruit,solitary,0,1,NA,NA,NA,NA,NA
+Aves,Passeriformes,Muscicapidae,Sylvia,Sylvia.cantillans,Sycan,10.900,5.700,0.683,1.008,6.000,1.000,0.313,0.250,0.000,0.063,forest,fruit,solitary,0,1,NA,NA,NA,NA,NA
+Aves,Passeriformes,Muscicapidae,Ficedula,Ficedula.hypoleuca,Fihyp,14.100,7.700,0.344,2.425,12.000,3.000,0.313,0.125,0.000,0.188,forest,other,solitary,0,1,NA,NA,NA,NA,NA
+Aves,Passeriformes,Muscicapidae,Phoenicurus,Phoenicurus.phoenicurus,Phpho,15.000,8.000,0.482,0.733,7.000,6.000,0.375,0.063,0.000,0.188,other,fruit,solitary,0,1,NA,NA,NA,NA,NA
+Aves,Passeriformes,Muscicapidae,Sylvia,Sylvia.undata,Syund,9.000,5.600,0.383,2.117,6.000,12.000,0.000,0.813,0.000,0.063,other,other,solitary,0,1,NA,NA,NA,NA,NA
+Aves,Passeriformes,Muscicapidae,Saxicola,Saxicola.torquata,Sator,14.900,8.500,0.007,0.800,4.000,6.000,0.313,0.063,0.125,0.063,other,other,solitary,0,1,NA,NA,NA,NA,NA
+Aves,Passeriformes,Corvidae,Cyanopica,Cyanopica.cyanus,Cycya,110.600,14.900,0.660,1.200,2.000,12.000,0.000,0.000,0.125,0.188,other,other,social,0,1,NA,NA,NA,NA,NA
+Aves,Passeriformes,Muscicapidae,Luscinia,Luscinia.megarhynchos,Lumeg,22.200,8.800,0.037,1.208,4.000,7.000,0.375,0.063,0.000,0.375,forest,other,solitary,0,1,NA,NA,NA,NA,NA
+Aves,Passeriformes,Muscicapidae,Muscicapa,Muscicapa.striata,Mustr,15.200,9.200,0.147,0.458,10.000,3.000,0.375,0.125,0.000,0.313,forest,other,solitary,0,1,NA,NA,NA,NA,NA
+Aves,Passeriformes,Sturnidae,Sturnus,Sturnus.unicolor,Stuni,62.000,9.500,0.800,0.492,2.000,5.000,0.500,0.000,0.063,0.000,other,fruit,social,0,1,NA,NA,NA,NA,NA
+Magnoliopsida,Sapindales,Anacardiaceae,Pistacia,Pistacia.lentiscus,Pilen,NA,5.500,NA,66.700,5.000,4.000,0.000,0.000,0.000,0.000,climax,NA,NA,NA,1,5.200,Yes,0.025,2.000,tree
+Magnoliopsida,Scrophulariales,Oleaceae,Olea,Olea.europaea,Oleur,NA,8.800,NA,8.325,2.000,4.000,0.353,0.118,0.000,0.000,climax,NA,NA,NA,1,11.800,Yes,0.221,2.800,tree
+Magnoliopsida,Scrophulariales,Oleaceae,Phillyrea,Phillyrea.angustifolia,Phang,NA,5.200,NA,2.262,5.000,2.000,0.059,0.059,0.000,0.118,climax,NA,NA,NA,1,5.200,Yes,0.029,2.000,tree
+Magnoliopsida,Rhamnales,Rhamnaceae,Rhamnu,Rhamnus.lycioides,Rhlyc,NA,6.100,NA,1.704,4.000,2.000,0.176,0.059,0.000,0.000,climax,NA,NA,NA,1,5.700,Yes,0.012,1.000,shrub
+Liliopsida,Dioscoreales,Smilacaceae,Smilax,Smilax.aspera,Smasp,NA,7.300,NA,0.364,3.000,5.000,0.000,0.118,0.000,0.176,climax,NA,NA,NA,1,7.300,Yes,0.026,1.500,shrub
+Magnoliopsida,Rosales,Rosaceae,Rubus,Rubus.ulmifolius,Ruulm,NA,11.800,NA,0.102,6.000,1.000,0.176,0.059,0.000,0.000,climax,NA,NA,NA,1,13.100,Yes,0.002,1.500,liana
+Magnoliopsida,Myrtales,Myrtaceae,Myrtus,Myrtus.communis,Mycom,NA,8.500,NA,1.850,2.000,2.000,0.412,0.000,0.000,0.000,climax,NA,NA,NA,1,11.500,Yes,0.005,1.500,shrub
+Magnoliopsida,Euphorbiales,Thymelaeaceae,Daphne,Daphne.gnidium,Dagni,NA,5.000,NA,1.430,3.000,3.000,0.059,0.000,0.000,0.235,climax,NA,NA,NA,1,6.200,Yes,0.009,0.800,shrub
+Magnoliopsida,Rubiales,Rubiaceae,Rubia,Rubia.pregrina,Rupre,NA,6.100,NA,0.001,5.000,2.000,0.471,0.059,0.000,0.118,climax,NA,NA,NA,1,5.800,Yes,0.009,1.000,liana
+Magnoliopsida,Santalales,Santalaceae,Osyris,Osyris.alba,Osalb,NA,9.400,NA,0.290,1.000,1.000,0.059,0.294,0.000,0.118,climax,NA,NA,NA,1,7.500,Yes,0.080,1.700,shrub
+Magnoliopsida,Rosales,Rosaceae,Crataegus,Crataegus.monogyna,Crmon,NA,9.300,NA,0.002,14.000,2.000,0.471,0.176,0.000,0.000,climax,NA,NA,NA,1,12.100,Yes,0.124,4.000,tree
+Magnoliopsida,Dipsacales,Caprifoliaceae,Lonicera,Lonicera.periclymenum,Loper,NA,6.800,NA,0.042,1.000,1.000,0.235,0.118,0.000,0.235,climax,NA,NA,NA,1,7.900,Yes,0.006,2.000,liana
+Liliopsida,Asparagales,Asparagaceae,Asparagus,Asparagus.acutifolius,Asacu,NA,7.100,NA,0.005,1.000,1.000,0.471,0.059,0.000,0.059,climax,NA,NA,NA,1,6.500,Yes,0.011,1.000,liana
+Liliopsida,Dioscoreales,Dioscoreaceae,Tamus,Tamus.communis,Tacom,NA,10.800,NA,0.015,2.000,1.000,0.294,0.353,0.000,0.059,climax,NA,NA,NA,1,11.800,Yes,0.019,0.800,liana
+Magnoliopsida,Rosales,Rosaceae,Pyrus,Pyrus.bourgaeana,Pybou,NA,23.300,NA,1.925,1.000,2.000,0.529,0.294,0.000,0.000,climax,NA,NA,NA,1,20.500,Yes,0.030,2.700,tree
+Liliopsida,Asparagales,Asparagaceae,Asparagus,Asparagus.aphyllus,Asaph,NA,7.400,NA,0.001,2.000,1.000,0.176,0.059,0.000,0.353,climax,NA,NA,NA,1,6.500,Yes,0.059,1.000,liana
