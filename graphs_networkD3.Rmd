@@ -22,7 +22,10 @@ dim(metam)[1]+dim(metam)[2]
 
 ```{r}
 # Load package
-library(networkD3); library(igraph); library(reshape2); library(ggbipart)
+require(networkD3)
+require(igraph)
+require(reshape2)
+require(ggbipart)
 
 g3<- bip_init_igraph(metam)
 table(V(g3)$type)
