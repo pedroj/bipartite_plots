@@ -8,7 +8,16 @@ Most of these data are available in other public repositories or as Supplementar
 
 In addition, I'm also collecting here other published data on plant-animal interaction networks. These are readily available in other public repositories (e.g., [NCEAS](http://www.nceas.org/)).
 
-The datasets include (`sd`: seed dispersal; `po`: pollination; `b##`: binary network; `w##`: weighted network; `_adj`: adjacency matrix). For some networks, both the binary and weighted matrices are provided.
+The datasets include  filenames with different codes:
+- `sd`: seed dispersal.
+- `po`: pollination.
+- `b##`: binary network.
+- `w##`: weighted network.
+- `_adj`: adjacency matrix).
+- `_fru`: weights based on number of fruits eaten (usually for adjacency matrices derived from faecal samples).
+- `_vis`: weights based on visitation data; visit data can be also re-weighted by no. fruits per visit, resulting in total feeding records (one feedig record= one fruit "touched").
+- `frqapp`: weights based on frequency of appearance (usually for adjacency matrices derived from faecal samples).
+For some networks, both the binary and weighted matrices are provided.
 
 #### Seed dispersal networks
 ```
