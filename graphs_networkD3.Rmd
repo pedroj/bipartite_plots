@@ -3,6 +3,11 @@ title: "Bipartite graphs with networkD3"
 output: html_document
 ---
 ```{r input data}
+# Load packages
+require(ggbipart)
+require(networkD3)
+require(igraph)
+require(reshape2)
 
 meta<- read.table("./data/sdw01_adj_fru.csv", 
                   header=T, sep=",", row.names=1,
@@ -17,15 +22,6 @@ dim(metam)[1]+dim(metam)[2]
 # mm<- bdiag(ml)
 # row.names(mm)<- append(row.names(meta),colnames(meta))
 # colnames(mm)<- append(row.names(meta),colnames(meta))
-
-```
-
-```{r}
-# Load package
-require(networkD3)
-require(igraph)
-require(reshape2)
-require(ggbipart)
 
 g3<- bip_init_igraph(metam)
 table(V(g3)$type)
