@@ -189,7 +189,7 @@ To use the mode of the nodes as the basis for their colors, all the user has to 
 # Plot layout coordinates for railway networkplot. Input is the 
 # adjacency matrix.
 # 
-mymat <- read.delim("./data-raw/data.txt", row.names=1)   # Not run.
+mymat <- read.table("./data/data.txt", row.names=1)   # Not run.
 g<- bip_railway(mymat, label=T)
 g+ coord_flip()
 
