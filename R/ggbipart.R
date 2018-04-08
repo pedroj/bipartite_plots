@@ -1,0 +1,27 @@
+#' A package to plot bipartite interaction networks in R.
+#'
+#' Bipartite networks
+#'
+#' The ggbipart package includes a series of R functions aimed to plot bipartite networks within the ggplot2 environment. The library relies heavily on code developed by Francois Briatte for the ggnet library. Bipartite networks are a special type of network where nodes are of two distinct types or sets, so that connections (links) only exist among nodes of the different sets. As in other types of network, bipartite structures can be binary (only the presence/absence of the links is mapped) or quantitative (weighted), where the links can have variable importance or weight. To plot, we start with an adjacency or incidence matrix. I’m using matrices that illustrate ecological interactions among species, such as the mutualisttic interactions of animal pollinators and plant flowers. The two sets (modes) of these bipartite networks are animals (e.g., pollinators) and plants species. From any adjacency matrix we can get a network object or an igraph object for plotting and analysis.
+#'
+#' Installation.
+#'
+#' # devtools::install_github("pedroj/ggbipart")
+#'
+#' # library(ggbipart)
+#' Suggested references:
+#' Pocock, M.J.O., Evans, D.M., Fontaine, C., Harvey, M., Julliard, R., McLaughlin, ??rla, Silvertown, J., Tamaddoni-Nezhad, A., White, P.C.L. & Bohan, D.A. (2016) The visualisation of ecological networks, and their use as a tool for engagement, advocacy and management. Advances in Ecological Research, 1st ed, pp. 41–85. Elsevier Ltd.
+#' Bascompte, J. & Jordano, P. (2014) Mutualistic Networks. Princeton University Press, Princeton, NJ.
+#'
+#' @import ggplot2
+#' @import network
+#' @import igraph
+#' @import sna
+#' @import intergraph
+#'
+#' @name ggbipart
+#' @docType package
+#' @author Pedro Jordano
+#' @keywords package
+#'
+NULL

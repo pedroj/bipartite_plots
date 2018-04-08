@@ -31,7 +31,7 @@ bip_ggnet<- function(net, mat, mode= "fruchtermanreingold", size= 9,
                      edge.label = NULL,
                      layout.exp= 0)
 {
-    source("./R/bip_edgewt.R")
+#    source("./R/bip_edgewt.R")
     if(!is.network(net)) stop("Must first initialize the network; use 'bip_init_network.R'.")
     #
     # Set colors for each mode to setup a palette.

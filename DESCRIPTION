@@ -1,21 +1,23 @@
-Package: effect.lndscp
-Title: Effectiveness landscapes
+Package: ggbipart
+Title: Plots for bipartite networks in R
 Version: 0.1.2
 Authors@R: person("Pedro", "Jordano", email = "jordano@ebd.csic.es",
                   role = c("aut", "cre"))
-Description: A function for plotting the effectiveness landscape of mutualisms
-    adding isolines of equal effectiveness values. Effectiveness landscapes
-    are the two-dimensional representation of the possible combinations of the
-    quantity and the quality of mutualistic services (seed dispersal, pollination)
-    and with elevational contours representing isoclines of effectiveness. These
-    representations can be 2D bivariate plots of multiplicative effects of any of
-    the seed dispersal (SDE) or pollination (PE) effectiveness components. This is a
-    repository of code used to produce these plots.
+Description: A package for plotting bipartite networks in R using ggplot functions. This is a repository of code used to produce these plots.
 Depends:
-    R (>= 3.1.0)
+    ggplot2 (>= 2.0.0),
+    R (>= 3.1),
 Imports:
-    ggplot2
-URL: http://pedroj.github.com/effectiveness/,http://ebd10.ebd.csic.es/resources/
+    ggrepel (>= 0.5),
+    network,
+    sna,
+    bipartite,
+    utils
+Suggests:
+    intergraph,
+    knitr,
+    testthat
+URL: http://pedroj.github.com/ggbipart/,http://ebd10.ebd.csic.es/resources/
 License: GPL-3
 LazyData: true
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.1
