@@ -17,11 +17,6 @@
 # Create the graph object (a bipartite, weighted graph) for igraph.
 bip_init_igraph <- function (mat) {
                 require(igraph)
-<<<<<<< HEAD
-                graph_from_incidence_matrix(mat, 
-=======
                 graph_from_incidence_matrix(mat,
->>>>>>> ggbipart
                         weighted= T, add.names= NULL)
 }
- 

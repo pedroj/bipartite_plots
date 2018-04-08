@@ -14,13 +14,10 @@
 #' #### NOT RUN # Working on it.
 #' #------------------------------------------------------------------------
 #---------------------------------------------------------------------------
-<<<<<<< HEAD
 # Function to initialize a bipartite web for library network (type network),
 # starting from its adjacency matrix.
 # Usually we assume animal species are rows, plant species are columns.
 #---------------------------------------------------------------------------
-=======
->>>>>>> ggbipart
 bip_init_network <- function (mymat, mode1="P", mode2="A") {
     require(network)
     require(ggnet)

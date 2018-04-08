@@ -79,20 +79,20 @@ Note that the matrices are read as data.frames. This is useful for later analysi
 
 ```{r read_data, eval=TRUE, echo=TRUE}
 # The Nava de las Correhuelas dataset.
-nch<- read.table("./data-raw/w96_adj_fru.csv", 
+nch<- read.table("./data/sdw01_adj_fru.csv", 
                   header=T, sep=",", row.names=1,
                   dec=".", na.strings="NA")
 ## Node attributes
-nch_attr<- read.table("./data-raw/w96_node_attributes.csv", 
+nch_attr<- read.table("./data/sdw01_node_attributes.csv", 
                   header=T, sep=",", 
                   dec=".", na.strings="NA")
 
 # The Hato Raton dataset.
-hr<- read.table("./data-raw/w97_adj_fru.csv", 
+hr<- read.table("./data/sdw02_adj_fru.csv", 
                   header=T, sep=",", row.names=1,
                   dec=".", na.strings="NA")
 ## Node attributes
-hr_attr<- read.table("./data-raw/w97_node_attributes.csv", 
+hr_attr<- read.table("./data/sdw01_node_attributes.csv", 
                   header=T, sep=",", 
                   dec=".", na.strings="NA")
 
@@ -280,7 +280,6 @@ pp3<- bip_ggnet(nch.net, as.matrix(nch),
 pp3
 
 ```
-
 
 
 ```{r session_info, eval=TRUE, echo=TRUE}
