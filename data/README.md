@@ -43,3 +43,9 @@ For some networks, both the binary and weighted matrices are provided.
 pow01
 
 ```
+
+#### Others
+```
+- data.txt                      A simple adjacency matrix example. Not empirical data.
+
+```
