@@ -1,4 +1,4 @@
-#' Function to initialize a bipartite web for library network (type network).
+#' Function to plot a bipartite weighted network.
 #'
 #' @import network
 #' @param mat the adjacency matrix. Input can be a data.frame or a matrix, representing the adjacency matrix.

@@ -2,6 +2,7 @@
 
 export(A)
 export(bip_edgewt)
+export(bip_igplot)
 export(net)
 export(object.)
 import(ggnet)
