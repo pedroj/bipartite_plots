@@ -1,6 +1,6 @@
 #' Function to plot layout coordinates for railway network plot.
 #' @import network
-#' @param mymat the adjacency matrix.
+#' @param mymat A matrix whose rows contain the x,y coordinates of the vertices of d.
 #' @details Plotting a bipartite network from the weighted (quantitative) adjacency matrix of a two-mode network.
 #'
 #' # Code for separately nudging and rotating labels of modes.
@@ -16,9 +16,6 @@
 #' #### NOT RUN # Working on it.
 #' #------------------------------------------------------------------------
 #---------------------------------------------------------------------------
-#
-# A matrix whose rows contain the x,y coordinates of the vertices of d.
-#
 bip_railway <- function (mymat, nodesize=9, label=F) {
         # Coords for mode "A"
         coordP<- cbind(rep(2,dim(mymat)[1]), seq(1, dim(mymat)[1])+2)

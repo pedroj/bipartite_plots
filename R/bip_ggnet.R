@@ -1,7 +1,6 @@
 #' Plotting bipartite networks from adjacency matrix of a two-mode network.
 #'
 #' @import ggplot2
-#' @import ggnet
 #' @param net the net object
 #' @param mat the adjacency matrix. Input can be a data.frame or a matrix, representing the adjacency matrix.
 #' @param mode the type of energy-minimization algorithm to plot the network. By default it's mode= "fruchtermanreingold".
@@ -16,17 +15,17 @@
 #' #---------------------------------------------------------------------------
 #'
 #' @return A vector of scaled edge weights for plotting.
-#' @export A net object.
+#' @export
 #'
 #' @examples
 #' #------------------------------------------------------------------------
 #' # Example:      ## NOT RUN
-#' pp +
-#'     geom_point(aes(color = color), size = 12, color = "white") +
-#'     geom_point(aes(color = color), size = 12, alpha = 0.5) +
-#'     geom_point(aes(color = color), size = 9) +
-#'     geom_text(aes(label= network.vertex.names(net)), color = "black") +
-#'     guides(color = FALSE)
+#' # pp +
+#' #   geom_point(aes(color = color), size = 12, color = "white") +
+#' #   geom_point(aes(color = color), size = 12, alpha = 0.5) +
+#' #   geom_point(aes(color = color), size = 9) +
+#' #   geom_text(aes(label= network.vertex.names(net)), color = "black") +
+#' #   guides(color = FALSE)
 #' #### NOT RUN
 #' #------------------------------------------------------------------------
 #------------------------------------------------------------------------------

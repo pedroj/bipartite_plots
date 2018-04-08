@@ -2,7 +2,7 @@
 % Please edit documentation in R/bip_qtplot.R
 \name{bip_qtplot}
 \alias{bip_qtplot}
-\title{Function to initialize a bipartite web for library network (type network).}
+\title{Function to plot a bipartite weighted network.}
 \usage{
 bip_qtplot(mat)
 }
@@ -13,10 +13,10 @@ bip_qtplot(mat)
 A plot object.
 }
 \description{
-Function to initialize a bipartite web for library network (type network).
+Function to plot a bipartite weighted network.
 }
 \details{
-Plotting a bipartite network from the weighted (quantitative) adjacency
+Plotting a bipartite network from the weighted (quantitative) adjacency matrix of a two-mode network. Uses objects of type network and a traditional plot.
 }
 \examples{
 #------------------------------------------------------------------------

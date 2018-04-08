@@ -34,12 +34,12 @@ To use the mode of the nodes as the basis for their colors, all the user has to 
 \examples{
 #------------------------------------------------------------------------
 # Example:      ## NOT RUN
-pp +
-    geom_point(aes(color = color), size = 12, color = "white") +
-    geom_point(aes(color = color), size = 12, alpha = 0.5) +
-    geom_point(aes(color = color), size = 9) +
-    geom_text(aes(label= network.vertex.names(net)), color = "black") +
-    guides(color = FALSE)
+# pp +
+#   geom_point(aes(color = color), size = 12, color = "white") +
+#   geom_point(aes(color = color), size = 12, alpha = 0.5) +
+#   geom_point(aes(color = color), size = 9) +
+#   geom_text(aes(label= network.vertex.names(net)), color = "black") +
+#   guides(color = FALSE)
 #### NOT RUN
 #------------------------------------------------------------------------
 }

@@ -21,6 +21,6 @@ Create the graph object (a bipartite, weighted graph) for igraph.
 }
 \examples{
 #------------------------------------------------------------------------
-#### NOT RUN # Working on it.
+#### NOT RUN. Working on it.
 #------------------------------------------------------------------------
 }

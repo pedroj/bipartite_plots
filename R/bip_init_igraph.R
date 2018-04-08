@@ -1,6 +1,5 @@
 #' Function to initialize a bipartite web for library igraph (type igraph).
 #'
-#' @import igraph
 #' @param mat the adjacency matrix. Input can be a data.frame or a matrix, representing the adjacency matrix.
 #'
 #' @details Function to initialize a bipartite web for library igraph (type igraph), starting from a weighted adjacency matrix.
@@ -10,7 +9,7 @@
 #'
 #' @examples
 #' #------------------------------------------------------------------------
-#' #### NOT RUN # Working on it.
+#' #### NOT RUN. Working on it.
 #' #------------------------------------------------------------------------
 #------------------------------------------------------------------------------
 # Function to initialize a bipartite web for library

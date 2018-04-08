@@ -24,6 +24,6 @@ Requires input of the weighted "mymmat" matrix and its graph object, "g".
 }
 \examples{
 #------------------------------------------------------------------------
-Working on it.
+# Working on it.
 #------------------------------------------------------------------------
 }

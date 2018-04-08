@@ -1,6 +1,5 @@
 #' Plotting bipartite networks from adjacency matrix of a two-mode network.
 #'
-#' @import igraph
 #' @param mymat the adjacency matrix. Input can be a data.frame or a matrix, representing the adjacency matrix.
 #' @param g the graph object
 #'
@@ -13,7 +12,7 @@
 #'
 #' @examples
 #' #------------------------------------------------------------------------
-#' Working on it.
+#' # Working on it.
 #' #------------------------------------------------------------------------
 #------------------------------------------------------------------------------
 bip_igplot <- function (mymat, g) {
