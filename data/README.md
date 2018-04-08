@@ -1,7 +1,7 @@
+### Plant-animal interactions network datasets
 #
-# WORKING ON IT!!!!
+### _WORKING ON IT!!!!_
 #
-# Plant-animal interactions network datasets
 My network datasets, with metadata. A repository of my own data on plant-animal interaction networks, to keep them centralized and readily updated.
 
 Most of these data are available in other public repositories or as Supplementary Data in papers already published. As a live and continuously improving project, some of these network datasets, are updated with new records and field observations. Thus, relatively minor changes have been made to the datasets since the early publications. This repository includes the most updated datasets.
