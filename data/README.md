@@ -8,14 +8,14 @@ Most of these data are available in other public repositories or as Supplementar
 
 In addition, I'm also collecting here other published data on plant-animal interaction networks. These are readily available in other public repositories (e.g., [NCEAS](http://www.nceas.org/)).
 
-The datasets include (`sd`: seed dispersal; `po`: pollination; `b##`: binary network; `w##`: weighted network).
+The datasets include (`sd`: seed dispersal; `po`: pollination; `b##`: binary network; `w##`: weighted network; `_adj`: adjacency matrix). For some networks, both the binary and weighted matrices are provided.
 
 #### Seed dispersal networks
 ```
 - sdw01 PJordano_Spain_NCH.     Nava de las Correhuelas, Sierra de
                                 Cazorla, Segura y Las Villas, Jaén,
-                                Spain.
-- sdw02 PJordano_Spain_HR.      Hato Ratón, Sevilla, Spain.
+                                Spain. Binary and weighted.
+- sdw02 PJordano_Spain_HR.      Hato Ratón, Sevilla, Spain. Binary and weighted.
 - sdw03 PJordano_Spain_NNOG.    Nava Noguera, Sierra de Cazorla,
                                 Segura y Las Villas, Jaén, Spain.
 - sdw04 PJordano_Spain_SNev.    Campos de Otero, Sierra Nevada,
