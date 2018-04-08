@@ -4,7 +4,7 @@ output: html_document
 ---
 ```{r input data}
 
-meta<- read.table("./data-raw/w96_adj_fru.csv", 
+meta<- read.table("./data/sdw01_adj_fru.csv", 
                   header=T, sep=",", row.names=1,
                   dec=".", na.strings="NA")
 metam<-as.matrix(meta)
@@ -22,7 +22,7 @@ dim(metam)[1]+dim(metam)[2]
 
 ```{r}
 # Load package
-library(networkD3); library(igraph); library(reshape2)
+library(networkD3); library(igraph); library(reshape2); library(ggbipart)
 
 g3<- bip_init_igraph(metam)
 table(V(g3)$type)
