@@ -81,4 +81,4 @@ pp3
 A detailed descripton of the code is in my [git pages](http://pedroj.github.io/bipartite_plots/).
 
 
-[<img src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png">](http://google.com.au/)
+[<img src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png">](https://creativecommons.org/licenses/by-nc/4.0/)
