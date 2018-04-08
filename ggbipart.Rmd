@@ -20,15 +20,13 @@ require(network)
 require(igraph)
 require(sna)
 require(ggnet)
-require(ggrepel)
 require(ergm)
 require(intergraph)
 require(RColorBrewer)
 
 ```
 
-Here I plot bipartite networks from their adjacency matrices, i.e., the two-mode networks. The standard way to input an adjacency matrix is from a `.txt or a `.csv` file.
-
+Here I plot bipartite networks from their adjacency matrices, i.e., the two-mode networks. The standard way to input an adjacency matrix is from a `.txt` or a `.csv` file. Most packages like `network`, `igraph` or `statnet` also accept edge-list archives. These have the form of a three-column array with `node1 node2 i` or `node1 node2 w`, where `node1` and `node2` are two nodes that interact, and `i`or `w` are the presence/abscence of interaction (`i= 0 o r i= 1`) or the edge weight (`w`) in the case of weighted networks.
 
 ### Initializing bipartite webs as `network` objects
 
@@ -75,32 +73,26 @@ bip= data.frame(P1= c(1, 12, 6, 0),
 ```
 
 
-These are two example datasets of well-sampled plant-frugivore interaction networks from S Spain, read in the usual way.
+These are two example datasets of well-sampled plant-frugivore interaction networks from S Spain, read in the usual way. I also read the attributes files, i.e., data.frames with node characteristics that can be used later to label the nodes.
+
+Note that the matrices are read as data.frames. This is useful for later analysis. Yet it is very handy to have also these adjacency matrices in matrix form.
 
 ```{r read_data, eval=TRUE, echo=TRUE}
 # The Nava de las Correhuelas dataset.
-nch<- read.table("./data-raw/w96.csv", 
+nch<- read.table("./data-raw/w96_adj_fru.csv", 
                   header=T, sep=",", row.names=1,
                   dec=".", na.strings="NA")
-## Node attributes, animals
-nch_A<- read.table("./data-raw/w96_animal.csv", 
-                  header=T, sep=",", 
-                  dec=".", na.strings="NA")
-## Node attributes, plants
-nch_P<- read.table("./data-raw/w96_plant.csv", 
+## Node attributes
+nch_attr<- read.table("./data-raw/w96_node_attributes.csv", 
                   header=T, sep=",", 
                   dec=".", na.strings="NA")
 
 # The Hato Raton dataset.
-hr<- read.table("./data-raw/w97.csv", 
+hr<- read.table("./data-raw/w97_adj_fru.csv", 
                   header=T, sep=",", row.names=1,
                   dec=".", na.strings="NA")
-## Node attributes, animals
-hr_A<- read.table("./data-raw/w97_animal.csv", 
-                  header=T, sep=",", 
-                  dec=".", na.strings="NA")
-## Node attributes, plants
-hr_P<- read.table("./data-raw/w97_plant.csv", 
+## Node attributes
+hr_attr<- read.table("./data-raw/w97_node_attributes.csv", 
                   header=T, sep=",", 
                   dec=".", na.strings="NA")
 
@@ -109,10 +101,8 @@ hr_P<- read.table("./data-raw/w97_plant.csv",
 Node attributes include different variables characterizing each individual node. These values can later be passed to the `bip_ggnet` funtions to modify graph properties of nodes.
 
 ```{r node_attributes, eval=TRUE, echo=TRUE}
-glimpse(nch_A)
-glimpse(nch_P)
-glimpse(hr_A)
-glimpse(hr_P)
+glimpse(nch_attr)
+glimpse(hr_attr)
 
 ```
 
@@ -122,12 +112,10 @@ Here I use the function `bip_init_network` to initialize a few examples of  bipa
 source("./R/bip_init_network.R")
 source("./R/bip_init_igraph.R")
 
-# test.net<- bip_init_network(mymat)
-# test.ig<- bip_init_igraph(mymat)
-nch.net<- bip_init_network(nch) 
-nch.ig<- bip_init_igraph(nch)
-hr.net<- bip_init_network(hr)
-hr.ig<- bip_init_igraph(hr)
+nch.net<- bip_init_network(nch)     # Network object
+nch.ig<- bip_init_igraph(nch)       # igraph object
+hr.net<- bip_init_network(hr)       # Network object
+hr.ig<- bip_init_igraph(hr)         # igraph object
 
 ```
 
@@ -144,7 +132,6 @@ Simple function to plot a bipartite network with the classic layout of two paral
 
 #### bip_ggnet
 Plotting bipartite networks from the adjacency matrix of a two-mode network. It uses the [`ggnet` package](https://briatte.github.io/ggnet/) extensively. 
-
 #### bip_igplot
 Function to plot a weighted bipartite network in `igraph`. Its inputs are the adjacency matrix, to get the dimensions from, and the igraph object 
 corresponding to the matrix.
@@ -152,6 +139,7 @@ corresponding to the matrix.
 
 ```{r source_functions, eval=TRUE, echo=TRUE}
 # Sourcing required functions and initializing the net objects.
+source("./R/bip_ggnet.R")
 source("./R/bip_igplot.R")
 source("./R/bip_qtplot.R")
 source("./R/bip_railway.R")
@@ -161,27 +149,13 @@ source("./R/bip_edgewt.R")
 ```
 
 
-
-### Using `ggnet` for bipartite graphs
+### Using `bip_ggnet` for bipartite graphs
 #### Bipartite networks with `ggnet2` using the `ggplot2` framework
 
-We first initialize the bipartite network; then uses the adjacency matrix to compute scaled weighted edges with function edgewt. This is based in code from Francois Briatte, using package `ggnet`, function `ggnet2`.
+We first initialize the bipartite network; then use the adjacency matrix to compute scaled weighted edges with function edgewt. This is based in code from Francois Briatte, using package `ggnet`, function `ggnet2`.
 
 `ggnet2` automatically detects two-mode graphs from their bipartite network attribute. To simplify the plotting of each mode, it understands arguments of the form [alpha, color, shape, size] = "mode", which will mark the primary mode as `"actor"` and the secondary mode as `"event"`.
 
-```{r bip_ggnet_prototype, eval=TRUE, echo=TRUE, fig.width= 8, fig.height=6}
-# Plotting bipartite networks from adjacency matrix of two-mode network.
-# Using ggnet. 
-# DATE: 15Jul2013. Updated to ggnet 11/11/2016.
-#
-require(ggnet)
-require(ggrepel)
-#
-# test.net<- bip_init_network(mymat)
-mynet<- nch.net
-if(!is.network(nch.net)) stop("Must first initialize the network; use 'bip_init_network.R'.")
-
-```
 
 ##### Node colors
 Let’s now assign a vertex attribute called phono, which indicates whether the name of the vertex is a vowel or a consonant:
@@ -190,16 +164,17 @@ This attribute can be passed to ggnet2 to indicate that the nodes belong to a gr
 
 
 ```{r vertex_attr, eval=FALSE, echo=TRUE}
-# First, join the attributes for animals and plants.
-require(dplyr)
-nch_att<- full_join(nch_A,nch_P)
-names(nch_att)
+# Attributes for animals and plants.
+names(nch_attr)
 
-# Load in the preferred attributes 
-nch.net %v% "Fam"= nch_att$Family    
-nch.net %v% "Gen"= nch_att$Genus    
-nch.net %v% "BM"= nch_att$Body_mass    
-nch.net %v% "FrLen"= nch_att$Fruit_length
+# Load in the preferred attributes
+# We need to convert factors to chars in order to assign the attributes.
+Fam<- as.character(nch_attr$family)
+nch.net %v% "Fam"= Fam    
+Gen<- as.character(nch_attr$genus)
+nch.net %v% "Gen"= Gen    
+nch.net %v% "BM"= nch_attr$w    
+nch.net %v% "FrDiam"= nch_attr$g
 
 ```
 
@@ -215,54 +190,42 @@ To use the mode of the nodes as the basis for their colors, all the user has to 
 # adjacency matrix.
 # 
 mymat <- read.delim("./data-raw/data.txt", row.names=1)   # Not run.
-bip_railway(mymat, label=T)
+g<- bip_railway(mymat, label=T)
+g+ coord_flip()
 
 ```
 
-
-```{r simple_graph_prototype_unwt, eval=TRUE, echo=TRUE, fig.width= 8, fig.height=6}
-# Detect and color the mode
-col= c("actor"= "grey80", "event"= "gold2")
-ggnet2(mynet, 
-       color= "mode", palette= col, 
-       label= TRUE, label.size=3,
-       layout.exp= 0.25)        # Using layout.exp because of long labels
-
-```
 
 ###### Weighted
 
+Label the edge weights directly into the edges of the graph.
+
 ```{r simple_graph_prototype_wt1, eval=TRUE, echo=TRUE, fig.width= 8, fig.height=6}
-# Label weights directly into edges
+
 bip= data.frame(P1= c(1, 12, 6, 0),
                 P2= c(1, 0, 4, 0),
                 P3= c(1, 7, 3, 12),
      row.names= letters[1:4])
+col= c("A"= "grey80", "P"= "gold2")
+bip.net<- bip_init_network(as.matrix(bip)) 
 
-bip.net<- network(bip,
-              matrix.type = "bipartite",
-              ignore.eval = FALSE,
-              names.eval = "weights") 
-
-ggnet2(bip.net, 
-       color= "mode", palette = col, 
-       label= TRUE, shape= "mode",
-       edge.label= "weights")
+bip_ggnet(bip.net, as.matrix(bip), 
+       #  color= "mode", palette = col, 
+          edge.label = "weights",
+          label= TRUE)
 
 ```
 
 ```{r simple_graph_prototype_wt2, eval=TRUE, echo=TRUE, fig.width= 8, fig.height=6}
 # Set colors for each mode
-col= c("actor"= "#FC9272", "event"= "#9ECAE1")
-
-pp<- ggnet2(hr.net, size=7,
-          shape= "mode", #label= T,
+col= c("P"= "#FC9272", "A"= "#9ECAE1")
+pp<- bip_ggnet(hr.net, as.matrix(hr),
+          size=7, shape= "mode", #label= T,
           color= "mode", palette= col, 
-          edge.size= bip_edgewt(hr, 5), 
-          edge.alpha= 0.25,
           layout.exp= 0.25) + 
           geom_text(aes(label= network.vertex.names(hr.net)),
-                        color= "black", size= 3)
+                        color= "black", size= 3) +
+          theme(legend.position="none")                 # Hide legend
 pp
 
 ```
@@ -271,8 +234,10 @@ pp
 Antother alternative is to pass the node colors directly, with a vector  of node colors that has exactly the same length as the number of nodes in the network:  
 
 ```{r direct_colors, eval=TRUE, echo=TRUE, fig.width= 8, fig.height=6}
-pp1<- ggnet2(nch.net, size= 6, color= "mode", label= T, label.size=3,
-       palette= c("actor"= "indianred3", "event"= "steelblue4"))
+pp1<- bip_ggnet(nch.net, as.matrix(nch),
+                size= 6, color= "mode", label= T, label.size=2,
+                palette= c("P"= "indianred3", "A"= "steelblue4")) +
+                theme(legend.position="none")           # Hide legend
 pp1
 
 
@@ -280,60 +245,42 @@ pp1
 
 
 ```{r variations1, eval=TRUE, echo=TRUE, fig.width= 8, fig.height=6}
-pp2<- ggnet2(nch.net, size= 0,
+pp2<- bip_ggnet(nch.net, as.matrix(nch),
+          size= 0,
           shape= "mode", 
           palette= "Set1",
           color= "mode",
-          edge.size= bip_edgewt(nch, 7.5), 
-          edge.alpha= 0.25,
           layout.exp= 0.25) +
-          geom_point(aes(color= color), size= 10, color= "white") +
-          geom_point(aes(color= color), size= 10, alpha= 0.5) +
-          geom_point(aes(color= color), size= 8) +
+          geom_point(aes(color= color), size= 8, color= "white") +
+          geom_point(aes(color= color), size= 8, alpha= 0.5) +
+          geom_point(aes(color= color), size= 6) +
           geom_text(aes(label= network.vertex.names(nch.net)), 
                     color= "black", size= 3.5) + # check_overlap= TRUE
-          guides(color= FALSE)
+          guides(color= FALSE) +
+          theme(legend.position="none")          # Hide legend
 pp2
 
 ```
 
 ```{r numbered_nodes, eval=TRUE, echo=TRUE, fig.width= 8, fig.height=6}
 nums<- as.vector(c(1:sum(dim(nch))))
-pp3<- ggnet2(nch.net, size= 0,
+pp3<- bip_ggnet(nch.net, as.matrix(nch),
+          size= 0,
           shape= "mode", 
           palette= "Set1",
           color= "mode",
-          edge.size= bip_edgewt(nch, 7.5), 
-          edge.alpha= 0.5,
           layout.exp = 0.25) +
           geom_point(aes(color= color), size= 10, color= "white") +
           geom_point(aes(color= color), size= 10, alpha= 0.5) +
           geom_point(aes(color= color), size= 8) +
           geom_text(aes(label= nums), 
                     color= "white", size= 3.5, fontface="bold") + 
-          guides(color= FALSE)
+          guides(color= FALSE) +
+          theme(legend.position="none")          # Hide legend
 pp3
 
 ```
 
-```{r label_repel, eval=TRUE, echo=TRUE, fig.width= 8, fig.height=6}
-pp4<- ggnet2(nch.net, size= 7,
-          shape= "mode", 
-          palette= "Set1",
-          color= "mode",
-          edge.size= bip_edgewt(nch, 7.5), 
-          edge.alpha= 0.25,
-          layout.exp = 0.25) +
-          guides(color= FALSE) +
-# This is how the check overlap option in ggnet2 goes.    
-          # geom_text(aes(label= network.vertex.names(nch.net)), 
-          #         color= "black", size= 3.5) + # check_overlap= TRUE
-# This uses ggrepel.    
-          geom_text_repel(aes(label= network.vertex.names(nch.net)),
-                    color= "black", size= 3.5)
-pp4
-
-```
 
 
 ```{r session_info, eval=TRUE, echo=TRUE}

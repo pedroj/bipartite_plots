@@ -1,3 +1,10 @@
+# Hato Raton. Weighted adjacency matrix, with elements corresponding to the 
+# frequency of appearance of fruit species in feces. Figures are the number of 
+# appearances of each fruit species in samples from a given frugivore species.
+# 
+# Cumulative dataset of fecal sample analysis for furgivorous birds.
+# Each record is a presence of a fruit species in a sample.
+#
 ,Sylvia.atricapilla,Sylvia.borin,Erithacus.rubecula,Sylvia.melanocephala,Turdus.merula,Turdus.philomelos,Sylvia.communis,Sylvia.hortensis,Sylvia.cantillans,Ficedula.hypoleuca,Phoenicurus.phoenicurus,Sylvia.undata,Saxicola.torquata,Cyanopica.cyanus,Luscinia.megarhynchos,Muscicapa.striata,Sturnus.unicolor
 Pistacia.lentiscus,452,146,191,33,92,7,12,6,14,36,6,12,4,6,4,10,22
 Olea.europaea,76,1,28,2,18,12,0,0,0,0,0,0,1,1,0,0,10

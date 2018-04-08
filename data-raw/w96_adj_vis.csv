@@ -1,4 +1,7 @@
-,Columba.palumbus,Corvus.corax,Corvus.corone,Dendrocopos.major,Erithacus.rubecula,Ficedula.hypoleuca,Phoenicurus.ochruros,Phoenicurus.phoenicurus,Pica.pica,Sylvia.atricapilla,Sylvia.borin,Sylvia.cantillans,Sylvia.communis,Sylvia.conspicillata,Sylvia.melanocephala,Turdus.iliacus,Turdus.merula,Turdus.philomelos,Turdus.pilaris,Turdus.torquatus,Turdus.viscivorus,Garrulus.glandarius,Parus.ater,Sitta.europaea,Emberiza.cia,Fringilla.coelebs,Parus.caeruleus,Parus.cristatus,Parus.major,Serinus.citinella,Serinus.serinus,Coccothraustes.coccothraustes,Loxia.curvirostra,Vulpes.vulpes,Meles.meles,Martes.foina
+# Nava Correhuelas.
+# Cumulative dataset of feeding records by furgivorous birds.
+# Each record is a visit event (Snow and Snow 1982).
+,Columba.palumbus,Corvus.corax,Corvus.corone,Dendrocopos.major,Erithacus.rubecula,Ficedula.hypoleuca,Phoenicurus.ochruros,Phoenicurus.phoenicurus,Pica.pica,Sylvia.atricapilla,Sylvia.borin,Sylvia.cantillans,Sylvia.communis,Sylvia.conspicillata,Sylvia.melanocephala,Turdus.iliacus,Turdus.merula,Turdus.philomelos,Turdus.pilaris,Turdus.torquatus,Turdus.viscivorus,Garrulus.glandarius,Parus.ater,Sitta.europaea,Emberiza.cia,Fringilla.coelebs,Parus.caeruleus,Parus.cristatus,Parus.major,Serinus.citrinella,Serinus.serinus,Coccothraustes.coccothraustes,Loxia.curvirostra,Vulpes.vulpes,Meles.meles,Martes.foina
 Amelanchier.ovalis,0,0,0,0,2,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,5,0,0,1,0,0,0,0,0,0,0,1,1,1
 Arum.italicum,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0
 Berberis.vulgaris,0,0,1,0,25,0,85,4,2,11,3,10,0,0,1,31,21,0,6,98,7,1,4,0,0,16,4,12,11,0,0,0,0,1,0,1
@@ -13,6 +16,7 @@ Juniperus.sabina,0,0,2,0,0,0,6,0,0,0,0,0,0,0,0,6,3,0,0,55,14,0,1,0,0,0,0,0,0,0,0
 Lonicera.arborea,0,0,0,0,3,0,28,0,0,10,0,2,0,0,0,1,9,0,0,41,2,2,9,1,0,10,0,0,17,0,0,0,0,1,0,1
 Lonicera.etrusca,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
 Lonicera.splendida,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Pistacia.terebinthus,0,0,0,0,1,0,0,0,0,2,0,0,0,0,1,0,3,0,0,0,0,0,2,1,0,3,1,0,0,0,0,0,0,0,0,0
 Paeonia.officinalis,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 Polygonatum.odoratum,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 Prunus.mahaleb,7,0,2,8,158,1,638,65,0,35,4,28,132,2,29,0,310,0,0,0,398,93,285,30,0,389,58,31,39,6,5,3,0,0,0,0

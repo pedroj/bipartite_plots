@@ -1,0 +1,30 @@
+# Nava Correhuelas.
+# Cumulative dataset of feeding records by furgivorous birds.
+# Each record is a fruit-feeding event (Snow and Snow 1982).
+,Columba.palumbus,Corvus.corax,Corvus.corone,Dendrocopos.major,Erithacus.rubecula,Ficedula.hypoleuca,Phoenicurus.ochruros,Phoenicurus.phoenicurus,Pica.pica,Sylvia.atricapilla,Sylvia.borin,Sylvia.cantillans,Sylvia.communis,Sylvia.conspicillata,Sylvia.melanocephala,Turdus.iliacus,Turdus.merula,Turdus.philomelos,Turdus.pilaris,Turdus.torquatus,Turdus.viscivorus,Garrulus.glandarius,Parus.ater,Sitta.europaea,Emberiza.cia,Fringilla.coelebs,Parus.caeruleus,Parus.cristatus,Parus.major,Serinus.citrinella,Serinus.serinus,Coccothraustes.coccothraustes,Loxia.curvirostra,Vulpes.vulpes,Meles.meles,Martes.foina
+Amelanchier.ovalis,0,0,0,0,2,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,7,0,0,1,0,0,0,0,0,0,0,1,1,1
+Arum.italicum,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1
+Berberis.vulgaris,0,0,2,0,29,0,91,7,4,19,3,14,0,0,1,37,30,0,12,112,15,1,4,0,0,16,4,12,11,0,0,0,0,1,0,0
+Cotoneaster.granatensis,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1
+Crataegus.monogyna,14,2,10,0,36,0,49,0,18,12,0,4,0,0,0,216,146,12,85,423,265,46,82,22,1,139,14,37,74,0,7,83,8,0,0,0
+Daphne.laureola,0,0,0,0,1,0,0,0,0,10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,0,0,1,0,0,0,0,1,1,1
+Hedera.helix,0,0,0,0,4,0,1,0,0,84,0,0,0,0,0,7,143,0,0,2,8,0,0,0,0,2,0,0,0,0,0,0,0,1,1,1
+Juniperus.communis,2,0,0,0,2,0,2,0,0,0,0,1,0,0,0,1,21,0,0,9,17,0,1,0,0,1,0,7,0,0,0,0,0,1,0,0
+Juniperus.oxycedrus,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Juniperus.phoenicea,3,0,3,0,0,0,8,0,0,0,0,0,0,0,0,2,20,0,8,183,123,4,3,0,0,0,0,0,0,0,0,8,0,1,0,0
+Juniperus.sabina,0,0,2,0,0,0,6,0,0,0,0,0,0,0,0,9,7,0,0,62,16,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0
+Lonicera.arborea,0,0,0,0,3,0,35,0,0,12,0,2,0,0,0,1,19,0,0,68,2,2,14,1,0,12,0,0,17,0,0,0,0,1,0,1
+Lonicera.etrusca,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0
+Lonicera.splendida,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,1
+Paeonia.officinalis,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Pistacia.terebinthus,0,0,0,0,1,0,0,0,0,3,0,0,0,0,1,0,5,0,0,0,0,0,2,1,0,4,1,0,0,0,0,0,0,0,0,0
+Polygonatum.odoratum,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Prunus.mahaleb,56,0,19,21,175,1,941,111,0,62,8,32,182,2,35,0,583,0,0,0,829,135,391,33,0,783,61,37,41,6,18,3,0,0,0,0
+Prunus.prostrata,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Rhamnus.myrtifolius,0,0,0,0,0,0,9,3,0,0,0,0,0,0,2,0,6,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Rhamnus.saxatilis,0,0,0,0,1,0,10,0,0,0,0,1,2,0,2,1,0,0,0,0,0,0,0,0,0,1,0,1,4,0,0,0,0,0,0,0
+Rosa.canina,0,0,0,0,2,0,11,0,0,0,0,0,0,0,0,9,50,1,19,58,22,0,1,0,0,2,2,3,5,0,0,4,5,0,0,0
+Rubia.peregrina,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1
+Rubus.ulmifolius,0,0,0,0,1,1,2,0,0,3,0,0,1,1,0,1,0,1,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Sorbus.aria,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,11,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+Taxus.baccata,5,0,0,0,12,0,47,0,0,0,0,0,0,0,0,12,62,0,0,19,79,0,12,26,0,3,2,4,10,0,0,8,0,0,0,0

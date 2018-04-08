@@ -1,0 +1,65 @@
+---
+title: "Bipartite graphs with networkD3"
+output: html_document
+---
+```{r input data}
+
+meta<- read.table("./data-raw/w96_adj_fru.csv", 
+                  header=T, sep=",", row.names=1,
+                  dec=".", na.strings="NA")
+metam<-as.matrix(meta)
+
+# Getting a square matrix by transforming to canonical form.
+dim(metam)
+dim(metam)[1]+dim(metam)[2]
+
+# ml<- list(metam,t(metam))
+# mm<- bdiag(ml)
+# row.names(mm)<- append(row.names(meta),colnames(meta))
+# colnames(mm)<- append(row.names(meta),colnames(meta))
+
+```
+
+```{r}
+# Load package
+library(networkD3); library(igraph); library(reshape2)
+
+g3<- bip_init_igraph(metam)
+table(V(g3)$type)
+names(nch_attr)        # Datatset with node attributes 
+V(g3)$species <- as.character(nch_attr$species)
+V(g3)$fam <- as.character(nch_attr$family)
+V(g3)$spcode <- as.character(nch_attr$spcode)
+V(g3)$mode <- c(rep("Plant",26),rep("Animal",36))
+V(g3)$genus<- as.character(nch_attr$genus)
+V(g3)$bodymass<- nch_attr$w
+V(g3)$frdiam_gape<- nch_attr$g 
+V(g3)$abund<- nch_attr$a
+V(g3)$frugivory<- nch_attr$f
+V(g3)$phenology<- nch_attr$ph
+V(g3)$phen.forb<- nch_attr$pp
+
+# Convert igraph to list for networkD3
+sj_list3 <- igraph_to_networkD3(g3)
+sj_list3$nodes <- data.frame(sj_list3$nodes, data.frame(group=c(rep("Plant",26),rep("Animal",36))))
+# Error: group must have the same number of rows as the number of nodes in g.
+# Need to convert the strating adjacency matrix to a square matrix using the 
+# canonical form.
+head(sj_list3)
+
+# Plot as a forceDirected Network
+# 
+a<-forceNetwork(Links= sj_list3$links, 
+                Nodes = sj_list3$nodes,
+                Source = sj_list3$links$source,
+                Target = sj_list3$links$target, 
+                NodeID = sj_list3$nodes$name,
+                # Nodes= sj_list3$nodes,
+                Group = sj_list3$nodes$group,
+                zoom= TRUE, linkDistance= 200, opacity= 1.6) 
+                #colourScale = "d3.scale.category20f()")
+ 
+a
+
+```
+

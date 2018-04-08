@@ -1,362 +1,778 @@
-<!DOCTYPE html>
-<!-- saved from url=(0014)about:internet -->
-<html>
+<!doctype html>
+<html class="no-js">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<title>Plotting bipartite networks</title>
+	<title>Home</title>
 
-<style type="text/css">
-body, td {
-   font-family: sans-serif;
-   background-color: white;
-   font-size: 12px;
-   margin: 8px;
-}
+    <meta name="theme-version" content="1.3.3" />
+    <meta name="foundation-version" content="5.5.1" />
+    <meta name="jquery-version" content="2.1.3" />
+    <meta name="modernizr-version" content="2.8.3" />
 
-tt, code, pre {
-   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
-}
+	<!-- Foundation Theme for RapidWeaver by Joe Workman -->
 
-h1 { 
-   font-size:2.2em; 
-}
+	
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="robots" content="index, follow" />
+		<meta name="generator" content="RapidWeaver" />
+		
 
-h2 { 
-   font-size:1.8em; 
-}
+	<link rel="stylesheet" type="text/css" media="all" href="rw_common/themes/foundation/consolidated-0.css?rwcache=512440665" />
+		
 
-h3 { 
-   font-size:1.4em; 
-}
+	<head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Networks in D3: This is a page with examples of plant-animal interaction networks in D3." />
 
-h4 { 
-   font-size:1.0em; 
-}
+    <link rel="stylesheet" type="text/css" media="screen" href="resources/stylesheets/stylesheet.css?rwcache=512440665?rwcache=512440665">
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css?rwcache=512440665">
 
-h5 { 
-   font-size:0.9em; 
-}
+	<style type="text/css">
+	body, td {
+	   font-family: sans-serif;
+	   background-color: white;
+	   font-size: 14px;
+	   margin: 8px;
+	}
 
-h6 { 
-   font-size:0.8em; 
-}
+	tt, code, pre {
+	   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+	}
 
-a:visited {
-   color: rgb(50%, 0%, 50%);
-}
+	h1 { 
+	   font-size:2.2em; 
+	}
 
-pre {	
-   margin-top: 0;
-   max-width: 95%;
-   border: 1px solid #ccc;
-   white-space: pre-wrap;
-}
+	h2 { 
+	   font-size:1.8em; 
+	}
 
-pre code {
-   display: block; padding: 0.5em;
-}
+	h3 { 
+	   font-size:1.4em; 
+	}
 
-code.r, code.cpp {
-   background-color: #F8F8F8;
-}
+	h4 { 
+	   font-size:1.0em; 
+	}
 
-table, td, th {
-  border: none;
-}
+	h5 { 
+	   font-size:0.9em; 
+	}
 
-blockquote {
-   color:#666666;
-   margin:0;
-   padding-left: 1em;
-   border-left: 0.5em #EEE solid;
-}
+	h6 { 
+	   font-size:0.8em; 
+	}
 
-hr {
-   height: 0px;
-   border-bottom: none;
-   border-top-width: thin;
-   border-top-style: dotted;
-   border-top-color: #999999;
-}
+	a:visited {
+	   color: rgb(50%, 0%, 50%);
+	}
 
-@media print {
-   * { 
-      background: transparent !important; 
-      color: black !important; 
-      filter:none !important; 
-      -ms-filter: none !important; 
-   }
+	pre {	
+	   margin-top: 0;
+	   max-width: 95%;
+	   border: 1px solid #ccc;
+	   white-space: pre-wrap;
+	}
 
-   body { 
-      font-size:12pt; 
-      max-width:100%; 
-   }
+	pre code {
+	   display: block; padding: 0.5em;
+	}
+
+	code.r, code.cpp {
+	   background-color: #F8F8F8;
+	}
+
+	table, td, th {
+	  border: none;
+	}
+
+	blockquote {
+	   color:#666666;
+	   margin:0;
+	   padding-left: 1em;
+	   border-left: 0.5em #EEE solid;
+	}
+
+	hr {
+	   height: 0px;
+	   border-bottom: none;
+	   border-top-width: thin;
+	   border-top-style: dotted;
+	   border-top-color: #999999;
+	}
+
+	@media print {
+	   * { 
+	      background: transparent !important; 
+	      color: black !important; 
+	      filter:none !important; 
+	      -ms-filter: none !important; 
+	   }
+
+	   body { 
+	      font-size:12pt; 
+	      max-width:100%; 
+	   }
        
-   a, a:visited { 
-      text-decoration: underline; 
-   }
+	   a, a:visited { 
+	      text-decoration: underline; 
+	   }
 
-   hr { 
-      visibility: hidden;
-      page-break-before: always;
-   }
+	   hr { 
+	      visibility: hidden;
+	      page-break-before: always;
+	   }
 
-   pre, blockquote { 
-      padding-right: 1em; 
-      page-break-inside: avoid; 
-   }
+	   pre, blockquote { 
+	      padding-right: 1em; 
+	      page-break-inside: avoid; 
+	   }
 
-   tr, img { 
-      page-break-inside: avoid; 
-   }
+	   tr, img { 
+	      page-break-inside: avoid; 
+	   }
 
-   img { 
-      max-width: 100% !important; 
-   }
+	   img { 
+	      max-width: 100% !important; 
+	   }
 
-   @page :left { 
-      margin: 15mm 20mm 15mm 10mm; 
-   }
+	   @page :left { 
+	      margin: 15mm 20mm 15mm 10mm; 
+	   }
      
-   @page :right { 
-      margin: 15mm 10mm 15mm 20mm; 
-   }
+	   @page :right { 
+	      margin: 15mm 10mm 15mm 20mm; 
+	   }
 
-   p, h2, h3 { 
-      orphans: 3; widows: 3; 
-   }
+	   p, h2, h3 { 
+	      orphans: 3; widows: 3; 
+	   }
 
-   h2, h3 { 
-      page-break-after: avoid; 
-   }
-}
+	   h2, h3 { 
+	      page-break-after: avoid; 
+	   }
+	}
 
-</style>
+	</style>
 
-<!-- Styles for R syntax highlighter -->
-<style type="text/css">
-   pre .operator,
-   pre .paren {
-     color: rgb(104, 118, 135)
-   }
+	<!-- Styles for R syntax highlighter -->
+	<style type="text/css">
+	   pre .operator,
+	   pre .paren {
+	     color: rgb(104, 118, 135)
+	   }
 
-   pre .literal {
-     color: rgb(88, 72, 246)
-   }
+	   pre .literal {
+	     color: rgb(88, 72, 246)
+	   }
 
-   pre .number {
-     color: rgb(0, 0, 205);
-   }
+	   pre .number {
+	     color: rgb(0, 0, 205);
+	   }
 
-   pre .comment {
-     color: rgb(76, 136, 107);
-   }
+	   pre .comment {
+	     color: rgb(76, 136, 107);
+	   }
 
-   pre .keyword {
-     color: rgb(0, 0, 255);
-   }
+	   pre .keyword {
+	     color: rgb(0, 0, 255);
+	   }
 
-   pre .identifier {
-     color: rgb(0, 0, 0);
-   }
+	   pre .identifier {
+	     color: rgb(0, 0, 0);
+	   }
 
-   pre .string {
-     color: rgb(3, 106, 7);
-   }
-</style>
+	   pre .string {
+	     color: rgb(3, 106, 7);
+	   }
+	</style>
 
+	<!-- R syntax highlighter -->
 <!-- R syntax highlighter -->
-<script type="text/javascript">
-var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
-hljs.initHighlightingOnLoad();
-</script>
-
+<link rel="stylesheet" href="resources/stylesheets/styles/xcode.css?rwcache=512440665">
+<script src="resources/javascripts/highlight/highlight.pack.js?rwcache=512440665"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!-------------------------->
+	</script>
 
 
 
 </head>
 
+
+	<!--[if lt IE 9]>
+	  <script src="rw_common/themes/foundation/ie8.js"></script>
+	<![endif]-->
+
+			<link rel='stylesheet' type='text/css' media='all' href='rw_common/plugins/stacks/stacks.css?rwcache=512440665' />
+		<link rel='stylesheet' type='text/css' media='all' href='files/stacks_page_page0.css?rwcache=512440665' />
+		
+		
+		
+		
+
+	
+</head>
+
+<body class="antialiased">
+
+<div id="foundation-loader" class="loader"></div>
+<script>
+if(window.foundationloader === true){
+var loader_inner = document.createElement('div'),
+loader_class = window.loader_class||'line-scale',
+loader_count = window.loader_count||5;
+loader_inner.className = 'loader-inner '+loader_class;
+for (var i = 0; i < loader_count; i++){loader_inner.appendChild(document.createElement('div'));}
+document.getElementById('foundation-loader').appendChild(loader_inner);}
+</script>
+
+
+<div id='stacks_out_1_page0' class='stacks_top'><div id='stacks_in_1_page0' class=''><div id='stacks_out_2_page0' class='stacks_out'><div id='stacks_in_2_page0' class='stacks_in html_stack'><!DOCTYPE html>
+<html>
 <body>
-<h1>Plotting bipartite networks</h1>
 
-<p>This is a series of <code>R</code> script files aimed to plot bipartite networks. Bipartite networks are a special type of network where nodes are of two distinct types or sets, so that connections (links) only exist among nodes of the different sets.</p>
+<!-- HEADER -->
+   <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/pedroj/bipartite_plots">View on GitHub</a>
 
-<p>As in other types of network, bipartite strucures can be binary (only the presence/absence of the links is mapped) or quantitative (weighted), where the links can have variable importance or weight.</p>
+          <h1 id="project_title">ggbipart, an R package for plotting bipartite networks</h1>
+          <h2 id="project_tagline">Our aim here is to get plotting of bipartite networks within the <code>ggplot2</code> framework.</h2>
 
-<p>To plot, we start with an adjacency or incidence matrix. I&#39;m using matrices that illustrate ecological interactions among species, such as the mutualisttic interactions of animal pollinators and plant flowers. The two sets (modes) of these bipartite netwroks are animals (pollinators) ans plants species.</p>
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/pedroj/bipartite_plots/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/pedroj/bipartite_plots/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
 
-<p>From any adjacency matrix we can get a <code>network</code> object or an <code>igraph</code> object for plotting and analysis. </p>
+<!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+<h2>ggbipart</h2>
 
-<hr/>
+<p>The <code>ggbipart</code> package includes a series of R functions aimed to plot bipartite networks within the <code>ggplot2</code> environment. The library relies heavily on <a id="FBriatte" href="https://github.com/briatte/ggnet">code developed by Francois Briatte</a> for the <code>ggnet</code>code> library.
 
-<h3>Required packages</h3>
+Bipartite networks are a special type of network where nodes are of two distinct types or sets, so that connections (links) only exist among nodes of the different sets.
 
-<pre><code class="r">require(network)
+As in other types of network, bipartite structures can be binary (only the presence/absence of the links is mapped) or quantitative (weighted), where the links can have variable importance or weight.
+
+To plot, we start with an adjacency or incidence matrix. I’m using matrices that illustrate ecological interactions among species, such as the mutualisttic interactions of animal pollinators and plant flowers. The two sets (modes) of these bipartite networks are animals (e.g., pollinators) and plants species.
+
+From any adjacency matrix we can get a network object or an <code>igraph</code>code> object for plotting and analysis.
+</p>
+
+<h2> Required packages</h2>
+
+
+<pre><code class="r">
+#————————————————————————————————————————————————————————————————
+require(ggplot2)
+require(network)
 require(igraph)
 require(sna)
-require(ggplot2)
-require(sna)
+require(ggnet)
 require(ergm)
+require(intergraph)
+require(RColorBrewer)
+#————————————————————————————————————————————————————————————————
 </code></pre>
+<br>
 
-<p>Here I plot bipartite networks from their adjacency matrices, i.e., the two-mode networks.</p>
+Here I plot bipartite networks from their adjacency matrices, i.e., the two-mode networks. The standard way to input an adjacency matrix is from a <code>.txt</code> or a <code>.csv</code> file. Most packages like <code>network, igraph</code> or <code>statnet</code> also accept edge-list archives. These have the form of a three-column array with <code>node1 node2 i</code> or <code>node1 node2 w</code>, where <code>node1</code> and <code>node2</code> are two nodes that interact, and <code>i</code> or <code>w</code> are the presence/abscence of interaction (<code>i= 0</code> or <code>i= 1</code>) or the edge weight in the case of weighted networks.
 
-<h3>Initializing bipartite webs for library network</h3>
+<br>
+<br>
 
-<pre><code class="r">#-------------------------------------------------------------------------
+
+
+<h2> Initializing bipartite webs as network objects</h2> 
+
+
+<pre><code class="r">
+#————————————————————————————————————————————————————————————————
 # Read data matrices.
 # Read a network
 # Creating the objects. Example input from the clipboard. 
-mymat &lt;- read.delim(&quot;data.txt&quot;, row.names=1)
 #
 # Where data.txt has a weighted adjacency matrix, e.g.,:
     Aa  Ab  Ac  Ba  Bb  Bc  Bd  Ca  Cb  Cc  Da
-P1  139 112  9  73  4   14  20  14  5   2   1
-P2  184 26  6   19  31  21  17  11  7   5   0
-P3  281 74  33  36  18  29  5   9   5   3   0
-P4  87  40  38  21  13  12  9   1   1   0   0
-P5  100 93  27  12  8   11  32  0   0   0   0
-P6  51  25  13  17  9   1   0   0   0   0   0
-P7  42  26  16  0   2   0   0   0   0   0   0
-P8  31  18  14  15  12  9   7   1   0   0   0
-P9  46  12  6   0   3   0   0   0   0   0   0
-P10 136 0   0   12  0   2   2   0   0   0   0
-P11 130 8   0   5   0   0   0   0   0   0   0
+P1  139 60   9  23  4   104 5   3   5   2   1
+P2  184 26  6   10  3   6   17  11  3   1   0
+P3  131 74  33  36  13  19  0   9   0   1   0
+P4  87  40  38  21  13  0   9   0   1   0   0
+P5  100 42  17  12  4   1   1   0   0   0   0
+P6  21  15  7   0   4   1   0   0   0   0   0
+P7  42  16  3   0   2   0   0   0   0   0   0
+P8  31  8   4   5   1   0   0   1   0   0   0
+P9  46  8   2   0   3   0   0   0   0   0   0
+P10 86  0   0   12  0   2   2   0   0   0   0
+P11 23  8   1   5   0   0   0   0   0   0   0
+P12 13  6   1   1   0   1   0   0   0   0   0
+P13 5   0   1   0   0   0   0   0   0   0   0
+P14 9   1   0   0   0   0   0   0   0   0   0
 
 # Use this to copy from the clipboard, after select/copy the above block.
-mymat &lt;- read.table(pipe(&quot;pbpaste&quot;), header=T, sep= &quot;\t&quot;,row.names=1)
+mymat <- read.table(pipe("pbpaste"), header= T, sep= "\t", row.names= 1)
+#————————————————————————————————————————————————————————————————
 </code></pre>
+<br>
 
-<p>The adjacency matrix is read as tab-separated file with header names, and the first column is taken as the row names. These are two of my datasets of well-sampled plant-frugivore interaction networks from S Spain, read in the usual way.</p>
+The adjacency matrix is just read from the clipboard as a tab-separated file with header names, and the first column is taken as the row names.
 
-<pre><code class="r">#
-# -------------------------------------------------------------------------
+This next example (<a id="FBriatte" href="https://github.com/briatte/ggnet">from F. Briatte's code</a>) initializes a dataframe:
+<br>
+
+
+<pre><code class="r">
+#————————————————————————————————————————————————————————————————
+# A weighted adjacency matrix. Rows are animal species; columns  
+# are plant species.
+bip= data.frame(P1= c(1, 12, 6, 0),
+                P2= c(1, 0, 4, 0),
+                P3= c(1, 7, 3, 12),
+     row.names= letters[1:4])
+#————————————————————————————————————————————————————————————————
+</code></pre>
+<br>
+
+These are two example datasets of well-sampled plant-frugivore interaction networks from S Spain, read in the usual way. I also read the attributes files, i.e., data.frames with node characteristics that can be used later to label the nodes.
+<br>
+
+Note that the adjacency matrices are read as data.frames. This is useful for later analysis. Yet it is very handy to have also these adjacency matrices in matrix form.
+<br>
+
+<br>
+<pre><code class="r">
+#————————————————————————————————————————————————————————————————
 # The Nava de las Correhuelas dataset.
-nch &lt;- read.table(&quot;./data/NCH_quant_bmatrix.txt&quot;, header = T, sep = &quot;\t&quot;, row.names = 1, 
-    dec = &quot;,&quot;, na.strings = &quot;NA&quot;)
+nch<- read.table("./data-raw/w96_adj_fru.csv", 
+                  header=T, sep=",", row.names=1,
+                  dec=".", na.strings="NA")
+## Node attributes
+nch_attr<- read.table("./data-raw/w96_node_attributes.csv", 
+                  header=T, sep=",", 
+                  dec=".", na.strings="NA")
+
 # The Hato Raton dataset.
-hr &lt;- read.table(&quot;./data/HR_quant_bmatrix.txt&quot;, header = T, sep = &quot;\t&quot;, row.names = 1, 
-    dec = &quot;.&quot;, na.strings = &quot;NA&quot;)
+hr<- read.table("./data-raw/w97_adj_fru.csv", 
+                  header=T, sep=",", row.names=1,
+                  dec=".", na.strings="NA")
+## Node attributes
+hr_attr<- read.table("./data-raw/w97_node_attributes.csv", 
+                  header=T, sep=",", dec=".", na.strings="NA")
+#————————————————————————————————————————————————————————————————
 </code></pre>
+<br>
 
-<hr/>
+Node attributes include different variables characterizing each individual node. These values can later be passed to the <code>bip_ggnet</code> function to modify graph properties of nodes.
+<br>
 
-<p>Here I use my function <code>bip_init</code> to initialize the bipartite networks.</p>
+<br>
+<pre><code class="r">
+#————————————————————————————————————————————————————————————————
+glimpse(nch_attr)
 
-<pre><code class="r">source(&quot;./functions/bip_init_network.R&quot;)
-source(&quot;./functions/bip_init_igraph.R&quot;)
-nch.net &lt;- bip_init_network(nch)
-hr.net &lt;- bip_init_network(hr)
+## Observations: 62
+## Variables: 26
+## $ class   <fctr> Magnoliopsida, Liliopsida, Magnoliopsida,...
+## $ order   <fctr> Rosales, Arales, Ranunculales, Rosales, Euph...
+## $ family  <fctr> Rosaceae, Araceae, Berberidaceae, Rosaceae,...
+## $ genus   <fctr> Amelanchier, Arum, Berberis, Crataegus, ...
+## $ species <fctr> Amelanchier.ovalis, Arum.italicum,...
+## $ spcode  <fctr> Amova, Arita, Bevul, Cogra, Crmon, Dalau...
+## $ w       <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ g       <dbl> 7.3, 9.2, 5.5, 7.0, 9.3, 6.4, 8.4, 8.6, 12.9,....
+## $ f       <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,...
+## $ a       <dbl> 0.00010, 0.66000, 14.52000, 0.14500, 0.84500,...
+## $ geog    <int> 4, 7, 14, 6, 14, 10, 6, 13, 4, 8, 8, 9, 4, 5,...
+## $ ph      <dbl> 1.0, 0.5, 3.0, 1.0, 6.0, 1.0, 3.0, 10.0, 2.0,...
+## $ pp      <dbl> 0.3333, 0.2121, 0.2424, 0.3030, 0.1515,...
+## $ ps      <lgl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ pa      <dbl> 0.1515, 0.1515, 0.1212, 0.0909, 0.1515,...
+## $ pu      <dbl> 0.4242, 0.5758, 0.2121, 0.5455, 0.0303,...
+## $ hab     <fctr> climax, climax, climax, climax, climax,...
+## $ diet    <fctr> NA, NA, NA, NA, NA, NA, NA, NA, NA, N...
+## $ forag   <fctr> NA, NA, NA, NA, NA, NA, NA, NA, N...
+## $ noct    <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ nativ   <int> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
+## $ frlen   <dbl> 7.0, 11.1, 10.4, 7.5, 12.1, 9.4, 7.2, 8.2, ...
+## $ fleshy  <fctr> Yes, Yes, Yes, Yes, Yes, Yes, Yes, Yes...
+## $ seedm   <dbl> 0.003, 0.038, 0.020, 0.025, 0.124, 0.022,...
+## $ height  <dbl> 1.9, 0.3, 1.2, 1.3, 4.0, 1.2, 3.0, 0.6, 2.8,...
+## $ grwform <fctr> shrub, herb, shrub, shrub, tree, shrub,,...
+#————————————————————————————————————————————————————————————————
 </code></pre>
+<br>
 
-<hr/>
+<br>
+<pre><code class="r">
+#————————————————————————————————————————————————————————————————
+glimpse(hr_attr)
 
-<h3>Functions to plot network graphs</h3>
-
-<h4>bip_binplot</h4>
-
-<p>Simple function to plot a binary bipartite network in <code>network</code>.</p>
-
-<h4>bip_qtplot</h4>
-
-<p>Function to plot a weighted bipartite network in <code>network</code> object.</p>
-
-<h4>bip_gplot</h4>
-
-<p>Function to plot a weighted bipartite network in <code>igraph</code>.</p>
-
-<h4>bip_ggplot</h4>
-
-<p>This is just a prototype of function. I&#39;m using it as raw code for now. You assign the matrix and network object at the start (see below).</p>
-
-<p>In addition, my function <code>vectorize</code> is needed in the section using <code>ggplot2</code>.</p>
-
-<pre><code class="r"># Sourcing required functions and initializing the net objects.
-source(&quot;./functions/bip_binplot.R&quot;)
-source(&quot;./functions/bip_gplot.R&quot;)
-source(&quot;./functions/bip_qtplot.R&quot;)
-source(&quot;./functions/vectorize.R&quot;)
+## Observations: 33
+## Variables: 26
+## $ class   <fctr> Aves, Aves, Aves, Aves, Aves, Aves,...
+## $ order   <fctr> Passeriformes, Passeriformes, Passerif...
+## $ family  <fctr> Muscicapidae, Muscicapidae, Muscicapida...
+## $ genus   <fctr> Sylvia, Sylvia, Erithacus, Sylvia, Turdus,...
+## $ species <fctr> Sylvia.atricapilla, Sylvia.borin, Erithacus.rubecula,...
+## $ spcode  <fctr> Syatr, Sybor, Errub, Symel, Tumer, Tuphi,...
+## $ w       <dbl> 17.5, 18.7, 15.8, 11.5, 84.0, 65.8, 16.9, ...
+## $ g       <dbl> 8.0, 8.0, 8.5, 6.6, 13.7, 12.2, 7.3, 8.3, 8....
+## $ f       <dbl> 0.861, 0.924, 0.659, 0.739, 0.889, 0.660...
+## $ a       <dbl> 4.692, 2.058, 16.150, 15.908, 11.842, 0....
+## $ geog    <dbl> 14, 6, 13, 10, 14, 14, 12, 2, 6, 12, 7, 10...
+## $ ph      <dbl> 7, 1, 7, 12, 12, 3, 1, 2, 1, 3, 6, 12, 6, 12, 5,...
+## $ pp      <dbl> 0.063, 0.250, 0.125, 0.000, 0.000, 0.438,...
+## $ ps      <dbl> 0.000, 0.000, 0.188, 0.125, 0.000, 0.063,...
+## $ pa      <dbl> 0.000, 0.000, 0.000, 0.000, 0.125, 0.063,...
+## $ pu      <dbl> 0.000, 0.000, 0.000, 0.000, 0.000, 0.125,...
+## $ hab     <fctr> forest, forest, forest, other, forest, forest...
+## $ diet    <fctr> fruit, fruit, fruit, fruit, fruit, fruit, frui...
+## $ forag   <fctr> solitary, solitary, solitary, solitary, soc...
+## $ noct    <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NA,...
+## $ nativ   <int> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
+## $ frlen   <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ fleshy  <fctr> NA, NA, NA, NA, NA, NA, NA, NA, N...
+## $ seedm   <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ height  <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ grwform <fctr> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,...
+#————————————————————————————————————————————————————————————————
 </code></pre>
+<br>
 
-<hr/>
+Here I use the function <code>bip_init_network</code> to initialize a few examples of bipartite networks. The function returns a network object. The equivalent function <code>bip_init_igraph</code> returns an igraph (graph) object.
+<br>
 
-<h3>Using ggplot2</h3>
+<br>
+<pre><code class="r">
+#————————————————————————————————————————————————————————————————
+source("./R/bip_init_network.R")
+source("./R/bip_init_igraph.R")
 
-<h4>Draft code for plotting a bipartite network in ggplot2</h4>
-
-<p>The code for <code>ggplot2</code> is in the file <code>bip_ggplot2.R</code>. It is not a function
-yet. I&#39;m using the <code>gplot.layout.fruchtermanreingold</code> layout, but just tweak the code to get a Kamada-Kawai, for example. We just source this file after assigning the input adjacency matrix and
-the input graph:</p>
-
-<pre><code class="r">#
-# -------------------------------------------------------------------------
-require(network)
-require(ggplot2)
-require(sna)
-require(ergm)
-#
-# -------------------------------------------------------------------------
-# Assign the matrix and the network objects here.  mymat is a matrix with
-# column names and row names.  net is a network object.  This is for the
-# Nava de las Correhuelas network.
-# -------------------------------------------------------------------------
-mymat &lt;- nch
-net &lt;- nch.net
-# Now we source the bip_ggplot2.R file
-source(&quot;bip_ggplot2.R&quot;)
+nch.net<- bip_init_network(nch)     # Network object
+nch.ig<- bip_init_igraph(nch)       # igraph object
+hr.net<- bip_init_network(hr)       # Network object
+hr.ig<- bip_init_igraph(hr)         # igraph object
+#————————————————————————————————————————————————————————————————
 </code></pre>
+<br>
+<br>
 
-<p>
-	<p><img src="images/ggplot_prototype1.png" alt="plot of chunk ggplot_prototype" /></p>
 
-<pre><code class="r"># We repeat for the Hato Raton network.
-mymat &lt;- hr
-net &lt;- hr.net
-source(&quot;bip_ggplot2.R&quot;)
+
+<h2> Functions to plot network graphs</h2> 
+
+The <code>ggbipart</code> package includes the following functions:
+<br>
+
+
+<h4> bip_qtplot</h4> 
+
+Simple function to plot a weighted bipartite network in a network object. The input is just the weighted (quantitative) adjacency matrix of a two-mode network. Uses objects of type <code>network</code>.
+
+<h4>bip_railway</h4>
+
+Simple function to plot a bipartite network with the classic layout of two parallel sets of nodes (as in the <code>bipartite</code> package).
+
+<h4>bip_ggnet</h4>
+
+Plotting bipartite networks from the adjacency matrix of a two-mode network. It uses the <code>ggnet</code> package extensively, and the <code>ggnet2</code> <a id="ggnet2" href="https://github.com/briatte/ggnet">function</a>.
+
+<h4>bip_igplot</h4> 
+
+Function to plot a weighted bipartite network in igraph. Its inputs are the adjacency matrix, to get the dimensions from, and the igraph object corresponding to the matrix.
+<br><br>
+
+<pre><code class="r">
+#————————————————————————————————————————————————————————————————
+# Sourcing required functions and initializing the net objects.
+source("./R/bip_ggnet.R")
+source("./R/bip_igplot.R")
+source("./R/bip_qtplot.R")
+source("./R/bip_railway.R")
+source("./R/vectorize.R")
+source("./R/bip_edgewt.R")
+#————————————————————————————————————————————————————————————————
 </code></pre>
+<br><br>
 
-<p><img src="images/ggplot_prototype2.png" alt="plot of chunk ggplot_prototype" /></p>
+<h2>Using bip_ggnet for bipartite graphs</h2>
 
-<h3>Using François Briatte&#39;s <code>ggnet</code> function</h3>
+<h3>Bipartite networks with ggnet2 using the ggplot2 framework</h3>
 
-<pre><code class="r">#
-# -------------------------------------------------------------------------
-# Plotting bipartite networks from adjacency matrix of two-mode network.
-# Using ggplot2. Code from Francois Briatte, using his fucntion ggnet.
-# DATE: 15Jul2013.
-require(downloader)
+
+We first initialize the bipartite network; then use the adjacency matrix to compute scaled weighted edges with function <code>edgewt</code>. This is based in code from Francois Briatte, using package <code>ggnet</code>, function <code>ggnet2</code>.
+
+<code>ggnet2</code> automatically detects two-mode graphs from their bipartite network attribute. To simplify the plotting of each mode, it understands arguments of the form <code>[alpha, color, shape, size] = “mode”</code>, which will mark the primary mode as "actor" and the secondary mode as  "event".
+
+<h3>Node colors</h3>
+
+Let’s now assign vertex attributes obtained from the attributes file.
+
+The attributes can be passed to <code>ggnet2</code> to indicate that the nodes belong to a group, or have a given qualitative or quantitative attribute. All the user has to do is to pass the name of the vertex attribute to the color argument, which will find it in the list of vertex attributes and use it to map the colors of the nodes:
+<br><br>
+
+<pre><code class="r">
+#————————————————————————————————————————————————————————————————
+# Attributes for animals and plants.
+names(nch_attr)
+
+# Load in the preferred attributes
+# We need to convert factors to chars in order to assign the attributes.
+Fam<- as.character(nch_attr$family)
+nch.net %v% "Fam"= Fam    
+Gen<- as.character(nch_attr$genus)
+nch.net %v% "Gen"= Gen    
+nch.net %v% "BM"= nch_attr$w    
+nch.net %v% "FrDiam"= nch_attr$g
+#————————————————————————————————————————————————————————————————
 </code></pre>
+<br>
 
-<pre><code>## Loading required package: downloader
+
+<h3>A simple graph</h3>
+
+This graph uses function <code>bip_railway</code>:
+
+<h4>Unweighted</h4>
+
+<br>
+<pre><code class="r">
+#————————————————————————————————————————————————————————————————
+# Plot layout coordinates for railway network plot. Input is the 
+# adjacency matrix.
+# 
+mymat <- read.delim("./data-raw/data.txt", row.names=1)   # Not run.
+g<- bip_railway(mymat, label=T)
+## Loading required package: scales
+g+ coord_flip()
+#————————————————————————————————————————————————————————————————
 </code></pre>
+<br>
 
-<pre><code class="r"># PJ example. Based on a gist by F Briatte to just feed the network data
-# from its adjacency matrix to ggnet
-# -------------------------------------------------------------------------
-link = &quot;https://raw.github.com/pedroj/bipartite_plots/master/data/NCH_quant_bmatrix.txt&quot;
-file = &quot;data/NCH_quant_bmatrix.txt&quot;
-if (!file.exists(file)) download(link, file, mode = &quot;wb&quot;)
-M &lt;- read.table(file, sep = &quot;\t&quot;, dec = &quot;,&quot;, header = TRUE, row.names = 1)
-# ...  Bipartite network initialization, starting from an adjacency
-# matrix.  ...
-source(&quot;functions/bip_briatte.R&quot;)
-source_url(&quot;https://raw.github.com/briatte/ggnet/master/ggnet.R&quot;, prompt = FALSE)
-# ...  Pass the network, edge weights and mode to ggnet.  ...
-net = bipartite.network(M, modes = c(&quot;Animals&quot;, &quot;Plants&quot;))
-ggnet(net, segment.size = edge.weights(M, 15), segment.alpha = 0.35, label = TRUE, 
-    color = &quot;black&quot;, node.group = get.vertex.attribute(net, &quot;mode&quot;))
+<img src="images/Rplot00.png" alt="Railway"></a>
+
+<br>
+
+<h4>Weighted</h4>
+
+Label the edge weights directly into the edges of the graph; uses the <code>bip_ggnet</code>.
+<br><br>
+
+<pre><code class="r">
+#————————————————————————————————————————————————————————————————
+# Labelled edges with edge weights.
+
+bip= data.frame(P1= c(1, 12, 6, 0),
+                P2= c(1, 0, 4, 0),
+                P3= c(1, 7, 3, 12),
+     row.names= letters[1:4])
+col= c("A"= "grey80", "P"= "gold2")
+bip.net<- bip_init_network(as.matrix(bip)) 
+
+bip_ggnet(bip.net, as.matrix(bip), 
+       #  color= "mode", palette = col, 
+          edge.label = "weights",
+          label= TRUE)
+
+## Warning in guide_merge.legend(init, x[[i]]): Duplicated override.aes is
+## ignored.
+
+
+# Set colors for each mode
+col= c("P"= "#FC9272", "A"= "#9ECAE1")
+pp<- bip_ggnet(hr.net, as.matrix(hr),
+          size=7, shape= "mode", #label= T,
+          color= "mode", palette= col, 
+          layout.exp= 0.25) + 
+          geom_text(aes(label= network.vertex.names(hr.net)),
+                        color= "black", size= 3) +
+          theme(legend.position="none")                 # Hide legend
+pp
+#————————————————————————————————————————————————————————————————
 </code></pre>
+<br>
 
-<pre><code>## Loading required package: grid
+<img src="images/Rplot1.png" alt="Weighted edges"></a>
+
+<br>
+
+Antother alternative is to pass the node colors directly, with a vector of node colors that has exactly the same length as the number of nodes in the network:
+<br><br>
+
+<pre><code class="r">
+#————————————————————————————————————————————————————————————————
+pp1<- bip_ggnet(nch.net, as.matrix(nch),
+                size= 6, color= "mode", label= T, label.size=2,
+                palette= c("P"= "indianred3", 
+                           "A"= "steelblue4")) +
+                theme(legend.position="none")       # Hide legend
+#————————————————————————————————————————————————————————————————
 </code></pre>
+<br>
 
-<pre><code>## Loading required package: RColorBrewer
+<br>
+<pre><code class="r">
+#————————————————————————————————————————————————————————————————
+# Adding graphic details with other geoms. Node labels are the vertex names.
+
+pp2<- bip_ggnet(nch.net, as.matrix(nch),
+          size= 0,
+          shape= "mode", 
+          palette= "Set1",
+          color= "mode",
+          layout.exp= 0.25) +
+          geom_point(aes(color= color), size=8, color="white") +
+          geom_point(aes(color= color), size= 8, alpha= 0.5) +
+          geom_point(aes(color= color), size= 6) +
+          geom_text(aes(label= network.vertex.names(nch.net)), 
+                    color= "black", size= 3.5) + # check_overlap= TRUE
+          guides(color= FALSE) +
+          theme(legend.position="none")          # Hide legend
+pp2
+#————————————————————————————————————————————————————————————————
 </code></pre>
+<br>
 
-<p><img src="images/ggplot_prototype3.png" alt="plot of chunk ggplot_prototype" /></p>
+<img src="images/Rplot3.png" alt="Vertex names"></a>
 
-</body>
+<br>
 
+<br>
+<pre><code class="r">
+#————————————————————————————————————————————————————————————————
+# Numbered nodes.
+
+nums<- as.vector(c(1:sum(dim(nch))))
+pp3<- bip_ggnet(nch.net, as.matrix(nch),
+          size= 0,
+          shape= "mode", 
+          palette= "Set1",
+          color= "mode",
+          layout.exp = 0.25) +
+          geom_point(aes(color= color), size=10, color="white") +
+          geom_point(aes(color= color), size= 10, alpha= 0.5) +
+          geom_point(aes(color= color), size= 8) +
+          geom_text(aes(label= nums), 
+                    color= "white", size= 3.5, fontface="bold") + 
+          guides(color= FALSE) +
+          theme(legend.position="none")          # Hide legend
+pp3
+#————————————————————————————————————————————————————————————————
+</code></pre>
+<br>
+
+<img src="images/Rplot2.png" alt="Numbered"></a>
+
+<br>
+
+
+<br>
+<pre><code class="r">
+#————————————————————————————————————————————————————————————————
+sessionInfo()
+</code></pre>
+<br>
+<pre><code class="r">
+## R version 3.3.2 (2016-10-31)
+## Platform: x86_64-apple-darwin13.4.0 (64-bit)
+## Running under: macOS Sierra 10.12.4
+## 
+## locale:
+## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+## 
+## attached base packages:
+## [1] stats     grDevices graphics  datasets  utils     methods   base     
+## 
+## other attached packages:
+##  [1] scales_0.4.1         dplyr_0.5.0          RColorBrewer_1.1-2  
+##  [4] taxize_0.8.4         lme4_1.1-12          Matrix_1.2-7.1      
+##  [7] knitr_1.14           intergraph_2.0-2     popgraph_1.4        
+## [10] igraph_1.0.1         ggnetwork_0.5.1      ggnet_0.1.0         
+## [13] ggplot2_2.2.1        markdown_0.7.7       downloader_0.4      
+## [16] bipartite_2.08       sna_2.4              network_1.13.0      
+## [19] statnet.common_3.3.0 vegan_2.4-0          lattice_0.20-34     
+## [22] permute_0.9-0        ape_4.1             
+## 
+## loaded via a namespace (and not attached):
+##  [1] ggrepel_0.6.9     Rcpp_0.12.9       assertthat_0.1   
+##  [4] rprojroot_1.0-2   digest_0.6.12     foreach_1.4.3    
+##  [7] R6_2.2.0          plyr_1.8.4        evaluate_0.9     
+## [10] spam_1.3-0        httr_1.2.1        lazyeval_0.2.0   
+## [13] minqa_1.2.4       data.table_1.10.0 nloptr_1.0.4     
+## [16] rmarkdown_1.3     splines_3.3.2     stringr_1.2.0    
+## [19] munsell_0.4.3     mgcv_1.8-15       htmltools_0.3.5  
+## [22] tibble_1.2        lpSolve_5.6.13    codetools_0.2-15 
+## [25] reshape_0.8.6     MASS_7.3-45       grid_3.3.2       
+## [28] nlme_3.1-128      jsonlite_1.3      gtable_0.2.0     
+## [31] DBI_0.4-1         magrittr_1.5      formatR_1.4      
+## [34] stringi_1.1.2     reshape2_1.4.2    sp_1.2-4         
+## [37] xml2_1.1.1        iterators_1.0.8   tools_3.3.2      
+## [40] bold_0.4.0        maps_3.1.0        fields_8.4-1     
+## [43] parallel_3.3.2    colorspace_1.2-6  cluster_2.0.5    
+## [46] sampling_2.8
+#————————————————————————————————————————————————————————————————
+</code></pre>
+<br>
+
+<hr>
+
+
+<h2>Acknowledgements</h2>
+
+This code benefits from comments and <code>R</code> code sharing by François Briatte and Scott Chamberlain.<br>
+
+Best wishes, and happy computing! -- Pedro<br><br>
+
+Last Updated: <code>Martes, 28 Marzo, 2017 01:35 AM</code> On line since 1989. Pedro Jordano
+
+
+  </body>
 </html>
 
+
+</div></div><div id='stacks_out_15_page0' class='stacks_out'><div id='stacks_in_15_page0' class='stacks_in html_stack'><!DOCTYPE html>
+<html>
+  <body>
+
+   
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+<h2>Suggested references:</h2>
+
+<ul>
+<li>Dormann, C.F., Frund, J., Bluthgen, N. & Gruber, B. (2009) Indices, graphs and null models: Analyzing bipartite ecological networks. Open Ecology Journal, 2, 7–24.</li>
+<li>Pocock, M.J.O., Evans, D.M., Fontaine, C., Harvey, M., Julliard, R., McLaughlin, ??rla, Silvertown, J., Tamaddoni-Nezhad, A., White, P.C.L. & Bohan, D.A. (2016) The visualisation of ecological networks, and their use as a tool for engagement, advocacy and management. Advances in Ecological Research, 1st ed, pp. 41–85. Elsevier Ltd.</li>
+<li>Bascompte, J. & Jordano, P. (2014) Mutualistic Networks. Princeton University Press, Princeton, NJ.</li>
+</ul>
+
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+</div></div></div></div>
+
+
+<script src="rw_common/themes/foundation/foundation.js?rwcache=512440665"></script>
+
+
+<!--[if lt IE 9]>
+  <script src="rw_common/themes/foundation/ie8rem.js"></script>
+<![endif]-->
+
+</body>
+</html>

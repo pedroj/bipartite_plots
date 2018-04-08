@@ -1,0 +1,27 @@
+# Hato Raton. Weighted adjacency matrix, with elements corresponding to the 
+# number of fruits recorded in feces. Figures are decimal because the number 
+# of fruits present in a given sample were estimated from the remains of fruit 
+# epidermis present, not only from the number of seeds. In this way, biases 
+# are avoided of underestimating the number of frutis consumed for species 
+# that regularly regurgitate seeds and thus rarely have seeds showing up in 
+# feces.
+# Cumulative dataset of fecal sample analysis for furgivorous birds.
+# Each record is a fruit consumed (Snow and Snow 1982).
+#
+,Sylvia.atricapilla,Sylvia.borin,Erithacus.rubecula,Sylvia.melanocephala,Turdus.merula,Turdus.philomelos,Sylvia.communis,Sylvia.hortensis,Sylvia.cantillans,Ficedula.hypoleuca,Phoenicurus.phoenicurus,Sylvia.undata,Saxicola.torquata,Cyanopica.cyanus,Luscinia.megarhynchos,Muscicapa.striata,Sturnus.unicolor
+Pistacia.lentiscus,1370.0,336.0,317.0,49.0,115.0,14.0,17.0,9.0,21.0,41.0,9.0,14.0,5.0,12.0,5.0,11.0,61.0
+Olea.europaea,146.0,0.6,31.0,2.0,30.0,20.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.6,0.0,0.0,15.0
+Phillyrea.angustifolia,96.0,15.0,0.2,14.0,37.0,0.2,6.0,3.0,3.0,6.0,0.0,0.0,0.0,0.2,0.0,0.0,0.0
+Rhamnus.lycioides,21.0,85.0,2.6,48.0,6.0,0.0,4.0,0.0,3.0,2.0,0.5,0.0,0.0,0.1,0.7,1.0,0.0
+Smilax.aspera,15.0,10.0,0.8,2.0,1.0,0.0,0.0,0.1,0.0,0.1,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Rubus.ulmifolius,4.0,14.0,0.5,8.0,9.0,0.0,0.7,0.4,0.9,0.1,0.5,0.0,0.0,0.3,0.3,0.2,0.0
+Myrtus.communis,25.0,0.0,26.0,2.0,5.0,4.0,0.0,0.0,0.1,0.0,0.0,0.3,0.1,1.0,0.0,0.0,2.0
+Daphne.gnidium,71.0,52.0,0.5,16.0,0.0,0.0,2.0,0.0,3.0,0.0,0.1,0.0,0.0,0.0,0.0,0.0,0.0
+Rubia.pregrina,27.0,38.0,0.0,0.0,0.1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Osyris.alba,0.6,0.7,0.0,0.4,1.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Crataegus.monogyna,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.5,0.0,0.0,1.0
+Lonicera.periclymenum,1.0,2.0,0.0,0.7,1.0,0.0,0.0,0.0,0.2,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Asparagus.acutifolius,15.0,0.8,1.0,2.0,0.1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Tamus.communis,0.0,1.0,0.0,0.1,7.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,0.0,0.0
+Pyrus.bourgaeana,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,8.0,0.0,0.0,0.0
+Asparagus.aphyllus,0.6,0.3,0.3,0.1,0.1,0.1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
