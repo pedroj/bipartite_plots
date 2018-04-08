@@ -4,8 +4,7 @@
 #' @param mymat the adjacency matrix. Input can be a data.frame or a matrix, representing the adjacency matrix.
 #' @param mode1 name for the upper mode.
 #' @param mode2 name for the lower mode.
-#' @details Function to initialize a bipartite web for library igraph (type igraph), starting from a weighted adjacency matrix.
-#' # Function to initialize a bipartite web for library network (type network),
+#' @details Function to initialize a bipartite web for library network (type network),
 # starting from its adjacency matrix. Usually we assume animal species are rows (mode1), plant species are columns (mode2).
 #'
 #' @return A network object.
