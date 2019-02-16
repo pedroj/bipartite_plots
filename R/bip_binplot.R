@@ -19,14 +19,14 @@ bip_binplot <- function (mymat, net) {
                  mode= "kamadakawai", 
                  label=network.vertex.names(net), displaylabels = T,
                  boxed.labels= F, 
-                 label.pad=0, label.pos= 5, label.cex= 0.6,
+                 label.pad=0, label.pos= 5, label.cex= 1.0,
                  #  vertex.col=c(rep(rgb(1, 0, 0, 0.6),dim(mymat)[1]),
                  #               rep(rgb(0, 1, 0, 0.6),dim(mymat)[2])),
                  vertex.col=c(rep("coral3", dim(mymat)[1]),
                               rep("darkolivegreen3", dim(mymat)[2])),
-                 vertex.cex= 2,
+                 vertex.cex= 1,
                  vertex.sides= c(rep(5,dim(mymat)[1]),
                                  rep(20,dim(mymat)[2])),
                  vertex.lty= 0, edge.lty=0.7, edge.col=8, 
-                 label.lty=NULL,usecurve = F)
+                 label.lty= NULL, usecurve = F)
 }
