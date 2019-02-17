@@ -1,10 +1,24 @@
-# -------------------------------------------------------------------------
-# Function bip_binplot, to plot a network object corresponding 
-# to a binary adjacency matrix.
-# mymat is the adjacency matrix, to get the dimensions from.
-# net is a network object corresponding to mymat. The object net can
-# be initialized with function bip_netinit.R
-#
+#' Function bip_binplot, to plot a network object corresponding 
+#' to a binary adjacency matrix.
+#' 
+#' mymat is the adjacency matrix, to get the dimensions from.
+#' net is a network object corresponding to mymat. The object net can
+#' be initialized with function bip_netinit.R
+#'
+#' @import ggplot2
+#'
+#' @param mymat the adjacency matrix. Input can be a data.frame or a matrix, representing the adjacency matrix.
+#' @param net, a ntework object.
+#'
+#' @details Plot of a network object corresponding to a binary adjacency matrix (qualitative, presence-absence, data.
+#' @return A plot object.
+#' @export
+#'
+#' @examples
+#' #------------------------------------------------------------------------
+#' # Working on it.
+#' #------------------------------------------------------------------------
+#----------------------------------------------------------------------------
 bip_binplot <- function (mymat, net, 
                          usearrows=FALSE, 
                          mode= "kamadakawai",
