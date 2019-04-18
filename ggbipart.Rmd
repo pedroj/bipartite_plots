@@ -231,7 +231,7 @@ pp
 ```
 
 
-Antother alternative is to pass the node colors directly, with a vector  of node colors that has exactly the same length as the number of nodes in the network:  
+Another alternative is to pass the node colors directly, with a vector  of node colors that has exactly the same length as the number of nodes in the network:  
 
 ```{r direct_colors, eval=TRUE, echo=TRUE, fig.width= 8, fig.height=6}
 pp1<- bip_ggnet(nch.net, as.matrix(nch),
