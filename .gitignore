@@ -1,5 +1,6 @@
 # History files
 .Rhistory
+.DS_Store
 
 # Example code in package build process
 *-Ex.R
@@ -7,4 +8,5 @@
 .Rproj
 .RData
 .RHistory
+.Rbuildignore
 bckp
