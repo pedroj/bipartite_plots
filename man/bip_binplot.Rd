@@ -2,7 +2,7 @@
 % Please edit documentation in R/bip_binplot.R
 \name{bip_binplot}
 \alias{bip_binplot}
-\title{Function bip_binplot, to plot a network object corresponding 
+\title{Function bip_binplot, to plot a network object corresponding
 to a binary adjacency matrix.}
 \usage{
 bip_binplot(mymat, net, usearrows = FALSE, mode = "kamadakawai",
