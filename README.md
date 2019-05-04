@@ -14,6 +14,7 @@ From any adjacency matrix we can get a `network` object or an `igraph` object fo
 ```r
 devtools::install_github("pedroj/bipartite_plots")
 library(ggbipart)
+
 ```
 
 ### An unweighted, binary network
