@@ -9,6 +9,13 @@ To plot, we start with an adjacency or incidence matrix. I'm using matrices that
 
 From any adjacency matrix we can get a `network` object or an `igraph` object for plotting and analysis. The main function in the package is `bip_ggnet`.
 
+### Installation.
+
+```r
+devtools::install_github("pedroj/bipartite_plots")
+library(ggbipart)
+```
+
 ### An unweighted, binary network
 
 This graph uses function `bip_railway`.
