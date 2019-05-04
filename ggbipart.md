@@ -65,6 +65,7 @@ nch <- read.table("./data/NCH_quant_bmatrix.txt", header = T, sep = "\t", row.na
 # The Hato Raton dataset.
 hr <- read.table("./data/HR_quant_bmatrix.txt", header = T, sep = "\t", row.names = 1, 
     dec = ".", na.strings = "NA")
+    
 ```
 
 
@@ -77,6 +78,7 @@ source("./functions/bip_init_network.R")
 source("./functions/bip_init_igraph.R")
 nch.net <- bip_init_network(nch)
 hr.net <- bip_init_network(hr)
+
 ```
 
 ----------------------------------------------------------------------------
@@ -104,6 +106,7 @@ source("./functions/bip_binplot.R")
 source("./functions/bip_gplot.R")
 source("./functions/bip_qtplot.R")
 source("./functions/vectorize.R")
+
 ```
 
 
@@ -133,6 +136,7 @@ mymat <- nch
 net <- nch.net
 # Now we source the bip_ggplot2.R file
 source("bip_ggplot2.R")
+
 ```
 
 ![plot of chunk ggplot_prototype](figure/ggplot_prototype1.png) 
@@ -157,6 +161,7 @@ source("bip_ggplot2.R")
 # Using ggplot2. Code from Francois Briatte, using his fucntion ggnet.
 # DATE: 15Jul2013.
 require(downloader)
+
 ```
 
 ```
@@ -167,7 +172,7 @@ require(downloader)
 # PJ example. Based on a gist by F Briatte to just feed the network data
 # from its adjacency matrix to ggnet
 # -------------------------------------------------------------------------
-link = "https://raw.github.com/pedroj/bipartite_plots/master/data/NCH_quant_bmatrix.txt"
+link = "https://raw.github.com/pedroj/bipartite_plots/master/data/sdw01_adj_fru.csv"
 file = "data/NCH_quant_bmatrix.txt"
 if (!file.exists(file)) download(link, file, mode = "wb")
 M <- read.table(file, sep = "\t", dec = ",", header = TRUE, row.names = 1)
@@ -179,6 +184,7 @@ source_url("https://raw.github.com/briatte/ggnet/master/ggnet.R", prompt = FALSE
 net = bipartite.network(M, modes = c("Animals", "Plants"))
 ggnet(net, segment.size = edge.weights(M, 15), segment.alpha = 0.35, label = TRUE, 
     color = "black", node.group = get.vertex.attribute(net, "mode"))
+    
 ```
 
 ```
