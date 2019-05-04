@@ -21,4 +21,4 @@ Suggests:
 URL: http://pedroj.github.com/ggbipart/,http://ebd10.ebd.csic.es/resources/
 License: GPL-3
 LazyData: true
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.0

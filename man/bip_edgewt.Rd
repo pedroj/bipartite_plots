@@ -17,9 +17,6 @@ A vector of scaled edge weights for plotting.
 \description{
 Function to compute scaled edge weights for plotting.
 }
-\details{
-Compute scaled edge weights for plotting. x is a constant helping to scale the edge thickness in the plots; just tune it (x parameter) to adequate values for the specific dataset. Input can be a data.frame or a matrix, representing the adjacency matrix.
-}
 \examples{
 #------------------------------------------------------------------------
 # Working on it.

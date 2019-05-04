@@ -4,9 +4,9 @@
 \alias{bip_ggnet}
 \title{Plotting bipartite networks from adjacency matrix of a two-mode network.}
 \usage{
-bip_ggnet(net, mat, mode = "fruchtermanreingold", size = 9, palette = col,
-  color = "mode", label.size = 3, label = F, shape = "mode",
-  edge.label = NULL, layout.exp = 0)
+bip_ggnet(net, mat, mode = "fruchtermanreingold", size = 9,
+  palette = col, color = "mode", label.size = 3, label = F,
+  shape = "mode", edge.label = NULL, layout.exp = 0)
 }
 \arguments{
 \item{net}{the net object}

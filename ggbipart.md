@@ -19,6 +19,7 @@ require(sna)
 require(ggplot2)
 require(sna)
 require(ergm)
+
 ```
 
 
@@ -50,6 +51,7 @@ P11	130	8	0	5	0	0	0	0	0	0	0
 
 # Use this to copy from the clipboard, after select/copy the above block.
 mymat <- read.table(pipe("pbpaste"), header=T, sep= "\t",row.names=1)
+
 ```
 
 
