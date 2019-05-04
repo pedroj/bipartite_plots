@@ -8,7 +8,12 @@
 #' @import ggplot2
 #'
 #' @param mymat the adjacency matrix. Input can be a data.frame or a matrix, representing the adjacency matrix.
-#' @param net, a ntework object.
+#' @param net a network object.
+#' @param usearrows a ntework object.
+#' @param mode mde of the network object.
+#' @param displaylabels whether or not display the node labels.
+#' @param label.cex size of label fonts.
+#' @param vertex.cex size of nodes.
 #'
 #' @details Plot of a network object corresponding to a binary adjacency matrix (qualitative, presence-absence, data.
 #' @return A plot object.

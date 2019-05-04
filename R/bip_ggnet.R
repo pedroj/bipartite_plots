@@ -2,10 +2,20 @@
 #' Plotting bipartite networks from adjacency matrix of a two-mode network.
 #'
 #' @import ggplot2
+#' @import ggnet2
 #' @param net the net object
 #' @param mat the adjacency matrix. Input can be a data.frame or a matrix, representing the adjacency matrix.
 #' @param mode the type of energy-minimization algorithm to plot the network. By default it's mode= "fruchtermanreingold".
 #' #' @param ... other usual parameters for plotting (e.g., size, label, palette, etc.).
+#'
+#' @param size Specify size for nodes.
+#' @param palette Define the color palette to use.
+#' @param color Node color.
+#' @param label.size Size for node text labels.
+#' @param label Whether or not add node labels.
+#' @param shape Geometric shape to be used for nodes.
+#' @param edge.label Whether or not add edge labels.
+#' @param layout.exp Layout information.
 #'
 #' @details Inputs are a net object and its corresponding adjacency matrix. It uses the adjacency matrix to compute scaled weighted edges with function edgewt.
 #' Part of the code from Francois Briatte, using package ggnet. DATE: 15Jul2013. Updated to ggnet 11/11/2016.

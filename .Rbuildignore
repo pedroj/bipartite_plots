@@ -2,3 +2,13 @@
 ^\.Rproj\.user$
 .Rhistory
 graphs_networkD3.Rmd
+figure
+ggbipart.Rmd
+ggbipart.html
+ggbipart.md
+images
+index.html
+javascripts
+params.json
+resources
+stylesheets

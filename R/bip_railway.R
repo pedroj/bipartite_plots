@@ -1,6 +1,8 @@
 #' Function to plot layout coordinates for railway network plot.
 #' @import network
-#' @param mymat A matrix whose rows contain the x,y coordinates of the vertices of d.
+#' @param mymat a matrix whose rows contain the x,y coordinates of the vertices of d.
+#' @param nodesize size of nodes.
+#' @param label should nodes be labelled?
 #' @details Plotting a bipartite network from the weighted (quantitative) adjacency matrix of a two-mode network.
 #'
 #' # Code for separately nudging and rotating labels of modes.

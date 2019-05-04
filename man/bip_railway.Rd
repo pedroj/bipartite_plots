@@ -7,7 +7,11 @@
 bip_railway(mymat, nodesize = 9, label = F)
 }
 \arguments{
-\item{mymat}{A matrix whose rows contain the x,y coordinates of the vertices of d.}
+\item{mymat}{a matrix whose rows contain the x,y coordinates of the vertices of d.}
+
+\item{nodesize}{size of nodes.}
+
+\item{label}{should nodes be labelled?}
 }
 \value{
 A plot object.

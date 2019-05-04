@@ -12,7 +12,17 @@ bip_binplot(mymat, net, usearrows = FALSE, mode = "kamadakawai",
 \arguments{
 \item{mymat}{the adjacency matrix. Input can be a data.frame or a matrix, representing the adjacency matrix.}
 
-\item{net, }{a ntework object.}
+\item{net}{a network object.}
+
+\item{usearrows}{a ntework object.}
+
+\item{mode}{mde of the network object.}
+
+\item{displaylabels}{whether or not display the node labels.}
+
+\item{label.cex}{size of label fonts.}
+
+\item{vertex.cex}{size of nodes.}
 }
 \value{
 A plot object.

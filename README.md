@@ -1,3 +1,9 @@
+---
+output: 
+  html_document: 
+    fig_height: 6
+    fig_width: 8
+---
 `ggbipart`: An `R` package for plotting bipartite networks
 ========================================================
 

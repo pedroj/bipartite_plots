@@ -15,6 +15,22 @@ bip_ggnet(net, mat, mode = "fruchtermanreingold", size = 9,
 
 \item{mode}{the type of energy-minimization algorithm to plot the network. By default it's mode= "fruchtermanreingold".
 #' @param ... other usual parameters for plotting (e.g., size, label, palette, etc.).}
+
+\item{size}{Specify size for nodes.}
+
+\item{palette}{Define the color palette to use.}
+
+\item{color}{Node color.}
+
+\item{label.size}{Size for node text labels.}
+
+\item{label}{Whether or not add node labels.}
+
+\item{shape}{Geometric shape to be used for nodes.}
+
+\item{edge.label}{Whether or not add edge labels.}
+
+\item{layout.exp}{Layout information.}
 }
 \value{
 A vector of scaled edge weights for plotting.
