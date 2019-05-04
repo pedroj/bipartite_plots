@@ -5,7 +5,7 @@
 #' @param net the net object
 #' @param mat the adjacency matrix. Input can be a data.frame or a matrix, representing the adjacency matrix.
 #' @param mode the type of energy-minimization algorithm to plot the network. By default it's mode= "fruchtermanreingold".
-#' #' @param ... other usual parameters for plotting (e.g., size, label, palette, etc.).
+#' @param ... other usual parameters for plotting (e.g., size, label, palette, etc.).
 #'
 #' @param size Specify size for nodes.
 #' @param palette Define the color palette to use.

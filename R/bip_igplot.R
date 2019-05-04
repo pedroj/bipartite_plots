@@ -1,8 +1,5 @@
 #' Plotting bipartite networks from adjacency matrix of a two-mode network.
 #'
-#' @import igraph
-#' @import ggnet2
-
 #' @param mymat the adjacency matrix. Input can be a data.frame or a matrix, representing the adjacency matrix.
 #' @param g the graph object
 #'

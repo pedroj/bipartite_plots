@@ -13,8 +13,7 @@ bip_ggnet(net, mat, mode = "fruchtermanreingold", size = 9,
 
 \item{mat}{the adjacency matrix. Input can be a data.frame or a matrix, representing the adjacency matrix.}
 
-\item{mode}{the type of energy-minimization algorithm to plot the network. By default it's mode= "fruchtermanreingold".
-#' @param ... other usual parameters for plotting (e.g., size, label, palette, etc.).}
+\item{mode}{the type of energy-minimization algorithm to plot the network. By default it's mode= "fruchtermanreingold".}
 
 \item{size}{Specify size for nodes.}
 
@@ -31,6 +30,8 @@ bip_ggnet(net, mat, mode = "fruchtermanreingold", size = 9,
 \item{edge.label}{Whether or not add edge labels.}
 
 \item{layout.exp}{Layout information.}
+
+\item{...}{other usual parameters for plotting (e.g., size, label, palette, etc.).}
 }
 \value{
 A vector of scaled edge weights for plotting.
