@@ -30,7 +30,7 @@ bip_igplot <- function (mymat, g) {
                    curved= 0.5,
                    edge.color= rgb(0, 0, 0, 0.3),
                    verbose=TRUE)
-    plot(g,
+    igraph::plot(g,
          layout=layout.fruchterman.reingold,
          # layout= layout.kamada.kawai,
          # vertex.color=c(rep(c("coral3",alpha=0.6), dim(mymat)[1]),

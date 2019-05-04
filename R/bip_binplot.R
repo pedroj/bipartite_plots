@@ -38,7 +38,7 @@ bip_binplot <- function (mymat, net,
     if (network.size(net) == 0)
         stop("plot.network called on a network of order zero -
              nothing to plot.")
-    plot.network(net,
+    network::plot.network(net,
                  usearrows=usearrows, jitter= T,
                  #   mode= "circle",
                  #   mode= "fruchtermanreingold",

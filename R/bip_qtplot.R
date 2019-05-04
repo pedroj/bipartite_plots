@@ -21,7 +21,7 @@ bip_qtplot <- function (mat) {
                    names.eval=list(row.names(mat), colnames(mat)))
 # This scales the weighted links for a better graphing
     ewt.scaled <- log(ewt[,3] + 1.0) / max(log(ewt[,3] + 1.0)) / 2
-    plot.network(net,
+    network::plot.network(net,
                  usearrows=FALSE, jitter= T,
                  #   mode= "circle",
                  mode= "fruchtermanreingold",

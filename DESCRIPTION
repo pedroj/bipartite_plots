@@ -13,12 +13,15 @@ Imports:
     sna,
     igraph,
     bipartite,
+    ggnet,
+    networkD3,
+    visNetwork,
     utils
 Suggests:
-    intergraph,
-    knitr,
-    testthat
-URL: http://pedroj.github.com/ggbipart/,http://ebd10.ebd.csic.es/resources/
-License: GPL-3
-LazyData: true
+    intergraph,     
+    knitr,     
+    testthat     
+License: GPL (>= 2)      
+URL: http://pedroj.github.com/ggbipart/,http://ebd10.ebd.csic.es/resources/      
+LazyData: true     
 RoxygenNote: 6.1.0
