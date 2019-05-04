@@ -1,7 +1,7 @@
-# Hato Raton. Weighted adjacency matrix, with elements corresponding to the 
-# frequency of appearance of fruit species in feces. Figures are the number of 
+# Hato Raton. Weighted adjacency matrix, with elements corresponding to the
+# frequency of appearance of fruit species in feces. Figures are the number of
 # appearances of each fruit species in samples from a given frugivore species.
-# 
+#
 # Cumulative dataset of fecal sample analysis for furgivorous birds.
 # Each record is a presence of a fruit species in a sample.
 #

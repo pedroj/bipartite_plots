@@ -1,9 +1,9 @@
-# Hato Raton. Weighted adjacency matrix, with elements corresponding to the 
-# number of fruits recorded in feces. Figures are decimal because the number 
-# of fruits present in a given sample were estimated from the remains of fruit 
-# epidermis present, not only from the number of seeds. In this way, biases 
-# are avoided of underestimating the number of frutis consumed for species 
-# that regularly regurgitate seeds and thus rarely have seeds showing up in 
+# Hato Raton. Weighted adjacency matrix, with elements corresponding to the
+# number of fruits recorded in feces. Figures are decimal because the number
+# of fruits present in a given sample were estimated from the remains of fruit
+# epidermis present, not only from the number of seeds. In this way, biases
+# are avoided of underestimating the number of frutis consumed for species
+# that regularly regurgitate seeds and thus rarely have seeds showing up in
 # feces.
 # Cumulative dataset of fecal sample analysis for furgivorous birds.
 # Each record is a fruit consumed (Snow and Snow 1982).
