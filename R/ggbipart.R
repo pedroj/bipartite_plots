@@ -6,7 +6,7 @@
 #'
 #' Installation.
 #'
-#' # devtools::install_github("pedroj/ggbipart")
+#' # devtools::install_github("pedroj/bipartite_plots")
 #'
 #' # library(ggbipart)
 #'
