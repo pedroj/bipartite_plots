@@ -22,6 +22,6 @@ Suggests:
     knitr,     
     testthat     
 License: GPL (>= 2)      
-URL: http://pedroj.github.com/ggbipart/,http://ebd10.ebd.csic.es/resources/      
+URL: http://pedroj.github.com/ggbipart/,http://pjordanolab.ebd.csic.es/resources/      
 LazyData: true     
 RoxygenNote: 6.1.0
