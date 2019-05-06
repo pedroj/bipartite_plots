@@ -13,7 +13,7 @@ Imports:
     sna,
     igraph,
     bipartite,
-    ggnet,
+    GGally,
     networkD3,
     visNetwork,
     utils
