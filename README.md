@@ -90,8 +90,6 @@ pp3
 
 A detailed descripton of the code is in my [git pages](http://pedroj.github.io/bipartite_plots/).
 
-![bip_ggnet1](http://pedroj.github.io/bipartite_plots/images/Rplot1.png)
-
 
 ### Plant-animal interactions network datasets
 
