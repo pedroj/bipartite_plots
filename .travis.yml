@@ -1,0 +1,4 @@
+language: R
+sudo: false
+warnings_are_errors: false
+group: stable

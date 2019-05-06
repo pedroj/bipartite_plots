@@ -12,17 +12,21 @@ To plot, we start with an adjacency or incidence matrix. I'm using matrices that
 From any adjacency matrix we can get a `network` object or an `igraph` object for plotting and analysis. 
 
 
-### Required packages  
+### Required packages and installation     
 
 ```{r packages, echo=T, eval=F, message=FALSE, warning=FALSE}
 require(ggplot2)
 require(network)
 require(igraph)
 require(sna)
-require(ggnet)
+require(GGally)        # GGally includes package ggnet.
 require(ergm)
 require(intergraph)
 require(RColorBrewer)
+
+# Installation.
+devtools::install_github("pedroj/bipartite_plots")
+library(ggbipart)
 
 ```
 
@@ -131,7 +135,9 @@ Simple function to plot a weighted bipartite network in `network` object. The in
 Simple function to plot a bipartite network with the classic layout of two parallel sets of nodes (as in the `bipartite` package).
 
 #### bip_ggnet
-Plotting bipartite networks from the adjacency matrix of a two-mode network. It uses the [`ggnet` package](https://briatte.github.io/ggnet/) extensively. 
+Plotting bipartite networks from the adjacency matrix of a two-mode network. It uses the [`ggnet` package](https://briatte.github.io/ggnet/) extensively. This is included in the `GGally` installation, so just do: 
+`install.packages("GGally)`.
+
 #### bip_igplot
 Function to plot a weighted bipartite network in `igraph`. Its inputs are the adjacency matrix, to get the dimensions from, and the igraph object 
 corresponding to the matrix.
