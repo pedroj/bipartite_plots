@@ -9,3 +9,5 @@
 .RData
 .Rbuildignore
 bckp
+.RData
+.Rhistory
