@@ -92,35 +92,6 @@ A detailed descripton of the code is in my [git pages](http://pedroj.github.io/b
 
 ![bip_ggnet1](http://pedroj.github.io/bipartite_plots/images/Rplot1.png)
 
-### A weighted network with nodes numbered
-
-This graph uses function `bip_ggnet`, with labelling nodes modified with additional `geoms`.
-
-```r
-#-----------------------------------------------------------
-# Numbered nodes
-nums<- as.vector(c(1:sum(dim(nch))))
-pp3<- bip_ggnet(nch.net, as.matrix(nch),
-          size= 0,
-          shape= "mode",
-          palette= "Set1",
-          color= "mode",
-          layout.exp = 0.25) +
-          geom_point(aes(color= color), size= 10,
-                         color= "white") +
-          geom_point(aes(color= color), size= 10,
-                         alpha= 0.5) +
-          geom_point(aes(color= color), size= 8) +
-          geom_text(aes(label= nums),
-                        color= "white", size= 3.5,
-                        fontface="bold") +
-          guides(color= FALSE) +
-          theme(legend.position="none")        # Hide legend
-pp3
-#-----------------------------------------------------------
-
-```
-![bip_ggnet1](http://pedroj.github.io/bipartite_plots/images/Rplot2.png)
 
 ### Plant-animal interactions network datasets
 
@@ -164,12 +135,18 @@ For some networks, both the binary and weighted matrices are provided.
 ```
 
 #### Pollination networks
+
+### _WORKING ON IT!!!!_
+
 ```
 pow01
 
 ```
 
 #### Others
+
+### _WORKING ON IT!!!!_
+
 ```
 - data.txt                      A simple adjacency matrix example. Not empirical data.
 
