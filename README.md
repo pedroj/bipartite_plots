@@ -66,6 +66,11 @@ This graph uses function `bip_ggnet`, with labelling nodes modified with additio
 ```r
 #-----------------------------------------------------------
 # Numbered nodes
+# The Nava de las Correhuelas dataset.
+nch<- read.table("./data/sdw01_adj_fru.csv", 
+                 header=T, sep=",", row.names=1,
+                 dec=".", na.strings="NA")
+
 nums<- as.vector(c(1:sum(dim(nch))))
 pp3<- bip_ggnet(nch.net, as.matrix(nch),
           size= 0,
