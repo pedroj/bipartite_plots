@@ -24,4 +24,4 @@ Suggests:
 License: GPL (>= 2)      
 URL: http://pedroj.github.com/ggbipart/,http://pjordanolab.ebd.csic.es/resources/      
 LazyData: true     
-RoxygenNote: 6.1.0
+RoxygenNote: 6.1.1
