@@ -16,11 +16,12 @@
 #' #------------------------------------------------------------------------
 #------------------------------------------------------------------------------
 bip_igplot <- function (mymat, g) {
+    require(igraph)
     ewt <- vectorize(mymat)
     ewt.scaled <- log(ewt[,3] + 1.0) / max(log(ewt[,3] + 1.0))
     if (!is.igraph(g))
         stop("bip_gplot requires a graph object.")
-    igraph.options(label.dist= 0, label.degree= pi/2, label.cex= 0.5,
+    igraph::igraph.options(label.dist= 0, label.degree= pi/2, label.cex= 0.5,
                    vertex.label.family="sans",
 #                  label.color= "white",
                    edge.lty= 1,
