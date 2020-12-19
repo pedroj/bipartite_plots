@@ -3,7 +3,6 @@
 \docType{package}
 \name{ggbipart}
 \alias{ggbipart}
-\alias{ggbipart-package}
 \title{A package to plot bipartite interaction networks in R.}
 \description{
 Bipartite networks

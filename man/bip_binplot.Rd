@@ -5,9 +5,16 @@
 \title{Function bip_binplot, to plot a network object corresponding
 to a binary adjacency matrix.}
 \usage{
-bip_binplot(mymat, net, usearrows = FALSE, mode = "kamadakawai",
-  displaylabels = T, label.cex = 0.6, vertex.cex = 1,
-  edge.lty = 0.7)
+bip_binplot(
+  mymat,
+  net,
+  usearrows = FALSE,
+  mode = "kamadakawai",
+  displaylabels = T,
+  label.cex = 0.6,
+  vertex.cex = 1,
+  edge.lty = 0.7
+)
 }
 \arguments{
 \item{mymat}{the adjacency matrix. Input can be a data.frame or a matrix, representing the adjacency matrix.}
