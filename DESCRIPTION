@@ -18,7 +18,6 @@ Imports:
     visNetwork,
     utils
 Suggests:
-    intergraph,     
     knitr,     
     testthat     
 License: GPL (>= 2)      
