@@ -20,7 +20,7 @@
 #---------------------------------------------------------------------------
 bip_init_network <- function (mymat, mode1="P", mode2="A") {
     require(network)
-    require(ggnet)
+    require(GGally)
     if(!is.matrix(mymat)) mymat <- as.matrix(mymat)
     p<- dim(mymat)[1]    # Plants are rows
     a<- dim(mymat)[2]    # Animals are columns
