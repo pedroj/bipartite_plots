@@ -51,7 +51,7 @@ bip_ggnet<- function(net, mat, mode= "fruchtermanreingold", size= 9,
     # Set colors for each mode to setup a palette.
     col= c("A"= "grey", "P"= "gold")
 
-    pp<- ggnet::ggnet2(net,
+    pp<- GGally::ggnet2(net,
         shape= shape,                       label= label,
         color= color,                        palette= palette,
         size = size,                         legend.size = 9,
