@@ -19,7 +19,7 @@
 #' #------------------------------------------------------------------------
 #---------------------------------------------------------------------------
 bip_railway <- function (mymat, nodesize=9, label=F) {
-        require(ggnet)
+        require(GGally)
         # Coords for mode "A"
         coordP<- cbind(rep(2,dim(mymat)[1]), seq(1, dim(mymat)[1])+2)
         # Coords for mode "P"
