@@ -6,7 +6,7 @@
 #' @param mode2 name for the lower mode.
 #' @details Function to initialize a bipartite web for library network (type network),
 # starting from its adjacency matrix. Usually we assume animal species are rows (mode1), plant species are columns (mode2).
-#'
+#' @export
 #' @return A network object.
 #'
 #' @examples

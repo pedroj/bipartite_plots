@@ -12,7 +12,7 @@
 #'    nudge_x<- ifelse(network.vertex.names(test.net)[1:dim(mymat)[1]], 0.5, -0.5))
 #'
 #' @return A plot object.
-#'
+#' @export
 #' @examples
 #' #------------------------------------------------------------------------
 #' #### NOT RUN # Working on it.

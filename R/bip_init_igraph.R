@@ -7,6 +7,7 @@
 #'
 #' @return A graph object.
 #'
+#' @export
 #' @examples
 #' #------------------------------------------------------------------------
 #' #### NOT RUN. Working on it.
