@@ -32,7 +32,7 @@ g<- bip_railway(mymat, label=T)
 g+ coord_flip()
 
 ```
-![bip_ggnet1](http://pedroj.github.io/bipartite_plots/inst/images/Rplot00.png)
+![bip_ggnet1](http://pedroj.github.io/bipartite_plots/images/Rplot00.png)
 
 ### A weighted network with edges labelled
 
@@ -56,7 +56,7 @@ bip_ggnet(bip.net, as.matrix(bip),
 #-----------------------------------------------------------
 #
 ```
-![bip_ggnet1](http://pedroj.github.io/bipartite_plots/inst/images/Rplot1.png)
+![bip_ggnet1](http://pedroj.github.io/bipartite_plots/images/Rplot1.png)
 
 
 ### A weighted network with nodes numbered
@@ -92,7 +92,7 @@ pp3
 #-----------------------------------------------------------
 #
 ```
-![bip_ggnet1](http://pedroj.github.io/bipartite_plots/inst/images/Rplot2.png)
+![bip_ggnet1](http://pedroj.github.io/bipartite_plots/images/Rplot2.png)
 
 
 A detailed descripton of all the above code is in my [git pages](http://pedroj.github.io/bipartite_plots/).
