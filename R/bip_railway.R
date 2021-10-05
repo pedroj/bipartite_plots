@@ -28,7 +28,7 @@ bip_railway <- function (mymat, nodesize=9, label=F) {
 #
 # Initialize and plot the network with a railway layout.
         test.net<- bip_init_network(mymat)
-        p<- ggnet::ggnet2(test.net, mode=mylayout, label=label,
+        p<- GGally::ggnet2(test.net, mode=mylayout, label=label,
                     size= nodesize, label.size=nodesize/3,
         #
         # Code for separately nudging and rotating labels of modes.
