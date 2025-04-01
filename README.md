@@ -69,6 +69,8 @@ nch<- read.table("./data/sdw01_adj_fru.csv",
                  header=T, sep=",", row.names=1,
                  dec=".", na.strings="NA")
 
+nch.net<- bip_init_network(as.matrix(nch))
+
 nums<- as.vector(c(1:sum(dim(nch))))
 pp3<- bip_ggnet(nch.net, as.matrix(nch),
           size= 0,
