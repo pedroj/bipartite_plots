@@ -71,16 +71,11 @@ nch<- read.table("./data/sdw01_adj_fru.csv",
                  header=T, sep=",", row.names=1,
                  dec=".", na.strings="NA")
 
-<<<<<<< HEAD
 source("./R/bip_init_network.R")
 
 nch.net<- bip_init_network(nch)     # Network object
-=======
-nch.net<- bip_init_network(as.matrix(nch))
->>>>>>> 2bb71d3b99e03395fbc07b4c20b27b75a2eb3d77
-
 nums<- as.vector(c(1:sum(dim(nch))))
-pp3<- bip_ggnet(nch.net, as.matrix(nch),
+bip_ggnet(nch.net, as.matrix(nch),
           size= 0,
           shape= "mode",
           palette= "Set1",
@@ -96,12 +91,11 @@ pp3<- bip_ggnet(nch.net, as.matrix(nch),
                         fontface="bold") +
           guides(color= "none") +
           theme(legend.position="none")        # Hide legend
-pp3
+
 #-----------------------------------------------------------
 #
 ```
 ![bip_ggnet1](http://pedroj.github.io/bipartite_plots/images/Rplot2.png)
-
 
 A detailed descripton of all the above code is in my [git pages](http://pedroj.github.io/bipartite_plots/).
 
