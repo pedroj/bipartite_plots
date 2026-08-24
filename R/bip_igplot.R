@@ -19,17 +19,17 @@ bip_igplot <- function (mymat, g) {
     require(igraph)
     ewt <- vectorize(mymat)
     ewt.scaled <- log(ewt[,3] + 1.0) / max(log(ewt[,3] + 1.0))
-    if (!is.igraph(g))
+    if (!is_igraph(g))
         stop("bip_gplot requires a graph object.")
-    igraph::igraph.options(label.dist= 0, label.degree= pi/2, label.cex= 0.5,
+    igraph::igraph_options(label.dist= 0, label.degree= pi/2, label.cex= 0.5,
                    vertex.label.family="sans",
 #                  label.color= "white",
                    edge.lty= 1,
                    curved= 0.5,
                    edge.color= rgb(0, 0, 0, 0.3),
                    verbose=TRUE)
-    igraph::plot(g,
-         layout=layout.fruchterman.reingold,
+    igraph::plot.igraph(g,
+         layout= layout.fruchterman.reingold,
          # layout= layout.kamada.kawai,
          # vertex.color=c(rep(c("coral3",alpha=0.6), dim(mymat)[1]),
          #          rep(c("darkolivegreen3",alpha=0.6), dim(mymat)[2])),

@@ -1,8 +1,6 @@
 `ggbipart`: An `R` package for plotting bipartite networks
 ========================================================
 
-[![Build Status](https://travis-ci.org/pedroj/effectiveness_pckg.svg?branch=master)](https://travis-ci.org/pedroj/effectiveness_pckg)
-
 The `ggbipart` package includes a series of `R` functions aimed to plot bipartite networks. Bipartite networks are a special type of network where nodes are of two distinct types or sets, so that connections (links) only exist among nodes of the different sets.
 
 As in other types of network, bipartite structures can be binary (only the presence/absence of the links is mapped) or quantitative (weighted), where the links can have variable importance or weight.
@@ -14,7 +12,9 @@ From any adjacency matrix we can get a `network` object or an `igraph` object fo
 ### Installation
 
 ```r
-devtools::install_github("pedroj/bipartite_plots")
+require("pak") # Using pak as `install_github()` was deprecated in devtools 2.5.0.
+pak::pak("pedroj/ggbipart")
+
 library(ggbipart)
 
 ```
@@ -71,6 +71,10 @@ nch<- read.table("./data/sdw01_adj_fru.csv",
                  header=T, sep=",", row.names=1,
                  dec=".", na.strings="NA")
 
+source("./R/bip_init_network.R")
+
+nch.net<- bip_init_network(nch)     # Network object
+
 nums<- as.vector(c(1:sum(dim(nch))))
 pp3<- bip_ggnet(nch.net, as.matrix(nch),
           size= 0,
@@ -86,7 +90,7 @@ pp3<- bip_ggnet(nch.net, as.matrix(nch),
           geom_text(aes(label= nums),
                         color= "white", size= 3.5,
                         fontface="bold") +
-          guides(color= FALSE) +
+          guides(color= "none") +
           theme(legend.position="none")        # Hide legend
 pp3
 #-----------------------------------------------------------

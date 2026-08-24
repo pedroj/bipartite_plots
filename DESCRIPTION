@@ -7,20 +7,17 @@ Description: A package for plotting bipartite networks in R using ggplot2 functi
 Depends:
     ggplot2 (>= 2.0.0),
     R (>= 3.1),
+License: CC0
 Imports:
-    ggrepel (>= 0.5),
     network,
-    sna,
     igraph,
-    bipartite,
     GGally,
-    networkD3,
-    visNetwork,
-    utils
 Suggests:
     knitr,     
+    bipartite,
+    ggrepel,
     testthat     
-License: GPL (>= 2)      
 URL: http://pedroj.github.com/ggbipart/,http://pjordanolab.ebd.csic.es/resources/      
 LazyData: true     
+Encoding: UTF-8
 RoxygenNote: 7.1.1

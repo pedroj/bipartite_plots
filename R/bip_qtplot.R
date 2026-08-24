@@ -14,7 +14,7 @@
 bip_qtplot <- function (mat) {
     # Energy, weighted graphs
     ewt <- vectorize(mat)
-    net <- network(mat,
+    net <- network::network(mat,
                    matrix.type = "bipartite",
                    ignore.eval = FALSE,
                    # names.eval = "weights")

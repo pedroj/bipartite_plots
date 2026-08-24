@@ -25,7 +25,9 @@ require(intergraph)
 require(RColorBrewer)
 
 # Installation.
-devtools::install_github("pedroj/bipartite_plots")
+require("pak") # Using pak as `install_github()` 
+               # was deprecated in devtools 2.5.0.
+pak::pak("pedroj/bipartite_plots")
 library(ggbipart)
 
 ```

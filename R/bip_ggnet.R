@@ -21,7 +21,9 @@
 #' ggnet2 automatically detects two-mode graphs from their bipartite network attribute. To simplify the plotting of each mode, it understands arguments of the form [alpha, color, shape, size] = "mode", which will mark the primary mode as "actor" and the secondary mode as "event".
 #' #----------------------------------------------------------------------------
 #' Detect and color the mode
-#' To use the mode of the nodes as the basis for their colors, all the user has to do is to pass the color = "mode" argument, and then to style the  "actor" and "event" values.
+#' To use the mode of the nodes as the basis for their colors, all the user has 
+#' to do is to pass the color = "mode" argument, and then to style the "actor"
+#' and "event" values.
 #' #---------------------------------------------------------------------------
 #'
 #' @return A vector of scaled edge weights for plotting.
