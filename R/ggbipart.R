@@ -17,8 +17,7 @@
 #' Bascompte, J., Jordano, P. (2014) Mutualistic Networks. Princeton University Press, Princeton, NJ.
 #'
 #' @name ggbipart
-#' @docType package
 #' @author Pedro Jordano
 #' @keywords package
 #'
-NULL
+"_PACKAGE"

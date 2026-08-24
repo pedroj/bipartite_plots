@@ -67,7 +67,7 @@ This graph uses function `bip_ggnet`, with labelling nodes modified with additio
 #-----------------------------------------------------------
 # Numbered nodes
 # The Nava de las Correhuelas dataset.
-nch<- read.table("./data/sdw01_adj_fru.csv", 
+nch<- read.table("./inst/extdata/sdw01_adj_fru.csv", 
                  header=T, sep=",", row.names=1,
                  dec=".", na.strings="NA")
 

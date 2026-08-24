@@ -30,6 +30,8 @@ bip_binplot(
 \item{label.cex}{size of label fonts.}
 
 \item{vertex.cex}{size of nodes.}
+
+\item{edge.lty}{line type for the edges.}
 }
 \value{
 A plot object.

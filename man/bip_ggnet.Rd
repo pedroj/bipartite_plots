@@ -40,8 +40,6 @@ bip_ggnet(
 \item{edge.label}{Whether or not add edge labels.}
 
 \item{layout.exp}{Layout information.}
-
-\item{...}{other usual parameters for plotting (e.g., size, label, palette, etc.).}
 }
 \value{
 A vector of scaled edge weights for plotting.
@@ -55,7 +53,9 @@ Part of the code from Francois Briatte, using package ggnet. DATE: 15Jul2013. Up
 ggnet2 automatically detects two-mode graphs from their bipartite network attribute. To simplify the plotting of each mode, it understands arguments of the form [alpha, color, shape, size] = "mode", which will mark the primary mode as "actor" and the secondary mode as "event".
 #----------------------------------------------------------------------------
 Detect and color the mode
-To use the mode of the nodes as the basis for their colors, all the user has to do is to pass the color = "mode" argument, and then to style the  "actor" and "event" values.
+To use the mode of the nodes as the basis for their colors, all the user has 
+to do is to pass the color = "mode" argument, and then to style the "actor"
+and "event" values.
 #---------------------------------------------------------------------------
 }
 \examples{

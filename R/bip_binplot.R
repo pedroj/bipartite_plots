@@ -14,6 +14,7 @@
 #' @param displaylabels whether or not display the node labels.
 #' @param label.cex size of label fonts.
 #' @param vertex.cex size of nodes.
+#' @param edge.lty line type for the edges.
 #'
 #' @details Plot of a network object corresponding to a binary adjacency matrix (qualitative, presence-absence, data.
 #' @return A plot object.

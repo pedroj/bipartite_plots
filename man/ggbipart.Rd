@@ -2,6 +2,7 @@
 % Please edit documentation in R/ggbipart.R
 \docType{package}
 \name{ggbipart}
+\alias{ggbipart-package}
 \alias{ggbipart}
 \title{A package to plot bipartite interaction networks in R.}
 \description{
@@ -21,6 +22,13 @@ Suggested references:
 Pocock, M.J.O., Evans, D.M., Fontaine, C., Harvey, M., Julliard, R., McLaughlin, O., Silvertown, J., Tamaddoni-Nezhad, A., White, P.C.L. and Bohan, D.A. (2016) The visualisation of ecological networks, and their use as a tool for engagement, advocacy and management. Advances in Ecological Research, 1st ed, pp. 41–85. Elsevier Ltd.
 
 Bascompte, J., Jordano, P. (2014) Mutualistic Networks. Princeton University Press, Princeton, NJ.
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{http://pedroj.github.com/ggbipart/},\url{http://pjordanolab.ebd.csic.es/resources/}
+}
+
 }
 \author{
 Pedro Jordano

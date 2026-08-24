@@ -7,7 +7,7 @@ Description: A package for plotting bipartite networks in R using ggplot2 functi
 Depends:
     ggplot2 (>= 2.0.0),
     R (>= 3.1),
-License: CC0
+License: GNU General Public License
 Imports:
     network,
     igraph,
@@ -18,6 +18,5 @@ Suggests:
     ggrepel,
     testthat     
 URL: http://pedroj.github.com/ggbipart/,http://pjordanolab.ebd.csic.es/resources/      
-LazyData: true     
 Encoding: UTF-8
-RoxygenNote: 7.1.1
+Config/roxygen2/version: 8.1.0
