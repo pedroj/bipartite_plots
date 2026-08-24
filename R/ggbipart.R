@@ -10,7 +10,7 @@
 #'
 #' `# library(ggbipart)`
 #'
-#' Suggested references:
+#' Suggested references: 
 #'
 #' Pocock, M.J.O., Evans, D.M., Fontaine, C., Harvey, M., Julliard, R., McLaughlin, O., Silvertown, J., Tamaddoni-Nezhad, A., White, P.C.L. and Bohan, D.A. (2016) The visualisation of ecological networks, and their use as a tool for engagement, advocacy and management. Advances in Ecological Research, 1st ed, pp. 41–85. Elsevier Ltd.
 #'
