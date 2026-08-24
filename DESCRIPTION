@@ -1,9 +1,11 @@
 Package: ggbipart
-Title: Plots for bipartite networks in R
+Title: Plots for Bipartite Networks in R
 Version: 0.1.2
 Authors@R: person("Pedro", "Jordano", email = "jordano@ebd.csic.es",
                   role = c("aut", "cre"))
-Description: A package for plotting bipartite networks in R using ggplot2 functions. This is a repository of code used to produce these plots.
+Description: Provides functions to plot bipartite ecological networks in R
+    using 'ggplot2' graphics, including interaction webs, node-link layouts,
+    and matrix representations.
 Depends:
     ggplot2 (>= 2.0.0),
     R (>= 3.1),
