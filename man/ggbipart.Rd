@@ -28,6 +28,7 @@ Useful links:
 \itemize{
   \item \url{https://pedroj.github.io/ggbipart/}
   \item \url{https://pjordanolab.ebd.csic.es/resources/}
+  \item Report bugs at \url{https://github.com/pedroj/bipartite_plots/issues}
 }
 
 }

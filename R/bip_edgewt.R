@@ -11,9 +11,12 @@
 #' @export
 #'
 #' @examples
-#' #------------------------------------------------------------------------
-#' # Working on it.
-#' #------------------------------------------------------------------------
+#' mat <- as.matrix(read.csv(
+#'     system.file("extdata", "sdw02_adj_fru.csv", package = "ggbipart"),
+#'     comment.char = "#", row.names = 1, check.names = FALSE))
+#' # One scaled weight per non-zero interaction; the largest equals x.
+#' wt <- bip_edgewt(mat, x = 30)
+#' summary(wt)
 #----------------------------------------------------------------------------
 bip_edgewt<- function(M, x = 30) {
     if(!is.matrix(M)) as.matrix(M)

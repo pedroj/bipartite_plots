@@ -7,18 +7,21 @@ Description: Provides functions to plot bipartite ecological networks in R
     using 'ggplot2' graphics, including interaction webs, node-link layouts,
     and matrix representations.
 Depends:
-    ggplot2 (>= 2.0.0),
     R (>= 3.1),
+    ggplot2 (>= 2.0.0)
 License: GPL-3
 Imports:
     network,
     igraph,
-    GGally,
+    GGally
 Suggests:
     knitr,
+    rmarkdown,
     bipartite,
-    testthat
+    testthat (>= 3.0.0)
+VignetteBuilder: knitr
 URL: https://pedroj.github.io/ggbipart/, https://pjordanolab.ebd.csic.es/resources/
+BugReports: https://github.com/pedroj/bipartite_plots/issues
 Encoding: UTF-8
 Config/roxygen2/version: 8.1.0
 Config/testthat/edition: 3

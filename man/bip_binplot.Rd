@@ -45,7 +45,9 @@ be initialized with function bip_netinit.R
 Plot of a network object corresponding to a binary adjacency matrix (qualitative, presence-absence, data.
 }
 \examples{
-#------------------------------------------------------------------------
-# Working on it.
-#------------------------------------------------------------------------
+mat <- as.matrix(read.csv(
+    system.file("extdata", "sdw02_adj_fru.csv", package = "ggbipart"),
+    comment.char = "#", row.names = 1, check.names = FALSE))
+net <- bip_init_network(mat)
+bip_binplot(mat, net)
 }

@@ -36,7 +36,10 @@ B  d  1
 #-------------------------------------------------------------
 }
 \examples{
-#------------------------------------------------------------------------
-#### NOT RUN # Working on it.
-#------------------------------------------------------------------------
+# A weighted plant-frugivore adjacency matrix shipped with the package.
+mat <- as.matrix(read.csv(
+    system.file("extdata", "sdw02_adj_fru.csv", package = "ggbipart"),
+    comment.char = "#", row.names = 1, check.names = FALSE))
+edges <- vectorize(mat)
+head(edges)
 }

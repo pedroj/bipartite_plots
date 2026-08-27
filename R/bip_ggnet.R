@@ -25,23 +25,18 @@
 #' and "event" values.
 #' #---------------------------------------------------------------------------
 #'
-#' @return A vector of scaled edge weights for plotting.
+#' @return A ggplot object.
 #' @export
 #'
 #' @examples
-#' #------------------------------------------------------------------------
-#' # Example:      ## NOT RUN
-#' # pp +
-#' #   geom_point(aes(color = color), size = 12, color = "white") +
-#' #   geom_point(aes(color = color), size = 12, alpha = 0.5) +
-#' #   geom_point(aes(color = color), size = 9) +
-#' #   geom_text(aes(label= network.vertex.names(net)), color = "black") +
-#' #   guides(color = FALSE)
-#' #### NOT RUN
-#' #------------------------------------------------------------------------
+#' mat <- as.matrix(read.csv(
+#'     system.file("extdata", "sdw02_adj_fru.csv", package = "ggbipart"),
+#'     comment.char = "#", row.names = 1, check.names = FALSE))
+#' net <- bip_init_network(mat)
+#' bip_ggnet(net, mat)
 #------------------------------------------------------------------------------
 bip_ggnet<- function(net, mat, mode= "fruchtermanreingold", size= 9,
-                     palette= col, color= "mode",
+                     palette= c("A"= "grey", "P"= "gold"), color= "mode",
                      label.size=3, label= F, shape= "mode",
                      edge.label = NULL,
                      layout.exp= 0)
@@ -49,9 +44,7 @@ bip_ggnet<- function(net, mat, mode= "fruchtermanreingold", size= 9,
 #    source("./R/bip_edgewt.R")
     if(!is.network(net)) stop("Must first initialize the network; use 'bip_init_network.R'.")
     #
-    # Set colors for each mode to setup a palette.
-    col= c("A"= "grey", "P"= "gold")
-
+    # 'palette' maps the two node modes to colours; see the default above.
     pp<- GGally::ggnet2(net,
         shape= shape,                       label= label,
         color= color,                        palette= palette,

@@ -28,7 +28,8 @@ Plotting a bipartite network from the weighted (quantitative) adjacency matrix o
    nudge_x<- ifelse(network.vertex.names(test.net)[1:dim(mymat)[1]], 0.5, -0.5))
 }
 \examples{
-#------------------------------------------------------------------------
-#### NOT RUN # Working on it.
-#------------------------------------------------------------------------
+mat <- as.matrix(read.csv(
+    system.file("extdata", "sdw02_adj_fru.csv", package = "ggbipart"),
+    comment.char = "#", row.names = 1, check.names = FALSE))
+bip_railway(mat, label = TRUE)
 }

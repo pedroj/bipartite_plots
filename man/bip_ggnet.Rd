@@ -9,7 +9,7 @@ bip_ggnet(
   mat,
   mode = "fruchtermanreingold",
   size = 9,
-  palette = col,
+  palette = c(A = "grey", P = "gold"),
   color = "mode",
   label.size = 3,
   label = F,
@@ -42,7 +42,7 @@ bip_ggnet(
 \item{layout.exp}{Layout information.}
 }
 \value{
-A vector of scaled edge weights for plotting.
+A ggplot object.
 }
 \description{
 Plotting bipartite networks from adjacency matrix of a two-mode network.
@@ -59,14 +59,9 @@ and "event" values.
 #---------------------------------------------------------------------------
 }
 \examples{
-#------------------------------------------------------------------------
-# Example:      ## NOT RUN
-# pp +
-#   geom_point(aes(color = color), size = 12, color = "white") +
-#   geom_point(aes(color = color), size = 12, alpha = 0.5) +
-#   geom_point(aes(color = color), size = 9) +
-#   geom_text(aes(label= network.vertex.names(net)), color = "black") +
-#   guides(color = FALSE)
-#### NOT RUN
-#------------------------------------------------------------------------
+mat <- as.matrix(read.csv(
+    system.file("extdata", "sdw02_adj_fru.csv", package = "ggbipart"),
+    comment.char = "#", row.names = 1, check.names = FALSE))
+net <- bip_init_network(mat)
+bip_ggnet(net, mat)
 }

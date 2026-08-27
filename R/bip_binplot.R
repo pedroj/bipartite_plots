@@ -21,9 +21,11 @@
 #' @export
 #'
 #' @examples
-#' #------------------------------------------------------------------------
-#' # Working on it.
-#' #------------------------------------------------------------------------
+#' mat <- as.matrix(read.csv(
+#'     system.file("extdata", "sdw02_adj_fru.csv", package = "ggbipart"),
+#'     comment.char = "#", row.names = 1, check.names = FALSE))
+#' net <- bip_init_network(mat)
+#' bip_binplot(mat, net)
 #----------------------------------------------------------------------------
 bip_binplot <- function (mymat, net,
                          usearrows=FALSE,

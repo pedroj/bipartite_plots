@@ -9,9 +9,11 @@
 #'
 #' @export
 #' @examples
-#' #------------------------------------------------------------------------
-#' #### NOT RUN. Working on it.
-#' #------------------------------------------------------------------------
+#' mat <- as.matrix(read.csv(
+#'     system.file("extdata", "sdw02_adj_fru.csv", package = "ggbipart"),
+#'     comment.char = "#", row.names = 1, check.names = FALSE))
+#' g <- bip_init_igraph(mat)
+#' g
 #------------------------------------------------------------------------------
 # Function to initialize a bipartite web for library
 # igraph (type igraph), starting from a weighted adjacency matrix.

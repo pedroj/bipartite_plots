@@ -1,0 +1,159 @@
+---
+title: "Plotting bipartite networks with ggbipart"
+author: "Pedro Jordano"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Plotting bipartite networks with ggbipart}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.width = 7,
+  fig.height = 5,
+  fig.align = "center"
+)
+```
+
+`ggbipart` is a set of `R` functions for plotting bipartite networks, using
+`ggplot2`, `network`, and `igraph` graphics. The `ggplot2`-based routines rely
+heavily on code developed by Francois Briatte for the
+[`ggnet`](https://briatte.github.io/ggnet/) library (now part of `GGally`).
+
+Bipartite networks are a special type of network where nodes belong to two
+distinct sets (modes), and links only connect nodes of *different* sets. As
+with other networks, bipartite structures can be **binary** (only the
+presence/absence of a link is recorded) or **quantitative** (weighted), where
+links carry a variable importance or weight. Everything starts from an
+adjacency (incidence) matrix. Here we use matrices describing ecological
+interactions between animal frugivores and the plants whose fruits they eat.
+By convention in these examples, rows are plant species and columns are
+animal species.
+
+```{r packages, message = FALSE, warning = FALSE}
+library(ggbipart)
+library(ggplot2)
+library(network)
+library(igraph)
+```
+
+## The example data
+
+The package ships two well-sampled plant–frugivore interaction matrices from
+southern Spain in `inst/extdata/`, retrievable with `system.file()`. Both are
+weighted adjacency matrices; the comment header lines are stripped with
+`comment.char = "#"`.
+
+```{r read_data}
+# Nava de las Correhuelas (26 plants x 36 frugivores).
+nch <- as.matrix(read.csv(
+  system.file("extdata", "sdw01_adj_fru.csv", package = "ggbipart"),
+  comment.char = "#", row.names = 1, check.names = FALSE))
+
+# Hato Raton (16 plants x 17 frugivores).
+hr <- as.matrix(read.csv(
+  system.file("extdata", "sdw02_adj_fru.csv", package = "ggbipart"),
+  comment.char = "#", row.names = 1, check.names = FALSE))
+
+dim(nch)
+dim(hr)
+```
+
+## Initializing bipartite networks
+
+Adjacency matrices are turned into the graph objects the plotting functions
+expect. `bip_init_network()` returns a `network` object; `bip_init_igraph()`
+returns an `igraph` object. Both encode the two modes and carry the edge
+weights.
+
+```{r init_graphs}
+hr.net <- bip_init_network(hr)   # network object
+hr.ig  <- bip_init_igraph(hr)    # igraph object
+
+hr.net
+```
+
+Two small helpers underlie the plotting routines. `vectorize()` converts an
+adjacency matrix into a long, three-column edge table, and `bip_edgewt()`
+returns log-scaled edge weights suitable for mapping to line widths.
+
+```{r helpers}
+head(vectorize(hr))
+summary(bip_edgewt(hr, x = 30))
+```
+
+## Plotting with the `network` back end
+
+`bip_qtplot()` draws a weighted (quantitative) bipartite network directly from
+the adjacency matrix, scaling edge widths by interaction strength.
+
+```{r qtplot}
+bip_qtplot(hr)
+```
+
+`bip_binplot()` plots a `network` object; it is well suited to binary
+(presence/absence) webs.
+
+```{r binplot}
+bip_binplot(hr, hr.net)
+```
+
+## Plotting with the `igraph` back end
+
+`bip_igplot()` renders the same network through `igraph`, using the adjacency
+matrix (for node counts and edge scaling) and the `igraph` object.
+
+```{r igplot}
+bip_igplot(hr, hr.ig)
+```
+
+## `ggplot2` graphs with `bip_ggnet`
+
+`bip_ggnet()` builds the plot within the `ggplot2` framework via
+`GGally::ggnet2`. `ggnet2` automatically detects two-mode graphs and
+understands arguments of the form `[color, shape, size] = "mode"`, mapping the
+two modes to the `ggnet2` classes. The returned object is a regular `ggplot`,
+so it can be extended with `+` in the usual way.
+
+```{r ggnet_basic}
+bip_ggnet(hr.net, hr)
+```
+
+Colours for the two modes are controlled with the `palette` argument (its
+default is `c(A = "grey", P = "gold")`). You can override it and layer on extra
+`ggplot2` geoms — here we colour by mode and add node labels.
+
+```{r ggnet_styled, message = FALSE, warning = FALSE}
+col <- c("P" = "#FC9272", "A" = "#9ECAE1")
+bip_ggnet(hr.net, hr,
+          size = 7, shape = "mode", color = "mode",
+          palette = col, layout.exp = 0.25) +
+  geom_text(aes(label = network.vertex.names(hr.net)),
+            color = "black", size = 3) +
+  theme(legend.position = "none")
+```
+
+## The railway layout
+
+`bip_railway()` uses the classic two-parallel-columns layout familiar from the
+`bipartite` package, with each mode on its own axis.
+
+```{r railway, message = FALSE, warning = FALSE}
+bip_railway(hr, label = TRUE)
+```
+
+## References
+
+Bascompte, J. & Jordano, P. (2014) *Mutualistic Networks*. Princeton
+University Press, Princeton, NJ.
+
+Pocock, M.J.O. *et al.* (2016) The visualisation of ecological networks, and
+their use as a tool for engagement, advocacy and management. *Advances in
+Ecological Research* **54**, 41–85.
+
+```{r session_info}
+sessionInfo()
+```
