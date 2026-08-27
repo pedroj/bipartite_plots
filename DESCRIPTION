@@ -9,16 +9,16 @@ Description: Provides functions to plot bipartite ecological networks in R
 Depends:
     ggplot2 (>= 2.0.0),
     R (>= 3.1),
-License: GNU General Public License
+License: GPL-3
 Imports:
     network,
     igraph,
     GGally,
 Suggests:
-    knitr,     
+    knitr,
     bipartite,
-    ggrepel,
-    testthat     
-URL: http://pedroj.github.com/ggbipart/,http://pjordanolab.ebd.csic.es/resources/      
+    testthat
+URL: https://pedroj.github.io/ggbipart/, https://pjordanolab.ebd.csic.es/resources/
 Encoding: UTF-8
 Config/roxygen2/version: 8.1.0
+Config/testthat/edition: 3
