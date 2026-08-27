@@ -2,7 +2,6 @@
 ========================================================
 
 <!-- badges: start -->
-[![R](https://github.com/pedroj/bipartite_plots/actions/workflows/r.yml/badge.svg)](https://github.com/pedroj/bipartite_plots/actions/workflows/r.yml)
 [![R-CMD-check](https://github.com/pedroj/bipartite_plots/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/pedroj/bipartite_plots/actions/workflows/R-CMD-check.yaml)
 [![CRAN status](https://www.r-pkg.org/badges/version/ggbipart)](https://CRAN.R-project.org/package=ggbipart)
 <!-- badges: end -->
