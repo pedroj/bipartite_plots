@@ -1,6 +1,12 @@
 `ggbipart`: An `R` package for plotting bipartite networks
 ========================================================
 
+<!-- badges: start -->
+[![R](https://github.com/pedroj/bipartite_plots/actions/workflows/r.yml/badge.svg)](https://github.com/pedroj/bipartite_plots/actions/workflows/r.yml)
+[![R-CMD-check](https://github.com/pedroj/bipartite_plots/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/pedroj/bipartite_plots/actions/workflows/R-CMD-check.yaml)
+[![CRAN status](https://www.r-pkg.org/badges/version/ggbipart)](https://CRAN.R-project.org/package=ggbipart)
+<!-- badges: end -->
+
 The `ggbipart` package includes a series of `R` functions aimed to plot bipartite networks. Bipartite networks are a special type of network where nodes are of two distinct types or sets, so that connections (links) only exist among nodes of the different sets.
 
 As in other types of network, bipartite structures can be binary (only the presence/absence of the links is mapped) or quantitative (weighted), where the links can have variable importance or weight.
