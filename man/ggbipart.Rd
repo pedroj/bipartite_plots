@@ -26,8 +26,7 @@ Bascompte, J., Jordano, P. (2014) Mutualistic Networks. Princeton University Pre
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://pedroj.github.io/ggbipart/}
-  \item \url{https://pjordanolab.ebd.csic.es/resources/}
+  \item \url{http://pjordanolab.ebd.csic.es/resources/}
   \item Report bugs at \url{https://github.com/pedroj/bipartite_plots/issues}
 }
 

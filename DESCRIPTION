@@ -20,7 +20,7 @@ Suggests:
     bipartite,
     testthat (>= 3.0.0)
 VignetteBuilder: knitr
-URL: https://pedroj.github.io/ggbipart/, https://pjordanolab.ebd.csic.es/resources/
+URL: http://pjordanolab.ebd.csic.es/resources/
 BugReports: https://github.com/pedroj/bipartite_plots/issues
 Encoding: UTF-8
 Config/roxygen2/version: 8.1.0
