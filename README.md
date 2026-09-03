@@ -100,7 +100,34 @@ bip_ggnet(nch.net, as.matrix(nch),
 #-----------------------------------------------------------
 #
 ```
+
 ![bip_ggnet1](http://pedroj.github.io/bipartite_plots/images/Rplot2.png)
+
+
+### Example  with species nodes labelled
+
+Adding graphic details with other geoms. Node labels are the vertex names.
+
+```r
+#————————————————————————————————————————————————————————————————
+pp2<- bip_ggnet(nch.net, as.matrix(nch),
+          size= 0,
+          shape= "mode", 
+          palette= "Set1",
+          color= "mode",
+          layout.exp= 0.25) +
+          geom_point(aes(color= color), size=8, color="white") +
+          geom_point(aes(color= color), size= 8, alpha= 0.5) +
+          geom_point(aes(color= color), size= 6) +
+          geom_text(aes(label= network.vertex.names(nch.net)), 
+                    color= "black", size= 3.5) + # check_overlap= TRUE
+          guides(color= FALSE) +
+          theme(legend.position="none")          # Hide legend
+pp2
+#————————————————————————————————————————————————————————————————
+```
+
+![bip_ggnet1](http://pedroj.github.io/bipartite_plots/images/Rplot3.png)
 
 A detailed descripton of all the above code is in my [git pages](http://pedroj.github.io/bipartite_plots/).
 
