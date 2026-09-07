@@ -49,7 +49,7 @@
 #' bip_ggnet(g)
 #------------------------------------------------------------------------------
 bip_ggnet<- function(net, mat, mode= "fruchtermanreingold", size= 9,
-                     palette= c("A"= "darkgrey", "P"= "gold"), color= "mode",
+                     palette= c("A"= "grey", "P"= "gold"), color= "mode",
                      label.size=3, label= T, shape= "mode",
                      edge.label = NULL,
                      layout.exp= 0, mode1= "P", mode2= "A")
