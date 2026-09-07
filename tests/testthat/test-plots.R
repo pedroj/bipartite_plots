@@ -53,7 +53,7 @@ test_that("bip_railway() returns a ggplot object", {
   expect_s3_class(p, "ggplot")
 })
 
-test_that("bip_ggnet() returns a ggplot object", {
+test_that("bip_ggnet() returns a ggplot object from a network object", {
   skip_if_not_installed("GGally")
   m <- make_test_mat()
   net <- bip_init_network(m)
@@ -61,7 +61,44 @@ test_that("bip_ggnet() returns a ggplot object", {
   expect_s3_class(p, "ggplot")
 })
 
-test_that("bip_ggnet() requires a network object", {
+test_that("bip_ggnet() returns a ggplot object from an igraph object", {
+  skip_if_not_installed("GGally")
+  skip_if_not_installed("igraph")
   m <- make_test_mat()
-  expect_error(bip_ggnet(m, m), "initialize the network")
+  g <- bip_init_igraph(m)
+  expect_s3_class(bip_ggnet(g, m), "ggplot")
+  expect_s3_class(bip_ggnet(g), "ggplot")
+})
+
+test_that("bip_ggnet() takes the adjacency matrix from either object type", {
+  skip_if_not_installed("GGally")
+  skip_if_not_installed("igraph")
+  m <- make_test_mat()
+  net <- bip_init_network(m)
+  g <- bip_init_igraph(m)
+  # ggnet2 legends emit "Duplicated `override.aes` is ignored." on build;
+  # unrelated to the input type, so it is silenced here.
+  edge_data <- function(p) suppressWarnings(ggplot2::ggplot_build(p))$data[[1]]
+  ref <- edge_data(bip_ggnet(net, m))
+  # One edge segment per non-zero interaction, whichever way the net is given.
+  expect_identical(nrow(ref), sum(m != 0))
+  for (p in list(bip_ggnet(net), bip_ggnet(g), bip_ggnet(g, m))) {
+    d <- edge_data(p)
+    expect_identical(nrow(d), nrow(ref))
+    # Edge widths derive from the weights, so they must match regardless of
+    # the (stochastic) node layout.
+    w <- if (!is.null(d$linewidth)) d$linewidth else d$size
+    wref <- if (!is.null(ref$linewidth)) ref$linewidth else ref$size
+    expect_equal(sort(w), sort(wref))
+  }
+})
+
+test_that("bip_ggnet() rejects objects that are neither network nor igraph", {
+  m <- make_test_mat()
+  expect_error(bip_ggnet(m, m), "must be a two-mode")
+})
+
+test_that("bip_ggnet() rejects a non-bipartite igraph object", {
+  skip_if_not_installed("igraph")
+  expect_error(bip_ggnet(igraph::make_ring(4)), "must be bipartite")
 })

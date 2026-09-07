@@ -15,13 +15,20 @@ bip_ggnet(
   label = F,
   shape = "mode",
   edge.label = NULL,
-  layout.exp = 0
+  layout.exp = 0,
+  mode1 = "P",
+  mode2 = "A"
 )
 }
 \arguments{
-\item{net}{the net object}
+\item{net}{the network object. Either a two-mode object of class
+\code{network} (e.g. as returned by \code{bip_init_network}) or a bipartite
+object of class \code{igraph} (e.g. as returned by \code{bip_init_igraph}).
+igraph input is converted internally to a two-mode \code{network} object.}
 
-\item{mat}{the adjacency matrix. Input can be a data.frame or a matrix, representing the adjacency matrix.}
+\item{mat}{the adjacency matrix. Input can be a data.frame or a matrix, representing the adjacency matrix.
+Optional: if not supplied it is extracted from \code{net}, using the
+edge weights when present.}
 
 \item{mode}{the type of energy-minimization algorithm to plot the network. By default it's mode= "fruchtermanreingold".}
 
@@ -40,6 +47,12 @@ bip_ggnet(
 \item{edge.label}{Whether or not add edge labels.}
 
 \item{layout.exp}{Layout information.}
+
+\item{mode1}{name for the upper mode (matrix rows), used when \code{net} is
+an igraph object that must be converted.}
+
+\item{mode2}{name for the lower mode (matrix columns), used when \code{net}
+is an igraph object that must be converted.}
 }
 \value{
 A ggplot object.
@@ -64,4 +77,7 @@ mat <- as.matrix(read.csv(
     comment.char = "#", row.names = 1, check.names = FALSE))
 net <- bip_init_network(mat)
 bip_ggnet(net, mat)
+# igraph input works too, and the matrix can be omitted
+g <- bip_init_igraph(mat)
+bip_ggnet(g)
 }
