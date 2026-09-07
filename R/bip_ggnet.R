@@ -50,7 +50,7 @@
 #------------------------------------------------------------------------------
 bip_ggnet<- function(net, mat, mode= "fruchtermanreingold", size= 9,
                      palette= c("A"= "darkgrey", "P"= "gold"), color= "mode",
-                     label.size=3, label= F, shape= "mode",
+                     label.size=3, label= T, shape= "mode",
                      edge.label = NULL,
                      layout.exp= 0, mode1= "P", mode2= "A")
 {
@@ -78,7 +78,7 @@ bip_ggnet<- function(net, mat, mode= "fruchtermanreingold", size= 9,
     #
     # 'palette' maps the two node modes to colours; see the default above.
     pp<- GGally::ggnet2(net,
-        shape= shape,                       label= label,
+        shape= shape,                        label= label,
         color= color,                        palette= palette,
         size = size,                         legend.size = 9,
         mode = mode,                         label.size= 4,
