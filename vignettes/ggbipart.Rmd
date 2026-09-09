@@ -42,7 +42,7 @@ library(igraph)
 
 ## The example data
 
-The package ships two well-sampled plant–frugivore interaction matrices from
+The package ships two well-sampled plant-frugivore interaction matrices from
 southern Spain in `inst/extdata/`, retrievable with `system.file()`. Both are
 weighted adjacency matrices; the comment header lines are stripped with
 `comment.char = "#"`.
@@ -124,7 +124,7 @@ bip_ggnet(hr.net, hr)
 
 Colours for the two modes are controlled with the `palette` argument (its
 default is `c(A = "grey", P = "gold")`). You can override it and layer on extra
-`ggplot2` geoms — here we colour by mode and add node labels.
+`ggplot2` geoms -- here we colour by mode and add node labels.
 
 ```{r ggnet_styled, message = FALSE, warning = FALSE}
 col <- c("P" = "#FC9272", "A" = "#9ECAE1")
@@ -152,7 +152,7 @@ University Press, Princeton, NJ.
 
 Pocock, M.J.O. *et al.* (2016) The visualisation of ecological networks, and
 their use as a tool for engagement, advocacy and management. *Advances in
-Ecological Research* **54**, 41–85.
+Ecological Research* **54**, 41-85.
 
 ```{r session_info}
 sessionInfo()

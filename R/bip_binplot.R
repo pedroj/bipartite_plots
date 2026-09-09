@@ -30,7 +30,7 @@
 bip_binplot <- function (mymat, net,
                          usearrows=FALSE,
                          mode= "kamadakawai",
-                         displaylabels=   T,
+                         displaylabels= TRUE,
                          label.cex=     0.6,
                          vertex.cex=    1.0,
                          edge.lty=      0.7
@@ -42,13 +42,13 @@ bip_binplot <- function (mymat, net,
         stop("plot.network called on a network of order zero -
              nothing to plot.")
         network::plot.network(net,
-                 usearrows=usearrows, jitter= T,
+                 usearrows=usearrows, jitter= TRUE,
                  #   mode= "circle",
                  #   mode= "fruchtermanreingold",
                  mode= "kamadakawai",
                  label=network.vertex.names(net),
                  displaylabels = displaylabels,
-                 boxed.labels= F,
+                 boxed.labels= FALSE,
                  label.pad=0, label.pos= 5, label.cex= label.cex,
                  #  vertex.col=c(rep(rgb(1, 0, 0, 0.6),dim(mymat)[1]),
                  #               rep(rgb(0, 1, 0, 0.6),dim(mymat)[2])),
@@ -58,5 +58,5 @@ bip_binplot <- function (mymat, net,
                  vertex.sides= c(rep(5,dim(mymat)[1]),
                                  rep(20,dim(mymat)[2])),
                  vertex.lty= 0, edge.lty= edge.lty, edge.col= 8,
-                 label.lty= NULL, usecurve = F)
+                 label.lty= NULL, usecurve = FALSE)
 }

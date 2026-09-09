@@ -4,7 +4,7 @@
 \alias{bip_railway}
 \title{Function to plot layout coordinates for railway network plot.}
 \usage{
-bip_railway(mymat, nodesize = 9, label = F)
+bip_railway(mymat, nodesize = 9, label = FALSE)
 }
 \arguments{
 \item{mymat}{a matrix whose rows contain the x,y coordinates of the vertices of d.}

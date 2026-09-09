@@ -19,7 +19,7 @@
 #'     comment.char = "#", row.names = 1, check.names = FALSE))
 #' bip_railway(mat, label = TRUE)
 #---------------------------------------------------------------------------
-bip_railway <- function (mymat, nodesize=9, label=F) {
+bip_railway <- function (mymat, nodesize=9, label=FALSE) {
         # Coords for mode "A"
         coordP<- cbind(rep(2,dim(mymat)[1]), seq(1, dim(mymat)[1])+2)
         # Coords for mode "P"

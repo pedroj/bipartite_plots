@@ -23,12 +23,12 @@ bip_qtplot <- function (mat) {
 # This scales the weighted links for a better graphing
     ewt.scaled <- log(ewt[,3] + 1.0) / max(log(ewt[,3] + 1.0)) / 2
     network::plot.network(net,
-                 usearrows=FALSE, jitter= T,
+                 usearrows=FALSE, jitter= TRUE,
                  #   mode= "circle",
                  mode= "fruchtermanreingold",
                  #mode = "kamadakawai",
-                 label = network.vertex.names(net), displaylabels = T,
-                 boxed.labels = F,
+                 label = network.vertex.names(net), displaylabels = TRUE,
+                 boxed.labels = FALSE,
                  label.pad =0,
                  label.pos = 5,
                  label.cex = 1,
@@ -43,6 +43,6 @@ bip_qtplot <- function (mat) {
                  edge.lwd = 25 * (ewt.scaled), # Adjust constant for
                                                # better line widths
                  edge.col = "#D9D9D9", edge.curve = 0.01,
-                 label.lty = NULL, usecurve = T)
+                 label.lty = NULL, usecurve = TRUE)
 }
 #---------------------------------------------------------------------------

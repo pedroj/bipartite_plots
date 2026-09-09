@@ -10,7 +10,7 @@ bip_binplot(
   net,
   usearrows = FALSE,
   mode = "kamadakawai",
-  displaylabels = T,
+  displaylabels = TRUE,
   label.cex = 0.6,
   vertex.cex = 1,
   edge.lty = 0.7

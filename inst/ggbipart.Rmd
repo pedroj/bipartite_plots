@@ -166,7 +166,7 @@ We first initialize the bipartite network; then use the adjacency matrix to comp
 
 
 ##### Node colors
-Let’s now assign a vertex attribute called phono, which indicates whether the name of the vertex is a vowel or a consonant:
+Let's now assign a vertex attribute called phono, which indicates whether the name of the vertex is a vowel or a consonant:
 
 This attribute can be passed to ggnet2 to indicate that the nodes belong to a group. All the user has to do is to pass the name of the vertex attribute to the color argument, which will find it in the list of vertex attributes and use it to map the colors of the nodes:
 

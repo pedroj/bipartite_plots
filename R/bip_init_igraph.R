@@ -20,5 +20,5 @@
 # Create the graph object (a bipartite, weighted graph) for igraph.
 bip_init_igraph <- function (mat) {
                 igraph::graph_from_biadjacency_matrix(mat,
-                        weighted= T, add.names= NULL)
+                        weighted= TRUE, add.names= NULL)
 }

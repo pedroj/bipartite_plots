@@ -12,7 +12,7 @@ bip_ggnet(
   palette = c(A = "grey", P = "gold"),
   color = "mode",
   label.size = 3,
-  label = F,
+  label = FALSE,
   shape = "mode",
   edge.label = NULL,
   layout.exp = 0,
