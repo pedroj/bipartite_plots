@@ -16,7 +16,14 @@ From any adjacency matrix we can get a `network` object or an `igraph` object fo
 
 ### Installation
 
-Use the direct install from [CRAN](https://cran.r-project.org/web/packages/ggbipart/index.html). Or use the package repository:
+Use the direct install from [CRAN](https://cran.r-project.org/web/packages/ggbipart/index.html). 
+
+```r
+install.packages("ggbipart")
+
+```
+
+Or use the package repository:
 
 ```r
 require("pak") # Using pak as `install_github()` was deprecated in devtools 2.5.0.
