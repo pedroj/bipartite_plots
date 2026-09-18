@@ -2,6 +2,7 @@
 ========================================================
 
 <!-- badges: start -->
+[![CRAN status](https://www.r-pkg.org/badges/version/ggbipart)](https://CRAN.R-project.org/package=ggbipart)
 [![R-CMD-check](https://github.com/pedroj/bipartite_plots/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/pedroj/bipartite_plots/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
@@ -14,6 +15,8 @@ To plot, we start with an adjacency or incidence matrix. I'm using matrices that
 From any adjacency matrix we can get a `network` object or an `igraph` object for plotting and analysis. The main function in the package is `bip_ggnet`.
 
 ### Installation
+
+Use the direct install from [CRAN](https://cran.r-project.org/web/packages/ggbipart/index.html). Or use the package repository:
 
 ```r
 require("pak") # Using pak as `install_github()` was deprecated in devtools 2.5.0.
@@ -36,7 +39,7 @@ g<- bip_railway(mymat, label=T)
 g+ coord_flip()
 
 ```
-![bip_ggnet1](http://pedroj.github.io/bipartite_plots/images/Rplot00.png)
+![bip_ggnet1](https://pedroj.github.io/bipartite_plots/images/Rplot00.png)
 
 ### A weighted network with edges labelled
 
